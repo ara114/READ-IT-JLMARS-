@@ -31,13 +31,15 @@ function Login(props) {
 						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<p className='errorMsg'>{passwordError}</p>
-					<Button className='btn' buttonStyle={'loginBtn'} buttonSize={'mediumBtn'} onClick={handleLogin}>
-						Login
-					</Button>
-					<p className='msg'>Don't have an account ? </p>
-					<Button onClick={() => setHasAccount(!hasAccount)} buttonSize={'smallBtn'}>
-						Sign Up
-					</Button>
+					<section className='buttonsContainer'>
+						<Button buttonStyle={'loginBtn'} buttonSize={'mediumBtn'} onClick={handleLogin}>
+							Login
+						</Button>
+						<p className='msg'>Don't have an account ? </p>
+						<Button onClick={() => setHasAccount(!hasAccount)} buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
+							Sign Up
+						</Button>
+					</section>
 				</section>
 			</div>
 		</Background>
