@@ -12,6 +12,7 @@
 .errorMsg {
 	color: red;
 	font-size: 20px;
+	font-family: 'Signika', sans-serif;
 }
 
 .control {
@@ -27,6 +28,7 @@
 	display: block;
 	font-size: 22px;
 	line-height: 1;
+	font-family: 'Signika', sans-serif;
 }
 
 .card input {
@@ -36,6 +38,7 @@
 	background: rgb(0, 0, 0);
 	color: #8e05c2;
 	letter-spacing: 1px;
+	font-family: 'Signika', sans-serif;
 }
 
 .msg {
@@ -46,4 +49,5 @@
 	margin-left: 5px;
 	cursor: pointer;
 	transition: all 400ms ease-in-out;
+	font-family: 'Signika', sans-serif;
 }

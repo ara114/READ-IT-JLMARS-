@@ -34,7 +34,7 @@ root {
 	padding: 8px 20px;
 	border: 1px solid var(--primary);
 	transition: all 0.3s ease-out;
-	font-family: 'Rammetto One', cursive;
+	font-family: 'Signika', sans-serif;
 }
 
 .LoginsmallBtn {
@@ -43,7 +43,7 @@ root {
 	max-width: 30%;
 	margin-left: 120%;
 	padding: 1px 1px;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .smallBtn {

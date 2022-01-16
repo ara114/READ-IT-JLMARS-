@@ -32,7 +32,7 @@ function Login(props) {
 					/>
 					<p className='errorMsg'>{passwordError}</p>
 					<section className='buttonsContainer'>
-						<Button buttonStyle={'loginBtn'} buttonSize={'mediumBtn'} onClick={handleLogin}>
+						<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'} onClick={handleLogin}>
 							Login
 						</Button>
 						<p className='msg'>Don't have an account ? </p>
