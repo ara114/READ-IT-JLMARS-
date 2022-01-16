@@ -13,6 +13,7 @@ root {
 .primaryBtn {
 	background-color: var(--primary);
 	color: black;
+	padding: 8px 20px;
 	border: 1px solid var(--primary);
 	font-family: 'Rammetto One', cursive;
 }
@@ -27,6 +28,7 @@ root {
 }
 
 .loginBtn {
+	width: 140%;
 	background-color: transparent;
 	color: white;
 	padding: 8px 20px;
@@ -35,9 +37,18 @@ root {
 	font-family: 'Rammetto One', cursive;
 }
 
+.LoginsmallBtn {
+	position: relative;
+	top: -20px;
+	max-width: 30%;
+	margin-left: 120%;
+	padding: 1px 1px;
+	font-size: 12px;
+}
+
 .smallBtn {
-	padding: 2px 1px;
-	font-size: 8px;
+	padding: 1px 1px;
+	font-size: 12px;
 }
 
 .mediumBtn {
