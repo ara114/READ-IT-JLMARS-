@@ -1,7 +1,7 @@
 import Login from '../components/Login/Login'
 import fire from '../fire'
 import { useState, useEffect } from 'react'
-import Home from '../pages/Home'
+import Home from '../pages/home/Home'
 
 function LoginPage() {
 	const [user, setUser] = useState('')

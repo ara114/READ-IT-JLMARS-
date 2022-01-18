@@ -1,36 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
+
 .navbar {
-	background: linear-gradient(90deg, rgba(248, 135, 135, 0.5) 0%, rgb(40, 40, 65) 100%);
-	height: 80px;
+	width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 30px; */
+	/* position: sticky; */
+	
+	/* height: 84px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.2rem;
 	position: sticky;
 	top: 0;
-	z-index: 999;
+	z-index: 999; */
 }
 
 .navbarContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 80px;
-	max-width: 100vw;
+	height: 84px;
+	width: 100%;
+	/* max-width: 100vw; */
+    border-bottom: 2px solid #dbdbdb;
+	/* border-bottom: 2px solid #C4C4C4; */
 }
 
 .navbarLogo {
-	color: #fff;
+    font-family: 'Playfair Display', serif;
+	color: #9847FF;
 	justify-self: start;
 	margin-left: 20px;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 3rem;
 	display: flex;
 	align-items: center;
 }
 
-.fa-globe-europe {
-	margin-left: 0.5rem;
+
+.fa-home{
+	font-size: 1.8rem;
+}
+
+.fa-user-circle{
 	font-size: 1.8rem;
 }
 
@@ -43,6 +59,7 @@
 	width: 60vw;
 	justify-content: end;
 	margin-right: 2rem;
+
 }
 
 .navItem {
@@ -50,7 +67,7 @@
 }
 
 .navLinks {
-	color: #fff;
+	color: #9847FF;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -59,12 +76,12 @@
 }
 
 .navLinks:hover {
-	border-bottom: 4px solid #fff;
+	border-bottom: 4px solid #9847FF;
 	transition: all 0.2s ease-out;
 }
 
 .fa-bars {
-	color: #fff;
+	color: #9847FF;
 }
 
 .navLinksMobile {
@@ -112,7 +129,7 @@
 	}
 
 	.navLinks:hover {
-		background-color: #fff;
+		background-color: #9847FF;
 		color: #242424;
 		border-radius: 0;
 	}
@@ -135,7 +152,7 @@
 	}
 
 	.fa-times {
-		color: #fff;
+		color: #9847FF;
 		font-size: 2rem;
 	}
 }

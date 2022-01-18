@@ -1,0 +1,10 @@
+.home-container{
+    /* height: 100vh; */
+	display:block;
+	justify-content: center;
+	align-items: center;
+}
+
+.content{
+    margin: 0px 20px;
+}
