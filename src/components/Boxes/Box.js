@@ -5,7 +5,7 @@ function Box(props) {
 	return (
 		<>
 			<li className='boxItem'>
-				<Link className='boxLink' to={props.to} target='_blank'>
+				<Link className='boxLink' to={props.to} >
 					<figure className='picWrap'>
 						<img src={props.src} alt={props.alt} className='img' />
 					</figure>
