@@ -4,8 +4,10 @@ import Home from './pages/home/Home'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/Sign'
 import User from './pages/user/User'
-import Adventure from './pages/Adventure/Adventure'
+import Adventure from './pages/CatPages/Adventure'
 import './App.css'
+import Horror from './pages/CatPages/Horror'
+
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
 				<Route path='/signup' element={<SignUp />} />
 				<Route path='/user' element={<User />} />
 				<Route path='/category/adventure' element={<Adventure />} />
+				<Route path='/category/horror' element={<Horror />} />
 			</Routes>
 		</div>
 	)
