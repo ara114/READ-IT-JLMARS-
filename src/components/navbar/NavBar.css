@@ -1,36 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
+
 .navbar {
-	background: linear-gradient(90deg, rgba(248, 135, 135, 0.5) 0%, rgb(40, 40, 65) 100%);
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.2rem;
-	position: sticky;
-	top: 0;
+	width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	border-bottom: 2px solid #dbdbdb;
 	z-index: 999;
+	background-color: #fafafa;
+	
 }
 
 .navbarContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 80px;
-	max-width: 100vw;
+	height: 84px;
+	width: 100%;
+	/* max-width: 100vw; */
+    border-bottom: 2px solid #dbdbdb;
+	/* border-bottom: 2px solid #C4C4C4; */
 }
 
 .navbarLogo {
-	color: #fff;
+    font-family: 'Playfair Display', serif;
+	color: #8e05c2;
 	justify-self: start;
 	margin-left: 20px;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 3rem;
 	display: flex;
 	align-items: center;
 }
 
-.fa-globe-europe {
-	margin-left: 0.5rem;
+.sticky-nav {
+	display: flex;
+    justify-content: center;
+	position: fixed;
+	top: 0;
+	/* left: 0; */
+	max-width: 1100px;
+	/* background-color: #fff; */
+	/* width: 100%; */
+}
+
+.fa-home{
+	font-size: 1.8rem;
+}
+
+.fa-user-circle{
 	font-size: 1.8rem;
 }
 
@@ -43,6 +62,7 @@
 	width: 60vw;
 	justify-content: end;
 	margin-right: 2rem;
+
 }
 
 .navItem {
@@ -50,7 +70,7 @@
 }
 
 .navLinks {
-	color: #fff;
+	color: #8e05c2;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -59,21 +79,14 @@
 }
 
 .navLinks:hover {
-	border-bottom: 4px solid #fff;
+	border-bottom: 4px solid #8e05c2;
 	transition: all 0.2s ease-out;
-}
-
-.fa-bars {
-	color: #fff;
 }
 
 .navLinksMobile {
 	display: none;
 }
 
-.menuIcon {
-	display: none;
-}
 
 @media screen and (max-width: 960px) {
 	.NavbarItems {
@@ -112,7 +125,7 @@
 	}
 
 	.navLinks:hover {
-		background-color: #fff;
+		background-color: #9847FF;
 		color: #242424;
 		border-radius: 0;
 	}
@@ -122,20 +135,5 @@
 		top: 0;
 		left: 0;
 		transform: translate(25%, 50%);
-	}
-
-	.menuIcon {
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		transform: translate(-100%, 60%);
-		font-size: 1.8rem;
-		cursor: pointer;
-	}
-
-	.fa-times {
-		color: #fff;
-		font-size: 2rem;
 	}
 }

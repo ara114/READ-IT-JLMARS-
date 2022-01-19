@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+.write-header{
+    font-size: 1.8rem;
+    /* font-weight: 700; */
+    margin: 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    /* color: #ffffff; */
+}
+
+.write-container{
+    padding: 30px 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 150px; */
+}
+
+.write{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid #000;
+    background-color: #3e065f;
+    border-radius: 10px;
+    height: 100px;
+    color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+
+}
+.write:hover{
+    background-color: #8e05c2;
+    transform: scale(1.1);
+}
+/* .s1{
+    padding: 15px 15px;
+}
+.s2{
+    padding: 20px 15px;
+} */
+ /* .Adventure:hover{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 30px;
+} */
+/*
+.Horror{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 30px;
+}
+
+.Romance{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 30px;
+}
+
+.Humour{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 30px;
+}
+
+.Non-fiction{
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 0px 30px;
+} */

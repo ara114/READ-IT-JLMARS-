@@ -2,5 +2,15 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'PT Sans', sans-serif;
+	/* font-family: 'PT Sans', sans-serif; */
 }
+.max-width{
+	max-width: 1100px;
+	margin: 0px auto; 
+  }
+  
+  .nostyle{
+	text-decoration: none;
+	font-family: 'Nunito', sans-serif;
+	padding: 10px 30px;
+  }
