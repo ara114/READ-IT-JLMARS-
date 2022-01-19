@@ -9,26 +9,27 @@
 }
 
 .links-container{
-    padding: 20px;
+    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .categories{
-    border-radius: 10px;
-    border: 6px double #3e065f;
+    border-radius: 30px;
+    border: 6px solid #3e065f;
     /* font-weight: 500; */
     /* background-color: #3e065f; */
+    color: #3e065f;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 
 }
 .categories:hover{
     /* border-radius: 10px; */
-    border: 4px double #000;
-    background-color: #8e05c2;
-    /* color: #000; */
+    /* border: 4px double #000; */
+    /* background-color: #8e05c2; */
+    /* color: #fff; */
     transform: scale(1.1);
 }
  /* .Adventure:hover{

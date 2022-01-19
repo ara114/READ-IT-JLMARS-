@@ -13,25 +13,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* height: 150px; */
 }
 
 .write{
-    border: 4px double #8e05c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid #000;
+    background-color: #3e065f;
     border-radius: 10px;
-    /* border-style: double;
-    border-color: #8e05c2;
-    border-width: 4px; */
-    /* border: 1px double #8e05c2; */
-    /* background-color: #3e065f; */
+    height: 100px;
+    color: #fff;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 
 }
 .write:hover{
-    /* border-radius: 10px; */
-    border: 4px double #000;
     background-color: #8e05c2;
-    /* color: #000; */
     transform: scale(1.1);
 }
 /* .s1{

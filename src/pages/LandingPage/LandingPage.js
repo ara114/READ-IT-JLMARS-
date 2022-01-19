@@ -1,7 +1,7 @@
 import './LandingPage.css'
 import { useState, useEffect } from 'react'
-import Background from '../components/backgroundImg/Background'
-import { Button } from '../components/button/Button'
+import Background from '../../components/backgroundImg/Background'
+import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
 function LandingPage() {
 	const [isMobile, setIsMobile] = useState(true)

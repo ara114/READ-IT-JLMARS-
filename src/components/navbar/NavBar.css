@@ -4,7 +4,11 @@
 	width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+	border-bottom: 2px solid #dbdbdb;
+	z-index: 999;
+	background-color: #fafafa;
+	
 }
 
 .navbarContainer {
@@ -20,7 +24,7 @@
 
 .navbarLogo {
     font-family: 'Playfair Display', serif;
-	color: #9847FF;
+	color: #8e05c2;
 	justify-self: start;
 	margin-left: 20px;
 	cursor: pointer;
@@ -30,6 +34,16 @@
 	align-items: center;
 }
 
+.sticky-nav {
+	display: flex;
+    justify-content: center;
+	position: fixed;
+	top: 0;
+	/* left: 0; */
+	max-width: 1100px;
+	/* background-color: #fff; */
+	/* width: 100%; */
+}
 
 .fa-home{
 	font-size: 1.8rem;
@@ -56,7 +70,7 @@
 }
 
 .navLinks {
-	color: #9847FF;
+	color: #8e05c2;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -65,21 +79,14 @@
 }
 
 .navLinks:hover {
-	border-bottom: 4px solid #9847FF;
+	border-bottom: 4px solid #8e05c2;
 	transition: all 0.2s ease-out;
-}
-
-.fa-bars {
-	color: #9847FF;
 }
 
 .navLinksMobile {
 	display: none;
 }
 
-.menuIcon {
-	display: none;
-}
 
 @media screen and (max-width: 960px) {
 	.NavbarItems {
