@@ -1,6 +1,6 @@
 import './Background.css'
 function Background(props) {
-	return <div className='container'>{props.children}</div>
+	return <div className='Bcontainer'>{props.children}</div>
 }
 
 export default Background
