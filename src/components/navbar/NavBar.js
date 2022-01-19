@@ -7,42 +7,42 @@ function NavBar() {
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
 
-	const [stickyClass, setStickyClass] = useState('');
+	const [stickyClass, setStickyClass] = useState('')
 
 	useEffect(() => {
-	  window.addEventListener('scroll', stickNavbar);
-	  return () => window.removeEventListener('scroll', stickNavbar);
-	}, []);
-  
+		window.addEventListener('scroll', stickNavbar)
+		return () => window.removeEventListener('scroll', stickNavbar)
+	}, [])
+
 	const stickNavbar = () => {
-	  if (window !== undefined) {
-		let windowHeight = window.scrollY;
-		// window height changed for the demo
-		windowHeight > 0 ? setStickyClass('sticky-nav') : setStickyClass('');
-	  }
-	};
+		if (window !== undefined) {
+			let windowHeight = window.scrollY
+			// window height changed for the demo
+			windowHeight > 0 ? setStickyClass('sticky-nav') : setStickyClass('')
+		}
+	}
 
 	return (
 		<header>
 			<nav className={`navbar ${stickyClass}`}>
 				{/* <div className='navbarContainer'> */}
-					<Link to='/home' className='navbarLogo' onClick={closeMobileMenu}>
-						{/* This is the logo with the name of the website, which can be found on the left */}
-						Readit
-					</Link>
-					<ul className='navMenu'>
-						<li className='navItem'>
-							{/* These are all the items in the nav bar */}
-							<Link to='/home' className='navLinks' onClick={closeMobileMenu}>
-								<i class="fas fa-home"></i>
-							</Link>
-						</li>
-						<li className='navItem'>
-							<Link to='/user' className='navLinks' onClick={closeMobileMenu}>
-								<i class="fas fa-user-circle"></i>
-							</Link>
-						</li>
-					</ul>
+				<Link to='/home' className='navbarLogo' onClick={closeMobileMenu}>
+					{/* This is the logo with the name of the website, which can be found on the left */}
+					Readit
+				</Link>
+				<ul className='navMenu'>
+					<li className='navItem'>
+						{/* These are all the items in the nav bar */}
+						<Link to='/home' className='navLinks' onClick={closeMobileMenu}>
+							<i className='fas fa-home'></i>
+						</Link>
+					</li>
+					<li className='navItem'>
+						<Link to='/user' className='navLinks' onClick={closeMobileMenu}>
+							<i className='fas fa-user-circle'></i>
+						</Link>
+					</li>
+				</ul>
 				{/* </div> */}
 			</nav>
 		</header>
