@@ -1,14 +1,88 @@
-import React from 'react'
-import Navbar from '../../components/navbar/NavBar'
-import Footer from '../../components/Footer/Footer'
-import Container from '../../components/container/container'
-const Adventure = () => {
-    return (
-        <Container>
-            Adventure
-        </Container>
-        
-    )
+// import Tabs from '@material-ui/core/Tabs'
+// import Tab from '@material-ui/core/Tab'
+// import MenuItem from '@material-ui/core/MenuItem'
+// import Select from '@material-ui/core/Select'
+// import SwipeableViews from 'react-swipeable-views'
+
+import LWrap from '../../components/Boxes/LWrap'
+import Container from '../../components/container/Container'
+
+function Adventure() {
+	return (
+		<Container>
+			<h1>Adventure</h1>
+			<LWrap />
+			<LWrap />
+			<LWrap />
+		</Container>
+	)
 }
 
 export default Adventure
+
+// const styles = {
+//   tabs: {
+//     background: '#fff',
+//   },
+//   slide: {
+//     padding: 15,
+//     minHeight: 100,
+//     color: '#fff',
+//   },
+//   slide1: {
+//     backgroundColor: '#FEA900',
+//   },
+//   slide2: {
+//     backgroundColor: '#B3DC4A',
+//   },
+//   slide3: {
+//     backgroundColor: '#6AC0FF',
+//   },
+// };
+
+// class Adventure extends React.Component {
+//   state = {
+//     index: 0,
+//   };
+
+//   handleChange = (event, value) => {
+//     this.setState({
+//       index: value,
+//     });
+//   };
+
+//   handleChangeIndex = index => {
+//     this.setState({
+//       index,
+//     });
+//   };
+
+//   render() {
+//     const { index } = this.state;
+
+//     return (
+//       <div>
+//         <Tabs value={index} fullWidth centered onChange={this.handleChange} style={styles.tabs}>
+//           <Tab label="tab n°1" />
+//           <Tab label="tab n°2" />
+//           <Tab label="tab n°3" />
+//         </Tabs>
+//         <SwipeableViews index={index} onChangeIndex={this.handleChangeIndex} enableMouseEvents>
+//           <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div>
+//           <div style={Object.assign({}, styles.slide, styles.slide2)}>
+//             slide n°2
+//             <Select value={10} autoWidth={false}>
+//               <MenuItem value="">
+//                 <em>None</em>
+//               </MenuItem>
+//               <MenuItem value={10}>Ten</MenuItem>
+//             </Select>
+//           </div>
+//           <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
+//         </SwipeableViews>
+//       </div>
+//     );
+//   }
+// }
+
+// export default Adventure
