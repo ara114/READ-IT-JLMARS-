@@ -11,6 +11,17 @@ function Carousel() {
 		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
 		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
 		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
+		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
+		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
+		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
+		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
+		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
+		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
+		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
+		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
+		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
+		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
+		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
 	]
 
 	const PrevBtn = (props) => {
@@ -33,15 +44,47 @@ function Carousel() {
 		)
 	}
 
+	const properties = {
+		dots: true,
+		initialSlide: 0,
+		prevArrow: <PrevBtn />,
+		nextArrow: <NextBtn />,
+		slidesToShow: 4,
+		slidesToScroll: 3,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 2,
+				},
+			},
+			{
+				breakpoint: 926,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+					dots: false,
+				},
+			},
+			{
+				breakpoint: 570,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					dots: false,
+				},
+			},
+		],
+	}
+
 	// const renderInfo = (box, index) => {
 	// 	return <img className='img' src={box.image} alt={box.alt} key={index} />
 	// }
 
 	return (
 		<div className='main'>
-			<h1>Basic Carousel</h1>
-
-			<Slider autoplay autoplaySpeed={1000} dots initialSlide={0} prevArrow={<PrevBtn />} nextArrow={<NextBtn />}>
+			<Slider {...properties}>
 				{boxInfo.map((box, index) => (
 					<TBox key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 				))}
@@ -69,4 +112,10 @@ export default Carousel
 	// 	return <div>{i + 1}</div>
 	// }}
 	// dotsClass='slick-dots CustomizeIndicatior'
+}
+
+{
+	// slidesPerRow={i}, basically gives you the items you want on top of each other.
+	// slidesToShow={4} shows multiple items at a time.
+	//slidesToScroll={2} allows you to have more items slide whenever you press on the arrows.
 }

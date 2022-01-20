@@ -5,7 +5,8 @@
 
 .link {
 	flex-flow: wrap;
-	width: 20%;
+	/* Changed this to 100% from 20% */
+	width: 100%;
 	box-shadow: 0 30px 20px rgba(0, 0, 0, 0.17);
 	-webkit-filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.017));
 	filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.017));
@@ -49,7 +50,8 @@
 }
 
 .name {
-	padding: 20px 20px 30px;
+	/* changed the middle padding to 10px from 20px */
+	padding: 20px 10px 30px;
 	display: flex;
 	justify-content: center;
 	text-decoration: none;
