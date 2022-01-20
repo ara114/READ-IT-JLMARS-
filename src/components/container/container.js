@@ -1,6 +1,6 @@
 import Navbar from '../navbar/NavBar'
 import Footer from '../Footer/Footer'
-import './Container.css'
+import './container.css'
 
 function Container(props) {
 	return (
