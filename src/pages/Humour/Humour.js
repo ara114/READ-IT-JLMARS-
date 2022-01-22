@@ -6,9 +6,9 @@
 
 import TBox from '../../components/Boxes/TBox'
 import Container from '../../components/container/container'
-import './Adventure.css'
+import './Humour.css'
 
-function Adventure() {
+function Humour() {
     const boxInfo = [
 		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
 		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
@@ -31,8 +31,8 @@ function Adventure() {
 
 	return (
 		<Container>
-			<h1>Adventure</h1>
-            <div className="Adventure-container">
+			<h1>Humour</h1>
+            <div className="Humour-container">
                 {boxInfo.map((box,index)=>(
                         <TBox key={index} img={box.image} to={box.to} name={box.name} />
                     ))}
@@ -41,7 +41,7 @@ function Adventure() {
 	)
 }
 
-export default Adventure
+export default Humour
 
 // const styles = {
 //   tabs: {

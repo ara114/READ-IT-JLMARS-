@@ -11,6 +11,9 @@ h5 {
 	flex-flow: column;
 	align-items: center;
 	max-width: 1120px;
+	/* max-width: 1120px; */
+	/* width: 100%; */
+	/* margin: 0 auto; */
 }
 
 .boxWrapper {
