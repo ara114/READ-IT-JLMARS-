@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css'
 import { Button } from '../../components/button/Button'
-
+import { Link } from 'react-router-dom'
 import Background from '../../components/backgroundImg/Background'
 function Login(props) {
 	return (
@@ -12,22 +12,21 @@ function Login(props) {
 					<input className='control' type='text' required placeholder='Email address' />
 					<p className='errorMsg'></p>
 					<label>Password</label>
-					<input
-						className='control'
-						type='password'
-						placeholder='Enter your password'
-						required
-					/>
+					<input className='control' type='password' placeholder='Enter your password' required />
 					<p className='errorMsg'></p>
-					<section className='buttonsContainer'>
-						<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
-							Signup
-						</Button>
-						<p className='msg'>Do you have an account?</p>
-						<Button buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
+					<section className='signupBtn'>
+						<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'} to={{ pathname: '/home' }}>
 							Login
 						</Button>
 					</section>
+					<div className='msgContainer'>
+						<p className='msg'>Do you have an account?</p>
+						<Link to='/signup'>
+							<Button buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
+								Signup
+							</Button>
+						</Link>
+					</div>
 				</section>
 			</div>
 		</Background>
