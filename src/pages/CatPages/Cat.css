@@ -1,4 +1,29 @@
 .cat-container {
 	display: grid;
+	justify-content: center;
 	grid-template-columns: 250px 250px 250px 250px;
+}
+
+@media only screen and (max-width: 1024px) {
+	.cat-container {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: 220px 220px 220px;
+	}
+}
+
+@media only screen and (max-width: 590px) {
+	.cat-container {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: 160px 160px 160px;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.cat-container {
+		display: grid;
+		justify-content: center;
+		grid-template-columns: 130px 130px 130px;
+	}
 }
