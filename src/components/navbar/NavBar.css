@@ -85,7 +85,21 @@
 	display: none;
 }
 
+.fa-bars {
+	display: none;
+}
+
 @media screen and (max-width: 960px) {
+	.fa-bars {
+		display: block;
+		font-size: 1.8rem;
+		margin-right: 20px;
+	}
+	.fa-times {
+		display: block;
+		font-size: 1.8rem;
+		margin-right: 26px;
+	}
 	.NavbarItems {
 		position: relative;
 	}
@@ -128,9 +142,10 @@
 	}
 
 	.navbarLogo {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transform: translate(25%, 50%);
+		justify-content: center;
+		height: 84px;
+		width: 100%;
+		font-size: 2.5rem;
+		margin-left: 40px;
 	}
 }
