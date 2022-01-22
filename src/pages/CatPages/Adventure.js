@@ -4,39 +4,16 @@
 // import Select from '@material-ui/core/Select'
 // import SwipeableViews from 'react-swipeable-views'
 
-import TBox from '../../components/Boxes/TBox'
-import Container from '../../components/container/container'
-import './Adventure.css'
+import LWrap from '../../components/Boxes/LWrap'
+import Container from '../../components/container/Container'
 
 function Adventure() {
-    const boxInfo = [
-		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' }
-		,
-		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-        { image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-	]
-
-
-
 	return (
 		<Container>
 			<h1>Adventure</h1>
-            <div className="Adventure-container">
-                {boxInfo.map((box,index)=>(
-                        <TBox key={index} img={box.image} to={box.to} name={box.name} />
-                    ))}
-            </div>
+			<LWrap />
+			<LWrap />
+			<LWrap />
 		</Container>
 	)
 }

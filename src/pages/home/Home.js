@@ -1,7 +1,7 @@
 import Recommended from '../../components/Recommended/Recommended'
 import Categories from '../../components/Categories/Categories'
 import Write from '../../components/Write/Write'
-import Container from '../../components/container/container'
+import Container from '../../components/container/Container'
 
 function Home({ handleLogout }) {
 	return (
