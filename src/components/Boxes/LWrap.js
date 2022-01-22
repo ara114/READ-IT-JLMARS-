@@ -4,22 +4,9 @@ import { Link } from 'react-router-dom'
 const LWrap = () => {
 	const boxInfo = [
 		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: 'images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		{ image: 'images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		{ image: 'images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-		//,
-		// { image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		// { image: 'images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		// { image: 'images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		// { image: 'images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-		// { image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		// { image: 'images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		// { image: 'images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		// { image: 'images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-		// { image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		// { image: 'images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		// { image: 'images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		// { image: 'images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
+		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
+		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
+		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
 	]
 
 	const renderInfo = (box, index) => {
