@@ -1,11 +1,19 @@
 import './Recommended.css'
-import Carousel from '../carousel/Carousel'
-
+import LWrap from '../../components/Boxes/LWrap'
+import Swipe from 'react-swipeable-views'
+import { autoPlay } from 'react-swipeable-views-utils'
+import Sbox from '../Boxes/Sbox'
 const Recommended = () => {
+	const WithAutoPlayProps = autoPlay(Swipe)
+
 	return (
 		<div className='recommended-header'>
 			Recommended
-			<Carousel />
+			<LWrap />
+			{/* <WithAutoPlayProps>
+				<LWrap />
+				<Sbox />
+			</WithAutoPlayProps> */}
 		</div>
 	)
 }
