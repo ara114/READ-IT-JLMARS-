@@ -7,6 +7,9 @@ import User from './pages/user/User'
 import Adventure from './pages/CatPages/Adventure'
 import './App.css'
 import Horror from './pages/CatPages/Horror'
+import Humour from './pages/CatPages/Humour.js'
+import NonFiction from './pages/CatPages/NonFiction'
+import Romance from './pages/CatPages/Romance'
 
 // import { AuthProvider } from './contexts/AuthContext'
 
@@ -21,6 +24,9 @@ function App() {
 				<Route path='/user' element={<User />} />
 				<Route path='/category/adventure' element={<Adventure />} />
 				<Route path='/category/horror' element={<Horror />} />
+				<Route path='/category/humour' element={<Humour />} />
+				<Route path='/category/nonFiction' element={<NonFiction />} />
+				<Route path='/category/romance' element={<Romance />} />
 			</Routes>
 		</div>
 	)

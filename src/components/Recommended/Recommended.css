@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
-.recommended-header{
-    font-size: 1.8rem;
-    /* font-weight: 700; */
-    margin: 30px 0;
-    font-family: 'Montserrat', sans-serif;
-    /* color: #ffffff; */
+.recommended-header {
+	font-size: 1.8rem;
+	/* font-weight: 700; */
+	margin: 30px 0;
+	font-family: 'Montserrat', sans-serif;
+	/* color: #ffffff; */
 }

@@ -51,15 +51,18 @@
 
 .name {
 	/* changed the middle padding to 10px from 20px */
-	padding: 20px 10px 30px;
+	padding: 15px 15px 15px;
 	display: flex;
 	justify-content: center;
 	text-decoration: none;
 	color: #000;
 	font-size: 18px;
-	line-height: 24px;
+	line-height: 22px;
 	background: none;
 }
+/* 
+Note for future self: The more the size of the cards increase, increase the size of th padding which is found in the item.
+Combine this with the carousel responsive breakpoints and then you will get a responsive carousel with multi items. */
 
 @media only screen and (min-width: 1024px) {
 	.item {
