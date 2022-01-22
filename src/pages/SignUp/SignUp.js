@@ -3,6 +3,7 @@ import '../Login/Login'
 import { useAuth } from '../../contexts/AuthContext'
 import Background from '../../components/backgroundImg/Background'
 import { Button } from '../../components/button/Button'
+import { Link } from 'react-router-dom'
 function SignUp() {
 	// const emailRef = useRef();
 	// const passwordRef = useRef();
@@ -47,9 +48,11 @@ function SignUp() {
 							</Button>
 							<div className='msgContainer'>
 								<p className='msg'>Do you have an account?</p>
-								<Button buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
-									Login
-								</Button>
+								<Link to='/login'>
+									<Button buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
+										Login
+									</Button>
+								</Link>
 							</div>
 						</section>
 					</form>
