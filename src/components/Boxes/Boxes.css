@@ -1,5 +1,6 @@
 .boxes {
 	padding: 30px;
+	/* background: #fff; */
 }
 
 h5 {
@@ -10,7 +11,6 @@ h5 {
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-	max-width: 1120px;
 	/* max-width: 1120px; */
 	/* width: 100%; */
 	/* margin: 0 auto; */
@@ -18,10 +18,12 @@ h5 {
 
 .boxWrapper {
 	position: relative;
+	/* margin: 50px 0; */
 }
 
 .boxItem {
 	margin-bottom: 24px;
+    
 }
 
 .boxItem {
@@ -40,13 +42,15 @@ h5 {
 	-webkit-filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.017));
 	filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.017));
 	border-radius: 10px;
-
+    /* border: 1px solid #9847FF; */
 	overflow: hidden;
 	text-decoration: none;
+    /* background-color: #3e065f; */
 }
 
-.boxLink:hover {
-	transform: scale(1.1);
+.boxLink:hover{
+    /* background-color: #700b97; */
+    transform: scale(1.1);
 }
 .picWrap {
 	position: relative;
@@ -59,6 +63,8 @@ h5 {
 	animation-name: fade-img;
 	animation-duration: 2s;
 }
+
+
 
 .img {
 	position: absolute;
@@ -75,15 +81,24 @@ h5 {
 	transition: all 0.2s linear;
 }
 
+/* .img:hover {
+	transform: scale(1.1);
+} */
+
+/* .boxInfo {
+	padding: 20px 30px 30px;
+} */
+
+
 .boxName {
-	padding: 20px 20px 30px;
-	display: flex;
-	justify-content: center;
-	text-decoration: none;
+    padding: 20px 20px 30px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 	color: #000;
 	font-size: 18px;
 	line-height: 24px;
-	background: none;
+    background:none;
 }
 
 @media only screen and (min-width: 1024px) {
