@@ -1,5 +1,5 @@
 .main {
-	margin: 30px;
+	margin: 40px;
 }
 
 /* Centering the arrows to be in the middle and on top of the slider.  */
@@ -30,4 +30,10 @@
 /* color of the dots when moving.  */
 .slick-dots li.slick-active button:before {
 	color: purple !important;
+}
+
+@media only screen and (max-width: 1025px) {
+	.slick-track {
+		margin-bottom: 30px;
+	}
 }

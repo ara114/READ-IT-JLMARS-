@@ -62,13 +62,21 @@ function Carousel() {
 			{
 				breakpoint: 926,
 				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					dots: false,
+				},
+			},
+			{
+				breakpoint: 730,
+				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 1,
 					dots: false,
 				},
 			},
 			{
-				breakpoint: 570,
+				breakpoint: 440,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
