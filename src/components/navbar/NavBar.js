@@ -32,18 +32,20 @@ function NavBar() {
 		<header>
 			<nav className={`navbar ${stickyClass}`}>
 				{/* <div className='navbarContainer'> */}
-				<Link to='/home' className='navbarLogo' onClick={(scrollToTop, closeMobileMenu)}>
+
+				<Link to='/home' className='navbarLogo' onClick={closeMobileMenu}>
 					{/* This is the logo with the name of the website, which can be found on the left */}
-					Readit
+					<div onClick={scrollToTop}>Readit</div>
 				</Link>
+
 				<div className='menuIcon' onClick={handleClick}>
 					{/* This is the X and Hamburger logo on the right */}
 					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
 				</div>
 				<ul className={click ? 'navMenu active' : 'navMenu'}>
-					<li className='navItem'>
+					<li className='navItem' onClick={scrollToTop}>
 						{/* These are all the items in the nav bar */}
-						<Link to='/home' className='navLinks' onClick={(scrollToTop, closeMobileMenu)}>
+						<Link to='/home' className='navLinks' onClick={closeMobileMenu}>
 							<i className='fas fa-home'></i>
 						</Link>
 					</li>
