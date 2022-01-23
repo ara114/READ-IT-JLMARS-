@@ -18,12 +18,12 @@
 
 /* The arrows colors  */
 .arrows {
-	color: red;
+	color: purple !important;
 }
 
 /* background color of the dots. */
 .slick-dots li button::before {
-	color: red;
+	color: #dbdbdb;
 	opacity: 0.7;
 }
 
