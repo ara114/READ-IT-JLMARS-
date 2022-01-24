@@ -1,7 +1,7 @@
 import './Button.css'
 
 // These two arrays hold all of the styles and sizes names of the buttons from the button css
-const STYLES = ['primaryBtn', 'secondaryBtn', 'button-64', 'loginBtn']
+const STYLES = ['primaryBtn', 'secondaryBtn', 'button-64', 'loginBtn', 'tester']
 const SIZES = ['smallBtn', 'mediumBtn', 'largeBtn', 'largestBtn', 'LoginsmallBtn']
 //Here we export the button with its own props.
 export const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {

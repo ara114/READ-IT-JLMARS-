@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import '../Login/Login'
+import '../SignUp/signup.css'
 import { useAuth } from '../../contexts/AuthContext'
 import Background from '../../components/backgroundImg/Background'
 import { Button } from '../../components/button/Button'
@@ -29,7 +29,7 @@ function SignUp() {
 	// }
 	return (
 		<Background>
-			<div className='card'>
+			<div className='signCard'>
 				<section className='loginContainer'>
 					<form>
 						<label>Email</label>
@@ -42,19 +42,19 @@ function SignUp() {
 						<label>Confirm Password</label>
 						<input className='control' placeholder='Confirm Password' type='password' required />
 						<p className='errorMsg'></p>
-						<section className='buttonsContainer'>
+						<section className='signupBtn'>
 							<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 								Signup
 							</Button>
-							<div className='msgContainer'>
-								<p className='msg'>Do you have an account?</p>
-								<Link to='/login'>
-									<Button buttonStyle={'loginBtn'} buttonSize={'LoginsmallBtn'}>
-										Login
-									</Button>
-								</Link>
-							</div>
 						</section>
+						<div className='SignmsgContainer'>
+							<p className='msg'>You're a member? </p>
+							<Link to='/login' style={{ textDecoration: 'none' }}>
+								<Button buttonStyle={'tester'} buttonSize={'LoginsmallBtn'}>
+									Login
+								</Button>
+							</Link>
+						</div>
 					</form>
 				</section>
 			</div>

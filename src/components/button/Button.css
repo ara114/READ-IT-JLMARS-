@@ -28,21 +28,36 @@ root {
 }
 
 .loginBtn {
-	width: 140%;
-	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	background-color: black;
+
 	color: white;
 	padding: 8px 20px;
-	border: 1px solid var(--primary);
+	border: 2px solid #3e065f;
+	border-radius: 18px;
 	transition: all 0.3s ease-out;
+	font-family: 'Signika', sans-serif;
+}
+.tester {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	background-color: black;
+	color: white;
+	border: 2px solid #3e065fa2;
+	border-radius: 18px;
+
 	font-family: 'Signika', sans-serif;
 }
 
 .LoginsmallBtn {
 	position: relative;
-	top: -20px;
-	max-width: 30%;
-	margin-left: 120%;
-	padding: 1px 1px;
+	width: 110%;
+	padding: 3px 2px;
 	font-size: 14px;
 }
 
@@ -65,9 +80,14 @@ root {
 	padding: 16px 40px;
 	font-size: 30px;
 }
-.loginBtn:hover,
+
+.tester:hover,
 .primaryBtn:hover {
 	color: #8e05c2;
+	transition: all 0.3s ease-out;
+}
+.loginBtn:hover {
+	background-color: #3e065fa2;
 	transition: all 0.3s ease-out;
 }
 .secondaryBtn:hover {

@@ -1,7 +1,7 @@
-.card {
+.signCard {
 	background-color: rgb(0, 0, 0);
-	width: 26%;
-	height: 40%;
+	width: 24%;
+	height: 50%;
 	padding: 1rem 3rem 1rem 2rem;
 	display: flex;
 	flex-direction: column;
@@ -10,21 +10,7 @@
 	box-shadow: 0 2px 8px #700b97;
 	border-radius: 5%;
 }
-
-.errorMsg {
-	color: red;
-	font-size: 20px;
-	font-family: 'Signika', sans-serif;
-}
-
-.control {
-	margin-bottom: 0.5rem;
-}
-
-.buttonsContainer {
-	letter-spacing: 1px;
-}
-.card label {
+.signCard label {
 	color: #3e065f;
 	margin: 5% 0;
 	display: block;
@@ -33,7 +19,7 @@
 	font-family: 'Signika', sans-serif;
 }
 
-.card input {
+.signCard input {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -48,33 +34,23 @@
 	font-family: 'Signika', sans-serif;
 }
 
-.loginButton {
+.signupBtn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 5%;
+	margin-top: 10%;
 	margin-bottom: 5%;
 }
-.msgContainer {
+.SignmsgContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 10%;
-	width: 100%;
-}
-.msg {
-	display: flex;
-	justify-content: center;
-	margin-right: 5%;
-	margin-top: 0.5%;
-	font-size: 15px;
-	color: #700b97;
-	font-family: 'Signika', sans-serif;
 }
 
 @media all and (max-width: 1400px) {
-	.card {
+	.signCard {
 		width: 36%;
+		height: 54%;
 	}
 	.errorMsg {
 		font-size: 10px;
@@ -82,7 +58,7 @@
 }
 
 @media all and (max-width: 1200px) {
-	.card {
+	.signCard {
 		width: 43%;
 	}
 
@@ -92,7 +68,7 @@
 }
 
 @media all and (max-width: 930px) {
-	.card {
+	.signCard {
 		width: 56%;
 	}
 
@@ -102,8 +78,10 @@
 }
 
 @media all and (max-width: 730px) {
-	.card {
+	.signCard {
 		width: 66%;
+		height: 52%;
+		padding: 1rem 2rem 2rem 2rem;
 	}
 
 	.errorMsg {
@@ -112,60 +90,49 @@
 }
 
 @media all and (max-width: 540px) {
-	.card {
+	.signCard {
 		width: 76%;
-		height: 36%;
+		height: 46%;
 	}
 
-	.errorMsg {
-		font-size: 10px;
-	}
-	.card label {
+	.signCard label {
 		margin: 10px 0;
 		font-size: 19px;
 	}
-	.card input {
+	.signCard input {
 		font-size: 17px;
 	}
-	.msg {
-		font-size: 12px;
+	.loginBtn {
+		font-size: 14px;
+		width: 30%;
 	}
 }
 
 @media all and (max-width: 380px) {
-	.card {
+	.signCard {
 		width: 86%;
-		height: 36%;
+		height: 45%;
 	}
 
-	.errorMsg {
-		font-size: 10px;
-	}
-	.card label {
+	.signCard label {
 		margin: 10px 0;
 		font-size: 19px;
 	}
-	.card input {
+	.signCard input {
 		font-size: 17px;
 	}
 }
 
 @media all and (max-width: 320px) {
-	.card {
+	.signCard {
 		width: 86%;
 	}
 
-	.errorMsg {
-		font-size: 7px;
-	}
-	.card label {
+	.casignCardrd label {
 		margin: 10px 0;
 		font-size: 14px;
 	}
-	.card input {
+	.signCard input {
 		font-size: 14px;
-	}
-	.msg {
-		font-size: 10px;
 	}
 }
