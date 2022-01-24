@@ -35,13 +35,9 @@
 
 .sticky-nav {
 	display: flex;
-	justify-content: center;
 	position: fixed;
 	top: 0;
-	/* left: 0; */
 	max-width: 1100px;
-	/* background-color: #fff; */
-	/* width: 100%; */
 }
 
 .fa-home {
@@ -60,7 +56,7 @@
 	text-align: center;
 	width: 60vw;
 	justify-content: end;
-	margin-right: 2rem;
+	margin-right: 1rem;
 }
 
 .navItem {
@@ -88,6 +84,9 @@
 .fa-bars {
 	display: none;
 }
+.menuIcon {
+	display: none;
+}
 
 @media screen and (max-width: 960px) {
 	.fa-bars {
@@ -105,10 +104,10 @@
 	}
 
 	.navMenu {
-		display: flex;
+		display: block;
 		flex-direction: column;
 		width: 100%;
-		max-width: 100vw;
+		max-width: 100%;
 		height: 100vh;
 		position: absolute;
 		top: 80px;
@@ -118,7 +117,7 @@
 	}
 
 	.navMenu.active {
-		background: #242222;
+		background: black;
 		left: 0;
 		opacity: 1;
 		transition: all 0.5s ease;
@@ -128,7 +127,7 @@
 	.navLinks {
 		position: relative;
 		/* For the Responsive in the PC  */
-		bottom: 40vh;
+		bottom: -430%;
 		/* For actual phones */
 		/* top: 40vh; */
 		width: 100%;
@@ -143,9 +142,12 @@
 
 	.navbarLogo {
 		justify-content: center;
+		align-items: center;
 		height: 84px;
-		width: 100%;
 		font-size: 2.5rem;
 		margin-left: 40px;
+	}
+	.menuIcon {
+		display: block;
 	}
 }

@@ -6,6 +6,7 @@ function NavBar() {
 	const [click, setClick] = useState(false)
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -55,7 +56,6 @@ function NavBar() {
 						</Link>
 					</li>
 				</ul>
-				{/* </div> */}
 			</nav>
 		</header>
 	)
