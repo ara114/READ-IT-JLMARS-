@@ -18,7 +18,7 @@ function NonFiction() {
 	return (
 		!stories.length ? <CircularProgress/> : (
 			<Container>
-				<h1>NonFiction</h1>
+				<h1>Non-Fiction</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
 						story.category === 'Non-Fiction' && (<TBox key={story._id} img={story.image} to={''} name={story.title} />)

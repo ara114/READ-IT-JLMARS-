@@ -52,7 +52,7 @@ const Create = () => {
                     <FileBase 
                     type="file"
                     multiple={false}
-                    onDone={({base64}) => setStoryData({...storyData, image: base64})}/>
+                    onDone={({base64}) => setStoryData({...storyData, image: base64})} required />
                 </div>
                 <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -62,7 +62,7 @@ const Create = () => {
                   label="Category"
                   value={storyData.category}
                   onChange={(e) => setStoryData({...storyData, category: e.target.value})}
-                >
+                  required >
                   <MenuItem value={'Adventure'}>Adventure</MenuItem>
                   <MenuItem value={'Horror'}>Horror</MenuItem>
                   <MenuItem value={'Humour'}>Humour</MenuItem>
@@ -71,13 +71,13 @@ const Create = () => {
                 </Select>
               </FormControl>
                 {/* <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({...postData, creator: e.target.value})}/> */}
-                <TextField name="title" variant="outlined" label="Title" fullWidth value={storyData.title} onChange={(e) => setStoryData({...storyData, title: e.target.value})}/>
-                <TextField name="author" variant="outlined" label="Author" fullWidth value={storyData.author} onChange={(e) => setStoryData({...storyData, author: e.target.value})}/>
+                <TextField name="title" variant="outlined" label="Title" fullWidth value={storyData.title} onChange={(e) => setStoryData({...storyData, title: e.target.value})} required />
+                <TextField name="author" variant="outlined" label="Author" fullWidth value={storyData.author} onChange={(e) => setStoryData({...storyData, author: e.target.value})} required />
                 {/* <Box sx={{ minWidth: 120 }}> */}
 
     {/* </Box> */}
                 {/* <TextField name="tags" variant="outlined" label="Tags (seperated by commas)" fullWidth value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}/> */}
-                <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})}/>
+                <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required />
                 {/* <textarea name="message" rows="10" cols="30">
     The cat was playing in the garden.
     </textarea> */}
