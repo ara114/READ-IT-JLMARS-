@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {useDispatch} from 'react-redux';
 import { createStory } from '../../actions/stories';
+import TextEditor from '../../components/TextEditor/TextEditor';
 const Create = () => {
   const dispatch = useDispatch();  
   // function makeid() {
@@ -73,15 +74,8 @@ const Create = () => {
                 {/* <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({...postData, creator: e.target.value})}/> */}
                 <TextField name="title" variant="outlined" label="Title" fullWidth value={storyData.title} onChange={(e) => setStoryData({...storyData, title: e.target.value})} required />
                 <TextField name="author" variant="outlined" label="Author" fullWidth value={storyData.author} onChange={(e) => setStoryData({...storyData, author: e.target.value})} required />
-                {/* <Box sx={{ minWidth: 120 }}> */}
-
-    {/* </Box> */}
-                {/* <TextField name="tags" variant="outlined" label="Tags (seperated by commas)" fullWidth value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')})}/> */}
-                <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required />
-                {/* <textarea name="message" rows="10" cols="30">
-    The cat was playing in the garden.
-    </textarea> */}
-
+                {/* <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required /> */}
+                <TextEditor/>
                 <Button className={classes.buttonSubmit} variant="contained" style={{backgroundColor: "#8e05c2", color: "#fff"}} size="large" type="submit" fullWidth>Upload</Button>
             </form>
         </Paper>
