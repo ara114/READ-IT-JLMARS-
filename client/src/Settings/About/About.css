@@ -1,0 +1,29 @@
+.abt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bg-img {
+    background-image: url('/public/images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-size: cover; 
+    border-bottom: 4px solid #8E05C2;
+}
+
+.content-setting {
+    margin: 1em 12em 0 12em;
+    font-size: 1.2em;
+}
+
+.page-title {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 2em;
+}

@@ -11,7 +11,10 @@ import Humour from './pages/CatPages/Humour.js'
 import NonFiction from './pages/CatPages/NonFiction'
 import Romance from './pages/CatPages/Romance'
 import Create from './pages/Create/Create'
-
+import About from './Settings/About/About'
+import Account from './Settings/Account/Account'
+import Security from './Settings/Security/Security'
+import Settings from './Settings/Settings'
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
@@ -29,6 +32,11 @@ function App() {
 				<Route path='/category/nonFiction' element={<NonFiction />} />
 				<Route path='/category/romance' element={<Romance />} />
 				<Route path='/Create' element={<Create />} />
+				<Route path="/settings" exact element={<Settings/>} /> 
+				<Route path="/about" exact element={<About/>} />
+				<Route path="/account" exact element={<Account/>} />
+				<Route path="/security" exact element={<Security/>} />
+				{/* <Route path="/logout" exact element={<Logout/>} /> */}
 			</Routes>
 		</div>
 	)

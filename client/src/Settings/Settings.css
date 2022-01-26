@@ -1,0 +1,53 @@
+.border
+{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    flex-direction: column;
+
+}
+
+.navbar-setting
+{  
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 500px;
+    background-color: #8c0080;
+    color: white;
+}
+
+.settings
+{
+    font-size: size 90px;
+    
+}
+
+.nav-links-setting
+{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    width: 75;
+
+}
+
+.account,
+.security,
+.about,
+.logout
+{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin :0 10px;
+    width: 100%;
+    cursor: pointer; 
+    text-align: center;
+}
+
+.logout{
+    border: 1px solid grey;
+    border-radius: 5px;
+}

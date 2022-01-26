@@ -1,0 +1,53 @@
+.sec-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+}
+
+.form-div {
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow:  0 0 5px #3E065F;
+    background-color: #fff;
+}
+
+.input {
+    display: block;
+    margin-bottom: 20px;
+}
+.inp {
+    display: inline-flexbox;
+}
+.inp-label {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: left;
+    flex-direction: row;
+
+    font-size: 17px;
+}
+.inp-inp {
+    flex-direction: row;
+    padding-left: 120px;
+}
+.save-btn {
+    background-color: #8E05C2;
+    border: none;
+    color: white;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 170px;
+    font-size: 16px;
+}
+
+.save-btn:hover {
+    background-color: #3D2C8D;
+}
