@@ -59,21 +59,23 @@
 .itemLinks {
 	color: #8e05c2;
 	display: flex;
-    align-items: center;
+
 	text-decoration: none;
-	padding: 1rem 0rem 0rem;
+	padding: 3rem 0rem 0rem;
 	height: 100%;
 }
 
-.fa-bars {
+.fa-cog {
     display: block;
     font-size: 1.8rem;
     margin-right: 20px;
+    color: #8e05c2;
 }
 .fa-times {
     display: block;
     font-size: 1.8rem;
     margin-right: 26px;
+    color: #8e05c2;
 }
 .items {
     position: relative;
@@ -81,7 +83,6 @@
 
 .menu {
     display: none;
-    flex-direction: column;
     width: 10%;
     margin-right: 21.2%;
     max-width: 100%;
@@ -97,6 +98,7 @@
 
 .menu.active {
     display: block;
+    flex-direction: column;
     background: black;
     right: 0;
     opacity: 1;

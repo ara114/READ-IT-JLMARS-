@@ -42,7 +42,7 @@ function UserNav(){
     
                     <div className='icon' onClick={handleClick}>
                         {/* This is the X and Hamburger logo on the right */}
-                        <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+                        <i className={click ? 'fas fa-times' : 'fas fa-cog'} />
                     </div>
                     <ul className={click ? 'menu active' : 'menu'}>
                         <li className='item' onClick={scrollToTop}>
@@ -52,8 +52,8 @@ function UserNav(){
                             </Link>
                         </li>
                         <li className='item'>
-                            <Link to='/settings' className='itemLinks' onClick={closeMobileMenu}>
-                            <i className="fas fa-cog"></i>
+                            <Link to='/account' className='itemLinks' onClick={closeMobileMenu}>
+                            <i className="fas fa-user-circle"></i>
                             </Link>
                         </li>
                         <li className='item'>
