@@ -6,15 +6,29 @@ import './carousel.css'
 import TBox from '../Stories/TBox'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded'
+import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {getStories} from '../../actions/stories';
+import {useSelector} from 'react-redux';
+import {CircularProgress} from '@material-ui/core';
+
 function Carousel() {
-	const boxInfo = [
-		{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-		{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-		{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-		{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-		{ image: '/images/download.png', to: { pathname: '/home' }, name: 'Downlaod', alt: 'third pic' },
-		{ image: '/images/OIP.png', to: { pathname: '/home' }, name: 'OIP', alt: 'third pic' },
-	]
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getStories());
+	}, [dispatch]);
+	const stories = useSelector((state)=> state.stories);
+
+	// const boxInfo = [
+	// 	{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
+	// 	{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
+	// 	{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
+	// 	{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
+	// 	{ image: '/images/download.png', to: { pathname: '/home' }, name: 'Downlaod', alt: 'third pic' },
+	// 	{ image: '/images/OIP.png', to: { pathname: '/home' }, name: 'OIP', alt: 'third pic' },
+	// ]
 
 	const PrevBtn = (props) => {
 		const { className, onClick } = props
@@ -83,13 +97,19 @@ function Carousel() {
 	// }
 
 	return (
-		<div className='main'>
-			<Slider {...properties}>
-				{boxInfo.map((box, index) => (
-					<TBox key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
-				))}
-			</Slider>
-		</div>
+			<div className='main'>
+				{!stories.length ? <CircularProgress/> : (
+					<Slider {...properties}>
+						{/* {boxInfo.map((box, index) => (
+							<TBox key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
+						))} */}
+						{stories.map((story) => (
+							<TBox key={story._id} img={story.image} to={''} name={story.title} />
+						))}
+					</Slider>
+				)}
+			</div>
+
 	)
 }
 
