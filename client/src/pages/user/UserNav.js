@@ -45,28 +45,28 @@ function UserNav(){
                         <i className={click ? 'fas fa-times' : 'fas fa-cog'} />
                     </div>
                     <ul className={click ? 'menu active' : 'menu'}>
-                        <li className='item' onClick={scrollToTop}>
+                        <li className='itemNav' onClick={scrollToTop}>
                             {/* These are all the items in the nav bar */}
                             <Link to='/home' className='itemLinks' onClick={closeMobileMenu}>
                                 <i className='fas fa-home'></i>
                             </Link>
                         </li>
-                        <li className='item'>
+                        <li className='itemNav'>
                             <Link to='/account' className='itemLinks' onClick={closeMobileMenu}>
                             <i className="fas fa-user-circle"></i>
                             </Link>
                         </li>
-                        <li className='item'>
+                        <li className='itemNav'>
                             <Link to='/security' className='itemLinks' onClick={closeMobileMenu}>
                             Security
                             </Link>
                         </li>
-                        <li className='item'>
+                        <li className='itemNav'>
                             <Link to='/About' className='itemLinks' onClick={closeMobileMenu}>
                             About Us
                             </Link>
                         </li>
-                        <li className='item'>
+                        <li className='itemNav'>
                             <Link to='/Logout' className='itemLinks' onClick={closeMobileMenu}>
                             Logout
                             </Link>
