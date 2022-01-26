@@ -11,6 +11,7 @@ import {useDispatch} from 'react-redux';
 import { createStory } from '../../actions/stories';
 import TextEditor from '../../components/TextEditor/TextEditor';
 import { useNavigate} from 'react-router-dom';
+import NavBar from '../../components/navbar/NavBar';
 const Create = () => {
   const dispatch = useDispatch();  
   // function makeid() {
@@ -44,11 +45,11 @@ const Create = () => {
 }
 
 	return (
-		<Container>
+		<Container nav={<NavBar/>}>
       {/* {console.log(window.location.pathname)} */}
       <Grow in>
         <Paper className= {classes.paper}>
-          <form autoComplete="off"  noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+          <form autoComplete="off" className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Writing a Story</Typography>
                 {/* <Typography variant="h6">{currentID ? 'Editing' : 'Creating'} a memory</Typography> */}
                 {/* <Typography variant="h6"> Room code: {makeid()}</Typography> */}
