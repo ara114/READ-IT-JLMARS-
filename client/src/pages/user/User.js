@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Container from '../../components/container/Container'
+import Container from '../../components/container/container'
 import NavBar from '../../components/navbar/NavBar'
 import UserNav from '../user/UserNav'
 

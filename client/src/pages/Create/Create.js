@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Container from '../../components/container/Container';
+import Container from '../../components/container/container';
 import {TextField, Button, Typography, Paper, Grow} from '@material-ui/core';
 import useStyles from './styles';
 import FileBase from 'react-file-base64';

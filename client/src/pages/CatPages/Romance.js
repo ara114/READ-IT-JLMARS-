@@ -1,4 +1,4 @@
-import Container from '../../components/container/Container'
+import Container from '../../components/container/container'
 import TBox from '../../components/Stories/TBox'
 import './Cat.css'
 import {useSelector} from 'react-redux';
