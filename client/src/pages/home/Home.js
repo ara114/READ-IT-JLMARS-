@@ -5,6 +5,7 @@ import Container from '../../components/container/Container'
 import {getStories} from '../../actions/stories';
 import {useDispatch} from 'react-redux';
 import React, {useEffect} from 'react';
+import NavBar from '../../components/navbar/NavBar';
 function Home({ handleLogout }) {
 	const dispatch = useDispatch();
 
@@ -12,7 +13,7 @@ function Home({ handleLogout }) {
 		dispatch(getStories());
 	}, [dispatch]);
 	return (
-		<Container>
+		<Container nav={<NavBar/>}>
 			<Recommended />
 			<Categories />
 			<Write />

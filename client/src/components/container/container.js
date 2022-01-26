@@ -6,13 +6,15 @@ function Container(props) {
 	return (
 		<div className='common'>
 			<div className='container'>
-				<Navbar />
+				{props.nav}
 				<div className='content'>{props.children}</div>
 			</div>
 			<Footer />
 		</div>
 	)
 }
-
+ 
 
 export default Container
+
+

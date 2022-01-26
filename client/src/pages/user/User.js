@@ -1,10 +1,14 @@
-import React from 'react'
 
-const User = () => {
+import React from 'react'
+import Container from '../../components/container/Container'
+import NavBar from '../../components/navbar/NavBar'
+import UserNav from '../user/UserNav'
+
+function User() {
     return (
-        <div>
-            <h1>User</h1>
-        </div>
+        <Container nav={<UserNav/>}>
+			Hello
+		</Container>
     )
 }
 
