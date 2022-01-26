@@ -1,3 +1,4 @@
+
 .card {
 	background-color: rgb(0, 0, 0);
 	width: 26%;
@@ -25,7 +26,7 @@
 	letter-spacing: 1px;
 }
 .card label {
-	color: #3e065f;
+	color: #610796;
 	margin: 5% 0;
 	display: block;
 	font-size: 22px;
@@ -39,7 +40,7 @@
 	align-items: center;
 	width: 105%;
 	border-radius: 20px;
-	border-color: #3e065fd3;
+	border-color: #3e065f;
 	font-size: 19px;
 	padding: 10px;
 	background: rgb(0, 0, 0);
@@ -167,5 +168,62 @@
 	}
 	.msg {
 		font-size: 10px;
+	}
+}
+
+
+@media all and (max-height: 920px) {
+	.card {
+		height: 45%;
+	}
+}
+
+@media all and (max-height: 800px) {
+	.card {
+		height: 50%;
+	}
+}
+
+@media all and (max-height: 720px) {
+	.card {
+		height: 55%;
+	}
+}
+
+@media all and (max-height: 655px) {
+	.card {
+		height: 60%;
+	}
+}
+@media all and (max-height: 600px) {
+	.card {
+		height: 64%;
+	}
+}
+@media all and (max-height: 544px) {
+	.card {
+		height: 74%;
+	}
+}
+@media all and (max-height: 488px) {
+	.card {
+		height: 78%;
+	}
+}
+@media all and (max-height: 455px) {
+	.card {
+		height: 84%;
+	}
+}
+@media all and (max-height: 455px) {
+	.card {
+		height: 84%;
+	}
+	.card label {
+		margin: 10px 0;
+		font-size: 19px;
+	}
+	.card input {
+		font-size: 12px;
 	}
 }

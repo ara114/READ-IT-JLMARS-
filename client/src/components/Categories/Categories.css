@@ -1,63 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
-.category-header{
-    font-size: 1.8rem;
-    /* font-weight: 700; */
-    margin: 30px 0;
-    font-family: 'Montserrat', sans-serif;
-    /* color: #ffffff; */
+.category-header {
+	font-size: 1.8rem;
+	margin: 30px 0;
+	font-family: 'Montserrat', sans-serif;
 }
 
-.links-container{
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.links-container {
+	padding: 3% 1% 0% 1%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
-.categories{
-    border-radius: 30px;
-    border: 6px solid #3e065f;
-    /* font-weight: 500; */
-    /* background-color: #3e065f; */
-    color: #3e065f;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-
+.categories {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	border: 2px solid #3e065f;
+	color: #3e065f;
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.categories:hover{
-    /* border-radius: 10px; */
-    /* border: 4px double #000; */
-    /* background-color: #8e05c2; */
-    /* color: #fff; */
-    transform: scale(1.1);
+.categories:hover {
+	transform: scale(1.1);
 }
- /* .Adventure:hover{
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    padding: 0px 30px;
-} */
-/*
-.Horror{
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    padding: 0px 30px;
+.Adventure,
+.Horror,
+.Romance,
+.Humour,
+.Non-fiction {
+	text-decoration: none;
+	font-family: 'Nunito', sans-serif;
+	padding: 0px 30px;
 }
 
-.Romance{
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    padding: 0px 30px;
+@media all and (max-width: 1032px) {
+	.links-container {
+		font-size: 1.4rem;
+	}
 }
 
-.Humour{
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    padding: 0px 30px;
+@media all and (max-width: 920px) {
+	.links-container {
+		font-size: 1.3rem;
+	}
 }
 
-.Non-fiction{
-    text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    padding: 0px 30px;
-} */
+@media all and (max-width: 800px) {
+	.links-container {
+		font-size: 1rem;
+	}
+}
+
+@media all and (max-width: 697px) {
+	.links-container {
+		font-size: 0.8rem;
+	}
+}
+
+@media all and (max-width: 625px) {
+	.links-container {
+		font-size: 0.7rem;
+	}
+}
+
+@media all and (max-width: 583px) {
+	.links-container {
+		font-size: 0.5rem;
+	}
+}
+
+@media all and (max-width: 513px) {
+	.links-container {
+		font-size: 0.9rem;
+		padding: 0% 30% 0% 30%;
+		display: block;
+	}
+	.categories {
+		margin: 5%;
+	}
+}
+
+@media all and (max-width: 363px) {
+	.links-container {
+		padding: 0% 20% 0% 20%;
+	}
+}
+
+@media all and (max-width: 243px) {
+	.links-container {
+		padding: 0% 10% 0% 10%;
+		display: block;
+	}
+}

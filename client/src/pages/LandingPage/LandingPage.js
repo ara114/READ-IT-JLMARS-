@@ -19,6 +19,7 @@ function LandingPage() {
 	}, [])
 	window.addEventListener('resize', handleResize)
 	return (
+			<div className='back'>
 		<Background>
 			<section className='text'>
 				<h1>READ-IT</h1>
@@ -35,6 +36,7 @@ function LandingPage() {
 				</Link>
 			</section>
 		</Background>
+			</div>
 	)
 }
 

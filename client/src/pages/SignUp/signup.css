@@ -50,7 +50,6 @@
 @media all and (max-width: 1400px) {
 	.signCard {
 		width: 36%;
-		height: 54%;
 	}
 	.errorMsg {
 		font-size: 10px;
@@ -80,7 +79,6 @@
 @media all and (max-width: 730px) {
 	.signCard {
 		width: 66%;
-		height: 52%;
 		padding: 1rem 2rem 2rem 2rem;
 	}
 
@@ -92,7 +90,6 @@
 @media all and (max-width: 540px) {
 	.signCard {
 		width: 76%;
-		height: 46%;
 	}
 
 	.signCard label {
@@ -111,7 +108,6 @@
 @media all and (max-width: 380px) {
 	.signCard {
 		width: 86%;
-		height: 45%;
 	}
 
 	.signCard label {
@@ -128,11 +124,90 @@
 		width: 86%;
 	}
 
-	.casignCardrd label {
+	.signCardrd label {
 		margin: 10px 0;
 		font-size: 14px;
 	}
 	.signCard input {
 		font-size: 14px;
+	}
+}
+
+@media all and (max-height: 920px) {
+	.signCard {
+		height: 53%;
+	}
+}
+
+@media all and (max-height: 858px) {
+	.signCard {
+		height: 57%;
+	}
+}
+
+@media all and (max-height: 800px) {
+	.signCard {
+		height: 60%;
+	}
+}
+
+@media all and (max-height: 756px) {
+	.signCard {
+		height: 68%;
+	}
+}
+@media all and (max-height: 664px) {
+	.signCard {
+		height: 74%;
+	}
+}
+@media all and (max-height: 619px) {
+	.signCard {
+		height: 80%;
+	}
+}
+@media all and (max-height: 565px) {
+	.signCard {
+		height: 87%;
+	}
+}
+@media all and (max-height: 532px) {
+	.signCard {
+		height: 92%;
+	}
+}
+@media all and (max-height: 495px) {
+	.signCard {
+		height: 84%;
+	}
+	.signCard label {
+		margin: 10px 0;
+		font-size: 19px;
+	}
+	.signCard input {
+		font-size: 12px;
+	}
+}
+@media all and (max-height: 430px) {
+	.signCard {
+		height: 84%;
+	}
+	.signCard label {
+		margin: 10px 0;
+		font-size: 14px;
+	}
+	.signCard input {
+		font-size: 10px;
+	}
+	.loginBtn{
+		font-size: 13px;
+		width: 20%;
+		margin-top: -5%;
+	}
+}
+
+@media all and (max-height: 430px) {
+	.signCard {
+		height: 92%;
 	}
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Container from '../../components/container/container';
+import Container from '../../components/container/Container';
 import {TextField, Button, Typography, Paper, Grow} from '@material-ui/core';
 import useStyles from './styles';
 import FileBase from 'react-file-base64';
@@ -10,6 +10,7 @@ import Select from '@mui/material/Select';
 import {useDispatch} from 'react-redux';
 import { createStory } from '../../actions/stories';
 import TextEditor from '../../components/TextEditor/TextEditor';
+import { useNavigate} from 'react-router-dom';
 const Create = () => {
   const dispatch = useDispatch();  
   // function makeid() {
@@ -25,7 +26,7 @@ const Create = () => {
   // }
 
   const classes = useStyles();
-
+  const navigate = useNavigate()
   const [storyData, setStoryData] = useState({
     image: '',
     author: '',
@@ -37,11 +38,14 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    dispatch(createStory(storyData))
+    dispatch(createStory(storyData)).then(() => {
+			navigate('/home', { replace: true })
+		})
 }
 
 	return (
 		<Container>
+      {/* {console.log(window.location.pathname)} */}
       <Grow in>
         <Paper className= {classes.paper}>
           <form autoComplete="off"  noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>

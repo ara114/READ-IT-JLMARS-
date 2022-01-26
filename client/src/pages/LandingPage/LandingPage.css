@@ -17,6 +17,13 @@
 	font-style: italic;
 }
 
+.back{
+	background: url('../../../public/images/background_Img.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 .Buttons {
 	padding-top: 1%;
 }

@@ -1,7 +1,7 @@
 import Recommended from '../../components/Recommended/Recommended'
 import Categories from '../../components/Categories/Categories'
 import Write from '../../components/Write/Write'
-import Container from '../../components/container/container'
+import Container from '../../components/container/Container'
 import {getStories} from '../../actions/stories';
 import {useDispatch} from 'react-redux';
 import React, {useEffect} from 'react';
