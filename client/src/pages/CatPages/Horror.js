@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux';
 import React, {useEffect} from 'react';
 import {getStories} from '../../actions/stories';
 import {CircularProgress} from '@material-ui/core';
+import NavBar from '../../components/navbar/NavBar';
 function Horror() {
 	const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ function Horror() {
 
 	return (
 		!stories.length ? <CircularProgress/> : (
-			<Container>
+			<Container nav={<NavBar/>}>
 				<h1>Horror</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
