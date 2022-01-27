@@ -15,7 +15,6 @@ import {CircularProgress} from '@material-ui/core';
 function Carousel() {
 
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		dispatch(getStories());
 	}, [dispatch]);
@@ -104,7 +103,7 @@ function Carousel() {
 							<TBox key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{stories.map((story) => (
-							<TBox key={story._id} img={story.image} to={''} name={story.title} />
+							<TBox key={story._id} img={story.image} to={`/${story.title}`} name={story.title}/>
 						))}
 					</Slider>
 				)}

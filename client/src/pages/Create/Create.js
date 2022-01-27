@@ -27,7 +27,7 @@ const Create = () => {
   // }
 
   const classes = useStyles();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [storyData, setStoryData] = useState({
     image: '',
     author: '',

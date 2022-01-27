@@ -4,8 +4,21 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import storyRoutes from './routes/stories.js';
 import dotenv from 'dotenv';
+// import { Server } from "socket.io";
+// import { createServer } from 'http';
 
 const app = express();
+// const server = createServer(app); 
+// const io = new Server(server, {
+//     cors: {
+//         origin: 'http://localhost:3000',
+//         method: ['GET', 'POST']
+//     }
+// });
+
+// io.on('connection', socket => {
+//     console.log('connected');
+// })
 dotenv.config();
 
 app.use(bodyParser.json({limit: '30mb', extended: true}));
