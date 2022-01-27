@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
 const storySchema = mongoose.Schema({
+    storyID: String,
     title: String,
     author: String,
-    story: String,
     image: String,
     category: String,
+    story: Object,
     likeCount: {
         type: Number,
         default: 0

@@ -29,6 +29,7 @@ const Create = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [storyData, setStoryData] = useState({
+    storyID: '',
     image: '',
     author: '',
     title: '',
@@ -38,7 +39,7 @@ const Create = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    console.log(storyData);
     dispatch(createStory(storyData)).then(() => {
 			navigate('/home', { replace: true })
 		})

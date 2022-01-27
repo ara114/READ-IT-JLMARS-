@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
 import Login from './pages/Login/Login'
@@ -15,6 +15,7 @@ import About from './Settings/About/About'
 import Account from './Settings/Account/Account'
 import Security from './Settings/Security/Security'
 import Settings from './Settings/Settings'
+import {v4 as uuidV4} from 'uuid' 
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
@@ -31,7 +32,11 @@ function App() {
 				<Route path='/category/humour' element={<Humour />} />
 				<Route path='/category/nonFiction' element={<NonFiction />} />
 				<Route path='/category/romance' element={<Romance />} />
-				<Route path='/Create' element={<Create />} />
+				<Route
+					path="/Create"
+					element={<Navigate to= {`/Create/${uuidV4()}`} ><Create/></Navigate>}
+				/>
+				<Route path='/Create/:id' element={<Create />} />
 				<Route path="/settings" exact element={<Settings/>} /> 
 				<Route path="/about" exact element={<About/>} />
 				<Route path="/account" exact element={<Account/>} />
