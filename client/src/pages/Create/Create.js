@@ -12,7 +12,10 @@ import { createStory } from '../../actions/stories';
 import TextEditor from '../../components/TextEditor/TextEditor';
 import { useNavigate} from 'react-router-dom';
 import NavBar from '../../components/navbar/NavBar';
+import {useParams} from 'react-router-dom';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 const Create = () => {
+  const {id: docID} = useParams();
   const dispatch = useDispatch();  
   // function makeid() {
   //     var length = 5;
@@ -28,8 +31,9 @@ const Create = () => {
 
   const classes = useStyles();
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
   const [storyData, setStoryData] = useState({
-    storyID: '',
+    storyID: docID,
     image: '',
     author: '',
     title: '',
@@ -51,7 +55,20 @@ const Create = () => {
       <Grow in>
         <Paper className= {classes.paper}>
           <form autoComplete="off" className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Writing a Story</Typography>
+                <Typography variant="h6">
+                  Room code: 
+                </Typography>
+                <TextField disabled
+                    fullWidth
+                    inputProps={{style: { textAlign: 'center' }}}
+                    variant="outlined"
+                    defaultValue={docID}/>
+                  <CopyToClipboard text={docID}
+                    onCopy={() => setCopied(true)}>
+                    <Button variant="contained" style={{backgroundColor: "#8e05c2", color: "#fff"}}>
+                      {!copied ? "Copy" : "Copied!"}
+                    </Button>
+                  </CopyToClipboard>
                 {/* <Typography variant="h6">{currentID ? 'Editing' : 'Creating'} a memory</Typography> */}
                 {/* <Typography variant="h6"> Room code: {makeid()}</Typography> */}
                 <div className={classes.fileInput}>
@@ -81,7 +98,7 @@ const Create = () => {
                 <TextField name="title" variant="outlined" label="Title" fullWidth value={storyData.title} onChange={(e) => setStoryData({...storyData, title: e.target.value})} required />
                 <TextField name="author" variant="outlined" label="Author" fullWidth value={storyData.author} onChange={(e) => setStoryData({...storyData, author: e.target.value})} required />
                 {/* <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required /> */}
-                <TextEditor/>
+                <TextEditor docID={docID}/>
                 <Button className={classes.buttonSubmit} variant="contained" style={{backgroundColor: "#8e05c2", color: "#fff"}} size="large" type="submit" fullWidth>Upload</Button>
             </form>
         </Paper>

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Write.css'
 import { Link } from 'react-router-dom'
+import {v4 as uuidV4} from 'uuid' 
 const Write = () => {
     const scrollToTop = () => {
 		window.scrollTo({
@@ -12,7 +13,7 @@ const Write = () => {
         <div className="write-header">
             Write
             <div className="write-container">
-                <Link to='/Create' className='nostyle write Create' onClick={scrollToTop}>Create a Lobby</Link>
+                <Link to={`/Create/${uuidV4()}`} className='nostyle write Create' onClick={scrollToTop}>Create a Lobby</Link>
                 <Link to='/Join' className='nostyle write Join'>Join a Lobby</Link>
             </div>
         </div>

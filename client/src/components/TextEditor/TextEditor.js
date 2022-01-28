@@ -3,7 +3,7 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import './TextEditor.css';
 import {io} from 'socket.io-client';
-import {useParams} from 'react-router-dom';
+// import {useParams} from 'react-router-dom';
 
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
@@ -17,8 +17,9 @@ const TOOLBAR_OPTIONS = [
     ["image", "blockquote", "code-block"],
     ["clean"]
 ]
-export default function TextEditor() {
-    const {id: docID} = useParams();
+export default function TextEditor(props) {
+    // const {id: docID} = useParams();
+    const docID = props.docID;
     const [socket, setSocket] = useState();
     const [quill, setQuill] = useState();
     console.log(docID);
