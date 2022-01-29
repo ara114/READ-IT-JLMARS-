@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/navbar/NavBar'
 import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import './Create.css'
+
 const Create = () => {
 	const { id: docID } = useParams()
 	const dispatch = useDispatch()
