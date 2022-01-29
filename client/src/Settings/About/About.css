@@ -1,29 +1,59 @@
 .abt-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .bg-img {
-    background-image: url('/public/images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    background-position: center;
-    background-size: cover; 
-    border-bottom: 4px solid #8E05C2;
+	background-image: url('/public/images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
+	top: 0;
+	left: 0;
+	width: 91%;
+	height: 500px;
+	background-position: center;
+	background-size: cover;
+	border-bottom: 4px solid #8e05c2;
 }
 
 .content-setting {
-    margin: 1em 12em 0 12em;
-    font-size: 1.2em;
+	margin: 1em 2em 0 2em;
+	font-size: 1em;
 }
 
 .page-title {
-    color: #fff;
-    font-size: 3em;
-    text-align: center;
-    padding-top: 2em;
+	color: #fff;
+	font-size: 3em;
+	text-align: center;
+	padding-top: 1.5em;
+}
+
+@media only screen and (max-width: 528px) {
+	.page-title {
+		font-size: 2.5em;
+		margin-top: 15px;
+	}
+	.content-setting {
+		font-size: 0.8em;
+	}
+}
+
+@media only screen and (max-width: 444px) {
+	.page-title {
+		font-size: 2em;
+		margin-top: 50px;
+	}
+	.content-setting {
+		font-size: 0.6em;
+	}
+}
+
+@media only screen and (max-width: 356px) {
+	.page-title {
+		font-size: 1.4em;
+		margin-top: 100px;
+	}
+	.content-setting {
+		font-size: 0.5em;
+	}
 }
