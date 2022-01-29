@@ -16,7 +16,7 @@ const Create = () => {
 	}
 
 	return (
-		<Container nav={<NavBar />}>
+		<Container contentClass={'joinContent'} nav={<NavBar />}>
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>

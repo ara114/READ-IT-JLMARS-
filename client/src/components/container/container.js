@@ -7,14 +7,11 @@ function Container(props) {
 		<div className='common'>
 			<div className='container'>
 				{props.nav}
-				<div className='content'>{props.children}</div>
+				<div className={`content ${props.contentClass}`}>{props.children}</div>
 			</div>
 			<Footer />
 		</div>
 	)
 }
- 
 
 export default Container
-
-
