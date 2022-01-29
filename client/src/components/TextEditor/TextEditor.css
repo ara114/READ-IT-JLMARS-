@@ -1,29 +1,91 @@
-.text-content .ql-editor{
-    width: 8.5in;
-    min-height: 5in;
-    padding: 1in;
-    margin: 1rem;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
-    background-color: white;
+.text-content .ql-editor {
+	width: 8.5in;
+	min-height: 5in;
+	padding: 4rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+	background-color: white;
 }
 
-.text-content{
-    padding: 0.2in 0 1in 0;
+.text-content {
+	padding: 0.2in 0 1in 0;
 }
 
-.text-content .ql-container.ql-snow{
-    border: none;
-    display: flex;
-    justify-content: center; 
+.text-content .ql-container.ql-snow {
+	border: none;
+	display: flex;
+	justify-content: center;
 }
 
-.text-content  .ql-toolbar.ql-snow {
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 5.5rem;
-    z-index: 20;
-    background-color: #F3F3F3;
-    border: none;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
-  }
+.text-content .ql-toolbar.ql-snow {
+	display: flex;
+	justify-content: center;
+	position: sticky;
+	top: 5.5rem;
+	z-index: 20;
+	background-color: #f3f3f3;
+	border: none;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 878px) {
+	.text-content .ql-editor {
+		width: 6.5in;
+		min-height: 5in;
+	}
+	.ql-toolbar.ql-snow {
+		width: 6.5in;
+	}
+	.ql-editor {
+		max-height: 99%;
+	}
+}
+
+@media only screen and (max-width: 686px) {
+	.text-content .ql-editor {
+		width: 4.5in;
+	}
+	.text-content .ql-toolbar.ql-snow {
+		display: block;
+		width: 4.5in;
+	}
+}
+
+@media only screen and (max-width: 490px) {
+	.text-content .ql-editor {
+		width: 3.5in;
+		min-height: 5in;
+		padding: 1rem;
+		margin-bottom: 0rem;
+	}
+	.text-content .ql-toolbar.ql-snow {
+		display: block;
+		width: 3.5in;
+	}
+	.ql-editor {
+		max-height: 99%;
+		margin-top: -10%;
+	}
+}
+
+@media only screen and (max-width: 396px) {
+	.text-content .ql-editor {
+		width: 3.5in;
+		min-height: 5in;
+	}
+	.text-content .ql-toolbar.ql-snow {
+		display: block;
+		width: 3.5in;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.text-content .ql-editor {
+		width: 2.9in;
+		min-height: 5in;
+	}
+	.text-content .ql-toolbar.ql-snow {
+		display: block;
+		width: 2.9in;
+	}
+}
