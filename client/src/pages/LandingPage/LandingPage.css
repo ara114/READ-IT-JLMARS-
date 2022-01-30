@@ -17,11 +17,18 @@
 	font-style: italic;
 }
 
-.back{
+.back {
 	background: url('../../../public/images/background_Img.jpg');
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	object-fit: contain;
 }
 
 .Buttons {

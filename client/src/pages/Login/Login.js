@@ -2,10 +2,9 @@ import React from 'react'
 import './Login.css'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
-import Background from '../../components/backgroundImg/Background'
 function Login(props) {
 	return (
-		<Background>
+		<div className='loginSignUpContainer'>
 			<div className='card'>
 				<label>Email</label>
 				<input className='control' type='text' required placeholder='Email address' />
@@ -27,7 +26,7 @@ function Login(props) {
 					</Link>
 				</div>
 			</div>
-		</Background>
+		</div>
 	)
 }
 

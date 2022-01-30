@@ -1,15 +1,23 @@
-
+.loginSignUpContainer {
+	background-color: #fafafa;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	object-fit: contain;
+}
 .card {
-	background-color: rgb(0, 0, 0);
+	background-color: #ffffff;
 	width: 26%;
 	height: 40%;
 	padding: 1rem 3rem 1rem 2rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border-radius: 6px;
-	box-shadow: 0 2px 8px #700b97;
-	border-radius: 5%;
+	box-shadow: 0 0px 5px #3e065f;
+	border-radius: 3%;
 }
 
 .errorMsg {
@@ -26,7 +34,7 @@
 	letter-spacing: 1px;
 }
 .card label {
-	color: #610796;
+	color: black;
 	margin: 5% 0;
 	display: block;
 	font-size: 22px;
@@ -41,10 +49,10 @@
 	width: 105%;
 	border-radius: 20px;
 	border-color: #3e065f;
-	font-size: 19px;
+	font-size: 15px;
 	padding: 10px;
-	background: rgb(0, 0, 0);
-	color: #ffffff;
+	background: #ffffff;
+	color: black;
 	letter-spacing: 1px;
 	font-family: 'Signika', sans-serif;
 }
@@ -69,7 +77,7 @@
 	margin-right: 5%;
 	margin-top: 0.5%;
 	font-size: 15px;
-	color: #700b97;
+	color: black;
 	font-family: 'Signika', sans-serif;
 }
 
@@ -128,8 +136,8 @@
 	.card input {
 		font-size: 17px;
 	}
-	.msg {
-		font-size: 12px;
+	.msgContainer {
+		padding-top: 10%;
 	}
 }
 
@@ -166,11 +174,10 @@
 	.card input {
 		font-size: 14px;
 	}
-	.msg {
-		font-size: 10px;
+	.msgContainer {
+		padding-top: 30%;
 	}
 }
-
 
 @media all and (max-height: 920px) {
 	.card {
@@ -225,5 +232,21 @@
 	}
 	.card input {
 		font-size: 12px;
+	}
+}
+
+@media all and (max-height: 343px) and (max-width: 306px) {
+	.card {
+		height: 84%;
+	}
+	.card label {
+		margin: 10px 0;
+		font-size: 15px;
+	}
+	.card input {
+		font-size: 12px;
+	}
+	.msgContainer {
+		padding-bottom: 15%;
 	}
 }

@@ -33,10 +33,9 @@ root {
 	align-items: center;
 	width: 40%;
 	background-color: black;
-
 	color: white;
 	padding: 8px 20px;
-	border: 2px solid #3e065f;
+	border: 2px solid #4d0e66;
 	border-radius: 18px;
 	transition: all 0.3s ease-out;
 	font-family: 'Signika', sans-serif;
@@ -48,7 +47,7 @@ root {
 	width: 40%;
 	background-color: black;
 	color: white;
-	border: 2px solid #3e065fa2;
+	border: 2px solid #4d0e66;
 	border-radius: 18px;
 
 	font-family: 'Signika', sans-serif;
@@ -81,13 +80,17 @@ root {
 	font-size: 30px;
 }
 
-.tester:hover,
+.tester:hover {
+	color: #34036b;
+	transition: all 0.3s ease-out;
+}
+
 .primaryBtn:hover {
 	color: #8e05c2;
 	transition: all 0.3s ease-out;
 }
 .loginBtn:hover {
-	background-color: #3e065fa2;
+	background-color: #34036b;
 	transition: all 0.3s ease-out;
 }
 .secondaryBtn:hover {

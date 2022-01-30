@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import '../SignUp/signup.css'
+import '../Login/Login.css'
 import { useAuth } from '../../contexts/AuthContext'
-import Background from '../../components/backgroundImg/Background'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
 function SignUp() {
@@ -28,7 +28,8 @@ function SignUp() {
 	// 	setLoading(false)
 	// }
 	return (
-		<Background>
+		<div className='loginSignUpContainer'>
+			{' '}
 			<div className='signCard'>
 				<section className='loginContainer'>
 					<form>
@@ -58,7 +59,7 @@ function SignUp() {
 					</form>
 				</section>
 			</div>
-		</Background>
+		</div>
 	)
 }
 
