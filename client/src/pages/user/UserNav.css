@@ -10,18 +10,6 @@
 	background-color: #fafafa;
 }
 
-.userNavLogo {
-	font-family: 'Playfair Display', serif;
-	color: #8e05c2;
-	justify-self: start;
-	margin-left: 20px;
-	cursor: pointer;
-	text-decoration: none;
-	font-size: 3rem;
-	display: flex;
-	align-items: center;
-}
-
 .itemNav {
 	height: 10vh;
 	padding: 0%;

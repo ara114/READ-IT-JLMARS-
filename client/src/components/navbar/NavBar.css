@@ -93,6 +93,7 @@
 		display: block;
 		font-size: 1.8rem;
 		margin-right: 20px;
+		color: #8e05c2;
 	}
 	.fa-times {
 		display: block;
@@ -149,5 +150,13 @@
 	}
 	.menuIcon {
 		display: block;
+	}
+}
+@media screen and (max-width: 450px) {
+	.navbar {
+		padding-top: 4%;
+	}
+	.userNav {
+		padding-top: 4%;
 	}
 }

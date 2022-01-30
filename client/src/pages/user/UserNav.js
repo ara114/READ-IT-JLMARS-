@@ -1,7 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Categories from '../../components/Categories/Categories'
 import './UserNav.css'
 function UserNav() {
 	// These states help in closing the shadow box
@@ -22,7 +21,7 @@ function UserNav() {
 			<nav className='userNav'>
 				{/* <div className='navbarContainer'> */}
 
-				<Link to='/home' className='userNavLogo' onClick={closeMobileMenu}>
+				<Link to='/home' className='navbarLogo' onClick={closeMobileMenu}>
 					{/* This is the logo with the name of the website, which can be found on the left */}
 					<div onClick={scrollToTop}>Readit</div>
 				</Link>
