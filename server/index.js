@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import { Server } from "socket.io";
 import { createServer } from 'http';
 import storyText from './models/storyText.js';
+import userRoutes from './routes/users.js';
 
 const app = express();
 const server = createServer(app); 
@@ -47,6 +48,7 @@ app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 app.use(cors());
 
 app.use('/stories', storyRoutes);
+app.use('/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
