@@ -1,3 +1,4 @@
+
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
@@ -11,6 +12,7 @@ import Humour from './pages/CatPages/Humour.js'
 import NonFiction from './pages/CatPages/NonFiction'
 import Romance from './pages/CatPages/Romance'
 import Create from './pages/Create/Create'
+import Join from './pages/Join/Join'
 import About from './Settings/About/About'
 import Account from './Settings/Account/Account'
 import Security from './Settings/Security/Security'
@@ -37,6 +39,7 @@ function App() {
 					element={<Navigate to= {`/Create/${uuidV4()}`} ><Create/></Navigate>}
 				/>
 				<Route path='/Create/:id' element={<Create />} />
+				<Route path='/Join' element={<Join />} />
 				<Route path="/settings" exact element={<Settings/>} /> 
 				<Route path="/about" exact element={<About/>} />
 				<Route path="/account" exact element={<Account/>} />
