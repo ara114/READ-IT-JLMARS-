@@ -22,7 +22,7 @@ function NonFiction() {
 				<h1>Non-Fiction</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
-						story.category === 'Non-Fiction' && (<TBox key={story._id} img={story.image} to={`/${story._id}`} name={story.title} />)
+						story.category === 'Non-Fiction' && (<TBox key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} />)
 					))}
 				</div>
 			</Container>

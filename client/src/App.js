@@ -17,6 +17,7 @@ import About from './Settings/About/About'
 import Account from './Settings/Account/Account'
 import Security from './Settings/Security/Security'
 import Settings from './Settings/Settings'
+import Read from './pages/Read/Read'
 import {v4 as uuidV4} from 'uuid' 
 // import { AuthProvider } from './contexts/AuthContext'
 
@@ -40,6 +41,7 @@ function App() {
 				/>
 				<Route path='/Create/:id' element={<Create />} />
 				<Route path='/Join' element={<Join />} />
+				<Route path='/:id' element={<Read />} />
 				<Route path="/settings" exact element={<Settings/>} /> 
 				<Route path="/about" exact element={<About/>} />
 				<Route path="/account" exact element={<Account/>} />

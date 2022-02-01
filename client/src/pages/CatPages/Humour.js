@@ -23,7 +23,7 @@ function Humour() {
 				<h1>Humour</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
-						story.category === 'Humour' && (<TBox key={story._id} img={story.image} to={`/${story._id}`} name={story.title} />)
+						story.category === 'Humour' && (<TBox key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} />)
 					))}
 				</div>
 			</Container>
