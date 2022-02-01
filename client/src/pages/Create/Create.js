@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/navbar/NavBar'
 import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { io } from 'socket.io-client'
 
 const Create = () => {
 	const { id: docID } = useParams()
@@ -41,6 +42,16 @@ const Create = () => {
 		story: '',
 		category: '',
 	})
+	const [socket, setSocket] = useState()
+
+	useEffect(() => {
+		const s = io('http://localhost:5000')
+		setSocket(s)
+
+		return () => {
+			s.disconnect()
+		}
+	}, [])
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -127,7 +138,7 @@ const Create = () => {
 							required
 						/>
 						{/* <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required /> */}
-						<TextEditor docID={docID} />
+						<TextEditor docID={docID} socket={socket}/>
 						<Button
 							className={classes.buttonSubmit}
 							variant='contained'
