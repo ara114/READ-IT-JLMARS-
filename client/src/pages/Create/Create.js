@@ -17,6 +17,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { io } from 'socket.io-client'
 
 const Create = () => {
+	const home = 'home';
 	const { id: docID } = useParams()
 	const dispatch = useDispatch()
 	// function makeid() {
@@ -53,12 +54,64 @@ const Create = () => {
 		}
 	}, [])
 
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (titles) => {
+			setStoryData({ ...storyData, title: titles })
+		}
+		socket.on('receive-title', handler)
+
+		return () => {
+			socket.off('receive-title', handler)
+
+		}
+	}, [socket,storyData]);
+
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (authors) => {
+			setStoryData({ ...storyData, author: authors })
+		}
+		socket.on('receive-author', handler)
+
+		return () => {
+			socket.off('receive-author', handler)
+
+		}
+	}, [socket,storyData])
+
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (categories) => {
+			setStoryData({ ...storyData, category: categories })
+		}
+		socket.on('receive-category', handler)
+
+		return () => {
+			socket.off('receive-category', handler)
+
+		}
+	}, [socket,storyData])
+
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (hom) => {
+			navigate(`/${hom}`, { replace: true })
+		}
+		socket.on('receive-form', handler)
+
+		return () => {
+			socket.off('receive-form', handler)
+
+		}
+	}, [socket, navigate])
+
 	const handleSubmit = (e) => {
-		e.preventDefault()
-		console.log(storyData)
-		dispatch(createStory(storyData)).then(() => {
-			navigate('/home', { replace: true })
-		})
+		e.preventDefault();
+		// console.log(storyData)
+		dispatch(createStory(storyData));
+		navigate('/home', { replace: true })
+
 	}
 
 	return (
@@ -66,7 +119,7 @@ const Create = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={handleSubmit}>
+					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit',home)}}>
 						<Typography variant='h6'>Room code:</Typography>
 						<TextField
 							disabled
@@ -96,7 +149,7 @@ const Create = () => {
 								label='Category'
 								size='small'
 								sx={{ margin: 1 }}
-								onChange={(e) => setStoryData({ ...storyData, category: e.target.value })}
+								onChange={(e) => {setStoryData({ ...storyData, category: e.target.value }); socket.emit('send-category', e.target.value)}}
 								required
 							>
 								<MenuItem value={'Adventure'} className='menuItems'>
@@ -124,7 +177,7 @@ const Create = () => {
 							fullWidth
 							size='small'
 							value={storyData.title}
-							onChange={(e) => setStoryData({ ...storyData, title: e.target.value })}
+							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title', e.target.value)}}
 							required
 						/>
 						<TextField
@@ -134,11 +187,11 @@ const Create = () => {
 							fullWidth
 							size='small'
 							value={storyData.author}
-							onChange={(e) => setStoryData({ ...storyData, author: e.target.value })}
+							onChange={(e) => {setStoryData({ ...storyData, author: e.target.value }); socket.emit('send-author', e.target.value)}}
 							required
 						/>
 						{/* <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required /> */}
-						<TextEditor docID={docID} socket={socket}/>
+						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
 							variant='contained'

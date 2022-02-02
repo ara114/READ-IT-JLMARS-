@@ -51,6 +51,8 @@ export default function TextEditor(props) {
 		}, SAVE_INTERVAL_MS)
 		return () => {
 			clearInterval(interval)
+			// props.setStoryData({...props.storyData, story: quill.getContents()});
+			// console.log(props.storyData);
 		}
 	}, [props.socket, quill])
 
@@ -63,6 +65,7 @@ export default function TextEditor(props) {
 
 		return () => {
 			props.socket.off('receive-changes', handler)
+
 		}
 	}, [props.socket, quill])
 
