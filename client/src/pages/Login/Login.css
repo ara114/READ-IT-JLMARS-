@@ -74,13 +74,19 @@
 .msg {
 	display: flex;
 	justify-content: center;
-	margin-right: 5%;
+	margin-right: 3%;
 	margin-top: 0.5%;
 	font-size: 15px;
-	color: #700b97;
+	color: grey;
 	font-family: 'Signika', sans-serif;
 }
 
+.linkText {
+	color: #700b97;
+	font-size: 15px;
+	font-family: 'Signika', sans-serif;
+	text-decoration: none;
+}
 @media all and (max-width: 1400px) {
 	.card {
 		width: 36%;
