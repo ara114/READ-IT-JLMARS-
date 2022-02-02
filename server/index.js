@@ -6,7 +6,7 @@ import storyRoutes from './routes/stories.js';
 import dotenv from 'dotenv';
 import { Server } from "socket.io";
 import { createServer } from 'http';
-import storyText from './models/storyText.js';
+import storyText from './models/storyMessage.js';
 import userRoutes from './routes/users.js';
 
 const app = express();
@@ -23,18 +23,32 @@ const io = new Server(server
 const defaultValue = "";
 
 io.on('connection', socket => {
+    
+
 
     socket.on('get-document', async docID => {
-        const story = await findOrCreateStory(docID);
+        const storyy = await findOrCreateStory(docID);
         socket.join(docID);
-        socket.emit('load-document', story.data);
+        socket.emit('load-document', storyy.story);
         socket.on('send-changes', delta => {
         socket.broadcast.to(docID).emit('receive-changes', delta);
         });
+        socket.on('send-title', titles => {
+            socket.broadcast.to(docID).emit('receive-title', titles);
+        })
+        socket.on('send-author', authors => {
+            socket.broadcast.to(docID).emit('receive-author', authors);
+        })
+        socket.on('send-category', categories => {
+            socket.broadcast.to(docID).emit('receive-category', categories);
+        })
+        socket.on('form-submit', home => {
+            socket.broadcast.to(docID).emit('receive-form', home);
+        })
 
         socket.on('save-document', async data => {
-            await storyText.findByIdAndUpdate(docID, {data})
-            // const s = await storyText.find({storyID: docID});
+            await storyText.findOneAndUpdate({storyID: docID}, {story: data}, {new: true})
+            // const s = await storyText.findOne({storyID: docID});
             // console.log(s);
         })
     });
@@ -55,10 +69,11 @@ mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedT
     .then(() => server.listen(PORT, () => console.log(`Server running on port ${PORT}`))) // if successful connection
     .catch((err) => console.log(err.message)); // if failure
 
-async function findOrCreateStory(id){
-    if(id == null) return;
+async function findOrCreateStory(mid){
+    if(mid == null) return;
 
-    const story = await storyText.findById(id);
-    if(story) return story;
-    return await storyText.create({_id: id, data: defaultValue});
+    const hmm = await storyText.findOne({storyID: mid});
+    if(hmm) 
+        return hmm;
+    return await storyText.create({storyID: mid, image: '', author: '', title: '', category: '', story: defaultValue});
 }
