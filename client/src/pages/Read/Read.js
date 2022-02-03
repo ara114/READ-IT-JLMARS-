@@ -26,6 +26,7 @@ const Read = () => {
 								<img src={storyy.image} alt={`${storyy.title}`} className='readImg' />
 							</div>
 							<div className='title-container'>{storyy.title}</div>
+							<div className='author-container'>Author(s): {storyy.author}</div>
 							{/* <p>HEllo {JSON.stringify(storyy.story)}</p> */}
 							{console.log(storyy.story)}
 						</div>

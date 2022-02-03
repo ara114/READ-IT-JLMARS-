@@ -22,3 +22,14 @@ export const createStory = (story) => async (dispatch) => {
     }
 
 }
+
+export const deleteStory = (id) => async (dispatch) => {
+
+    try {
+        await api.deleteStory(id);
+        dispatch({type: 'DELETE', payload: id});
+    } catch (error) {
+        console.log(error);
+    }
+
+}

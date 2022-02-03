@@ -19,7 +19,7 @@ import { io } from 'socket.io-client'
 const Create = () => {
 	const home = 'home';
 	const { id: docID } = useParams()
-	const dispatch = useDispatch()
+	const dispatchh = useDispatch()
 	// function makeid() {
 	//     var length = 5;
 	//     var result           = '';
@@ -96,7 +96,7 @@ const Create = () => {
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (storyDat) => {
-			dispatch(createStory(storyDat));
+			dispatchh(createStory(storyDat));
 			navigate('/home', { replace: true })
 		}
 		socket.on('receive-form', handler)
@@ -105,7 +105,7 @@ const Create = () => {
 			socket.off('receive-form', handler)
 
 		}
-	}, [socket, dispatch ,navigate])
+	}, [socket, dispatchh])
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

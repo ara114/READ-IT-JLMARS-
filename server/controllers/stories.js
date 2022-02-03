@@ -22,3 +22,12 @@ export const createStory = async (req, res) => {
     }
 
 }
+
+export const deleteStory = async (req, res) => {
+    const { id } = req.params;
+
+    await StoryMessage.findOneAndRemove({storyID: id});
+
+    res.json({message: 'Story deleted.'});
+
+}

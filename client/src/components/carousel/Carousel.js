@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import './carousel.css'
-import TBox from '../Stories/TBox'
+import Story from '../Stories/Story'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded'
 import {useDispatch} from 'react-redux';
@@ -100,10 +100,10 @@ function Carousel() {
 				{!stories.length ? <CircularProgress/> : (
 					<Slider {...properties}>
 						{/* {boxInfo.map((box, index) => (
-							<TBox key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
+							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{stories.map((story) => (
-							<TBox key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title}/>
+							<Story key={story._id} storyID={story.storyID} img={story.image} to={`/${story.storyID}`} name={story.title} likes={story.likeCount}/>
 						))}
 					</Slider>
 				)}

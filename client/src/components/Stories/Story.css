@@ -51,7 +51,7 @@
 
 .name {
 	/* changed the middle padding to 10px from 20px */
-	padding: 15px 15px 15px;
+	padding: 15px 15px 0px;
 	display: flex;
 	justify-content: center;
 	text-decoration: none;
@@ -60,6 +60,10 @@
 	line-height: 22px;
 	background: none;
 	font-family: 'PT Sans', sans-serif;
+}
+.s{
+	display: flex;
+	justify-content: space-between;
 }
 /* 
 Note for future self: The more the size of the cards increase, increase the size of th padding which is found in the item.

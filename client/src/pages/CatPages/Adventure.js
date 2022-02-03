@@ -1,5 +1,5 @@
 import Container from '../../components/container/container'
-import TBox from '../../components/Stories/TBox'
+import Story from '../../components/Stories/Story'
 import './Cat.css'
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
@@ -22,7 +22,7 @@ function Adventure() {
 				<h1>Adventure</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
-						story.category === 'Adventure' && (<TBox key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} />)
+						story.category === 'Adventure' && (<Story key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} likes={story.likeCount}/>)
 					))}
 				</div>
 			</Container>
