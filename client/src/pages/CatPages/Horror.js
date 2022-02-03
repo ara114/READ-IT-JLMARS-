@@ -22,7 +22,7 @@ function Horror() {
 				<h1>Horror</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
-						story.category === 'Horror' && (<Story key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} likes={story.likeCount}/>)
+						story.category === 'Horror' && (<Story key={story._id} story={story}/>)
 					))}
 				</div>
 			</Container>

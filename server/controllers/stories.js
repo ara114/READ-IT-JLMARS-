@@ -29,7 +29,7 @@ export const likeStory = async (req, res) => {
     const story = await StoryMessage.findOne({storyID: id});
     const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, {likeCount: story.likeCount + 1}, {new: true})
 
-    res.json({message: 'Liked story'});
+    res.json(updatedStory);
 
 }
 

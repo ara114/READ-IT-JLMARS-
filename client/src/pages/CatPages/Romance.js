@@ -22,7 +22,7 @@ function Romance() {
 				<h1>Romance</h1>
 				<div className='cat-container'>
 					{stories.map((story) => (
-						story.category === 'Romance' && (<Story key={story._id} img={story.image} to={`/${story.storyID}`} name={story.title} likes={story.likeCount}/>)
+						story.category === 'Romance' && (<Story key={story._id} story={story}/>)
 					))}
 				</div>
 			</Container>

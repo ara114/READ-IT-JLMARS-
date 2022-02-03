@@ -5,23 +5,23 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteStory, likeStory } from '../../actions/stories';
-function Story(props) {
+function Story({story}) {
 	const dispatch = useDispatch();
 	return (
 		<div className='item'>
 			<div className='link'>
-				<Link to={props.to} className='link'>
+				<Link to={`/${story.storyID}`} className='link'>
 				<figure className='pictureWrap'>
-					<img src={props.img} alt={props.alt} className='image' />
+					<img src={story.image} alt={story.title} className='image' />
 				</figure>
-				<h5 className='name'>{props.name}</h5>
+				<h5 className='name'>{story.title}</h5>
 				</Link>
 				<div className='btns'>
-					<Button size='small' style={{ color: '#8e05c2'}} onClick={() => dispatch(likeStory(props.storyID))}>
+					<Button size='small' style={{ color: '#8e05c2'}} onClick={() => dispatch(likeStory(story.storyID))}>
 						<ThumbUpAltIcon fontSize='small'/>
-						&nbsp;{props.likes}
+						&nbsp;{story.likeCount}
 					</Button>
-					<Button size='small' style={{ color: '#8e05c2'}} onClick={() => dispatch(deleteStory(props.storyID))}>
+					<Button size='small' style={{ color: '#8e05c2'}} onClick={() => dispatch(deleteStory(story.storyID))}>
 						<DeleteIcon fontSize='small'/>
 					</Button>
 				</div>

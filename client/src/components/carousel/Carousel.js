@@ -103,7 +103,7 @@ function Carousel() {
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{stories.map((story) => (
-							<Story key={story._id} storyID={story.storyID} img={story.image} to={`/${story.storyID}`} name={story.title} likes={story.likeCount}/>
+							<Story key={story._id} story={story}/>
 						))}
 					</Slider>
 				)}
