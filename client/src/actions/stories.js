@@ -23,6 +23,17 @@ export const createStory = (story) => async (dispatch) => {
 
 }
 
+export const likeStory = (id) => async (dispatch) => {
+
+    try {
+        const { data } = await api.likeStory(id);
+        dispatch({type: 'LIKE', payload: data});
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 export const deleteStory = (id) => async (dispatch) => {
 
     try {

@@ -23,6 +23,16 @@ export const createStory = async (req, res) => {
 
 }
 
+export const likeStory = async (req, res) => {
+    const { id } = req.params;
+
+    const story = await StoryMessage.findOne({storyID: id});
+    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, {likeCount: story.likeCount + 1}, {new: true})
+
+    res.json({message: 'Liked story'});
+
+}
+
 export const deleteStory = async (req, res) => {
     const { id } = req.params;
 
