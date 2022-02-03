@@ -37,24 +37,26 @@ export default function TextEditor(props) {
 		if (props.socket == null || quill == null) return
 
 		props.socket.once('load-document', (doc) => {
-			quill.setContents(doc)
+			props.setStoryData(doc)
+			quill.setContents(doc.story)
 			quill.enable()
 		})
 		props.socket.emit('get-document', docID)
-	}, [props.socket, quill, docID])
+	}, [props.socket,props.setStoryData, quill, docID])
 
 	useEffect(() => {
 		if (props.socket == null || quill == null) return
 
 		const interval = setInterval(() => {
 			props.socket.emit('save-document', quill.getContents())
+			props.socket.emit('save', props.storyData)
 		}, SAVE_INTERVAL_MS)
 		return () => {
 			clearInterval(interval)
 			// props.setStoryData({...props.storyData, story: quill.getContents()});
 			// console.log(props.storyData);
 		}
-	}, [props.socket, quill])
+	}, [props.socket,props.storyData, quill])
 
 	useEffect(() => {
 		if (props.socket == null || quill == null) return

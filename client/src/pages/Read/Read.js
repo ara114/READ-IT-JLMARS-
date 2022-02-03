@@ -27,6 +27,7 @@ const Read = () => {
 							</div>
 							<div className='title-container'>{storyy.title}</div>
 							{/* <p>HEllo {JSON.stringify(storyy.story)}</p> */}
+							{console.log(storyy.story)}
 						</div>
 					)
 			)}

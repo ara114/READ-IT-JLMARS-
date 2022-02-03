@@ -95,8 +95,9 @@ const Create = () => {
 
 	useEffect(() => {
 		if (socket == null) return
-		const handler = (hom) => {
-			navigate(`/${hom}`, { replace: true })
+		const handler = (storyDat) => {
+			dispatch(createStory(storyDat));
+			navigate('/home', { replace: true })
 		}
 		socket.on('receive-form', handler)
 
@@ -104,12 +105,12 @@ const Create = () => {
 			socket.off('receive-form', handler)
 
 		}
-	}, [socket, navigate])
+	}, [socket, dispatch ,navigate])
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// console.log(storyData)
-		dispatch(createStory(storyData));
+		
 		navigate('/home', { replace: true })
 
 	}
@@ -119,7 +120,7 @@ const Create = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit',home)}}>
+					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit', storyData)}}>
 						<Typography variant='h6'>Room code:</Typography>
 						<TextField
 							disabled

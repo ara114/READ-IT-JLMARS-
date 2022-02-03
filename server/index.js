@@ -29,7 +29,7 @@ io.on('connection', socket => {
     socket.on('get-document', async docID => {
         const storyy = await findOrCreateStory(docID);
         socket.join(docID);
-        socket.emit('load-document', storyy.story);
+        socket.emit('load-document', storyy);
         socket.on('send-changes', delta => {
         socket.broadcast.to(docID).emit('receive-changes', delta);
         });
@@ -42,8 +42,8 @@ io.on('connection', socket => {
         socket.on('send-category', categories => {
             socket.broadcast.to(docID).emit('receive-category', categories);
         })
-        socket.on('form-submit', home => {
-            socket.broadcast.to(docID).emit('receive-form', home);
+        socket.on('form-submit', storyData => {
+            socket.broadcast.to(docID).emit('receive-form', storyData);
         })
 
         socket.on('save-document', async data => {
@@ -51,6 +51,12 @@ io.on('connection', socket => {
             // const s = await storyText.findOne({storyID: docID});
             // console.log(s);
         })
+        socket.on('save', async data => {
+            await storyText.findOneAndUpdate({storyID: docID}, {author: data.author, image: data.image, title: data.title, category: data.category}, {new: true})
+            // const s = await storyText.findOne({storyID: docID});
+            // console.log(s);
+        })
+
     });
 
     console.log('connected');
