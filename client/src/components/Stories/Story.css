@@ -61,7 +61,7 @@
 	background: none;
 	font-family: 'PT Sans', sans-serif;
 }
-.btns{
+.btns {
 	display: flex;
 	justify-content: space-between;
 }
@@ -136,5 +136,35 @@ Combine this with the carousel responsive breakpoints and then you will get a re
 	}
 	.link {
 		width: 90%;
+	}
+}
+@media only screen and (max-width: 446px) {
+	.deleteBtn {
+		margin-right: 5%;
+	}
+}
+@media only screen and (max-width: 430px) {
+	.likesBtn {
+		padding: 1%;
+	}
+}
+@media only screen and (max-width: 420px) {
+	.MuiSvgIcon-fontSizeSmall {
+		font-size: 0.8rem;
+	}
+	.MuiButton-textSizeSmall {
+		padding: 0px 0px;
+	}
+	.MuiButton-root {
+		min-width: 45px;
+	}
+}
+@media only screen and (max-width: 378px) {
+	.MuiSvgIcon-fontSizeSmall {
+		font-size: 0.8rem;
+	}
+
+	.MuiButton-root {
+		min-width: 17px;
 	}
 }
