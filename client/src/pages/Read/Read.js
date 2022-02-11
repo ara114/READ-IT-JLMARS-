@@ -25,12 +25,11 @@ const Read = () => {
 		const q = new Quill(editor, { theme: 'bubble' })
 		q.disable()
 		{stories.map(
-			(storyy) =>
-				{if (storyy.storyID === `${storyId}`)
-					q.setContents(storyy.story)
-				}
-				
-				)}
+			(storyy) =>{
+				if (storyy.storyID === `${storyId}`)
+				q.setContents(storyy.story)
+			}
+		)}
 	}, [])
 	return (
 		<Container contentClass={'content'} nav={<NavBar />}>
