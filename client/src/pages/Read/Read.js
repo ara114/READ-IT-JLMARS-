@@ -43,7 +43,7 @@ const Read = () => {
 							</div>
 							<div className='title-container'>{storyy.title}</div>
 							<div className='author-container'>Author(s): {storyy.author}</div>
-							<div className='text-content' ref={wrapperRef}></div>
+							<div className='text-content storyContent' ref={wrapperRef}></div>
 							{console.log(storyy.story)}
 						</div>
 					)
