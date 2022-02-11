@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getStories } from '../../actions/stories'
@@ -16,6 +16,22 @@ const Read = () => {
 		dispatch(getStories())
 	}, [dispatch])
 	const stories = useSelector((state) => state.stories)
+	
+	const wrapperRef = useCallback((wrapper) => {
+		if (wrapper == null) return
+		wrapper.innerHTML = ''
+		const editor = document.createElement('div')
+		wrapper.append(editor)
+		const q = new Quill(editor, { theme: 'bubble' })
+		q.disable()
+		{stories.map(
+			(storyy) =>
+				{if (storyy.storyID === `${storyId}`)
+					q.setContents(storyy.story)
+				}
+				
+				)}
+	}, [])
 	return (
 		<Container contentClass={'content'} nav={<NavBar />}>
 			{stories.map(
@@ -27,7 +43,7 @@ const Read = () => {
 							</div>
 							<div className='title-container'>{storyy.title}</div>
 							<div className='author-container'>Author(s): {storyy.author}</div>
-							{/* <p>HEllo {JSON.stringify(storyy.story)}</p> */}
+							<div className='text-content' ref={wrapperRef}></div>
 							{console.log(storyy.story)}
 						</div>
 					)
