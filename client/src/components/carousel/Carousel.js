@@ -1,4 +1,3 @@
-
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -95,6 +94,25 @@ function Carousel() {
 	// 	return <img className='img' src={box.image} alt={box.alt} key={index} />
 	// }
 
+
+	/* <Slider autoplay autoplaySpeed={100} dots initialSlide={0} infinite={false}>
+	autoplay for autoplay to change the speed in ms 
+	just add the prop autoplaySpeed={in ms}
+	dots allows you to have small dots down.
+	initialSlide={the number of the image you want to start at. 0 to the last image you have}
+	infinite false doesnt allow us to loop over when we reach the last image.
+*/
+
+	// CustomPaging is basically gonna allow us to change the style of the paging dots.
+	// customPaging={(i) => {
+	// 	return <div>{i + 1}</div>
+	// }}
+	// dotsClass='slick-dots CustomizeIndicatior'
+
+	// slidesPerRow={i}, basically gives you the items you want on top of each other.
+	// slidesToShow={4} shows multiple items at a time.
+	//slidesToScroll={2} allows you to have more items slide whenever you press on the arrows.
+
 	return (
 			<div className='main'>
 				{!stories.length ? <CircularProgress/> : (
@@ -113,27 +131,3 @@ function Carousel() {
 }
 
 export default Carousel
-
-{
-	/* <Slider autoplay autoplaySpeed={100} dots initialSlide={0} infinite={false}>
-	autoplay for autoplay to change the speed in ms 
-	just add the prop autoplaySpeed={in ms}
-	dots allows you to have small dots down.
-	initialSlide={the number of the image you want to start at. 0 to the last image you have}
-	infinite false doesnt allow us to loop over when we reach the last image.
-*/
-}
-
-{
-	// CustomPaging is basically gonna allow us to change the style of the paging dots.
-	// customPaging={(i) => {
-	// 	return <div>{i + 1}</div>
-	// }}
-	// dotsClass='slick-dots CustomizeIndicatior'
-}
-
-{
-	// slidesPerRow={i}, basically gives you the items you want on top of each other.
-	// slidesToShow={4} shows multiple items at a time.
-	//slidesToScroll={2} allows you to have more items slide whenever you press on the arrows.
-}
