@@ -7,10 +7,16 @@ import { useDispatch } from 'react-redux'
 import { deleteStory, likeStory } from '../../actions/stories'
 function Story({ story }) {
 	const dispatch = useDispatch()
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		})
+	}
 	return (
 		<div className='item'>
 			<div className='link'>
-				<Link to={`/${story.storyID}`} className='link'>
+				<Link to={`/${story.storyID}`} className='link' onClick={scrollToTop}>
 					<figure className='pictureWrap'>
 						<img src={story.image} alt={story.title} className='image' />
 					</figure>

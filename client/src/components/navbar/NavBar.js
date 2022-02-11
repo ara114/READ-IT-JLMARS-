@@ -50,7 +50,7 @@ function NavBar() {
 							<i className='fas fa-home'></i>
 						</Link>
 					</li>
-					<li className='navItem'>
+					<li className='navItem' onClick={scrollToTop}>
 						<Link to='/user' className='navLinks' onClick={closeMobileMenu}>
 							<i className='fas fa-user-circle'></i>
 						</Link>

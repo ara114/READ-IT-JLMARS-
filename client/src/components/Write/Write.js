@@ -14,7 +14,7 @@ const Write = () => {
             Write
             <div className="write-container">
                 <Link to={`/Create/${uuidV4()}`} className='nostyle write Create' onClick={scrollToTop}>Create a Lobby</Link>
-                <Link to='/Join' className='nostyle write Join'>Join a Lobby</Link>
+                <Link to='/Join' className='nostyle write Join' onClick={scrollToTop}>Join a Lobby</Link>
             </div>
         </div>
     )
