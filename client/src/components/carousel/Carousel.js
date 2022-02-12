@@ -5,18 +5,11 @@ import './carousel.css'
 import Story from '../Stories/Story'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded'
-import {useDispatch} from 'react-redux';
-import React, {useEffect} from 'react';
-import {getStories} from '../../actions/stories';
 import {useSelector} from 'react-redux';
 import {CircularProgress} from '@material-ui/core';
 
 function Carousel() {
 
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getStories());
-	}, [dispatch]);
 	const stories = useSelector((state)=> state.stories);
 
 	// const boxInfo = [
@@ -121,7 +114,7 @@ function Carousel() {
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{stories.map((story) => (
-							<Story key={story._id} story={story}/>
+							story.category !== '' && (<Story key={story._id} story={story}/>)
 						))}
 					</Slider>
 				)}

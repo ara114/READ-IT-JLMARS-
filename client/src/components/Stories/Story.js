@@ -5,8 +5,13 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useDispatch } from 'react-redux'
 import { deleteStory, likeStory } from '../../actions/stories'
+import React, {useEffect} from 'react';
+import {getStories} from '../../actions/stories';
 function Story({ story }) {
 	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(getStories());
+	}, [dispatch]);
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
