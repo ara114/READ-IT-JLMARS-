@@ -37,24 +37,30 @@ function UserNav() {
 							<i className='fas fa-home'></i>
 						</Link>
 					</li>
+					<li className='itemNav' onClick={scrollToTop}>
+						{/* These are all the items in the nav bar */}
+						<Link to='/user' className='itemLinks' onClick={closeMobileMenu}>
+							<i class='fas fa-cogs'></i>
+						</Link>
+					</li>
 					<li className='itemNav'>
 						<Link to='/account' className='itemLinks' onClick={closeMobileMenu}>
-							<i className='fas fa-user-circle'></i>
+							<i class='fas fa-user-edit'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/security' className='itemLinks' onClick={closeMobileMenu}>
-							Security
+							<i class='fas fa-lock'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/About' className='itemLinks' onClick={closeMobileMenu}>
-							About Us
+							<i class='fas fa-book'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
-						<Link to='/Logout' className='itemLinks' onClick={closeMobileMenu}>
-							Logout
+						<Link to='/' className='itemLinks' onClick={closeMobileMenu}>
+							<i class='fas fa-sign-out-alt'></i>
 						</Link>
 					</li>
 				</ul>

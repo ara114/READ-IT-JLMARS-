@@ -24,6 +24,14 @@
 	height: 100%;
 }
 
+.fa-sign-out-alt,
+.fa-lock,
+.fa-user-edit,
+.fa-book,
+.fa-cogs {
+	display: block;
+	font-size: 1.8rem;
+}
 .fa-cog {
 	display: block;
 	font-size: 1.8rem;
@@ -53,10 +61,12 @@
 	max-width: 1100px;
 	width: 10%;
 	position: absolute;
-	top: calc((0% + 130px) / 2);
+	top: calc((0% + 170px) / 2);
 	right: calc((100% - 1099px) / 2);
 	opacity: 1;
-	background: black;
+	background: white;
+	border: 2px solid #8e05c2;
+	border-radius: 1%;
 	z-index: 999;
 }
 

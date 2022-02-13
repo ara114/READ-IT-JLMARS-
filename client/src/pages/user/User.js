@@ -10,8 +10,26 @@ function User() {
 	return (
 		<Container nav={<UserNav />}>
 			{/* <Recommended /> */}
-			<Categories />
-			<Write />
+			{/* <Categories />
+			<Write /> */}
+			This page is not ready
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			User Page
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			This page is not ready
 		</Container>
 	)
 }

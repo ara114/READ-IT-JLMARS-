@@ -14,16 +14,16 @@ export default function About() {
 				</div>
 				<div className='content-setting'>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-						in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Our mission is to help our customers bring their visions to reality, be it anything from an online multiplayer web game to a
+						real-time collaborative platform. We help you achieve value in your ideas, assisting you in every part of the way to determine
+						the most proper solution to your problems.
 					</p>
+					<br></br>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-						enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-						in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Our specialists develop Web Applications that are compatible with all modern platforms such as Chrome, Safari, iOS and
+						Android. We develop our applications using React, HTML, CSS, JavaScript, etc. We utilise tools like Node.js, MongoDB,
+						Firebase, Sockets.io and others for the backend. We prioritise providing adequate safety and quality assurance to all our
+						products by default.
 					</p>
 				</div>
 			</div>
