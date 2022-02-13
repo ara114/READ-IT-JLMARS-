@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signup } from '../../actions/auth'
+import FileBase from 'react-file-base64'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
 
 function SignUp() {
 	// const emailRef = useRef();
@@ -34,7 +39,7 @@ function SignUp() {
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const initialState = { Nickname: '', email: '', password: '', ConfirmPassword: '' }
+	const initialState = { image: '', Nickname: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
 	const [formData, setFormData] = useState(initialState)
 
 	const handleSubmit = (e) => {
@@ -53,12 +58,75 @@ function SignUp() {
 			<div className='signCard'>
 				<section className='loginContainer'>
 					<form onSubmit={handleSubmit}>
+						<label>Profile picture</label>
+						<FileBase type='file' multiple={false} onDone={({ base64 }) => setFormData({ ...formData, image: base64 })} required />
 						<label>Nickname</label>
 						<input name='Nickname' className='control' required placeholder='Nickname' onChange={handleChange} />
 
 						<label>Email</label>
 						<input name='email' className='control' type='email' required placeholder='Email address' onChange={handleChange} />
 						<p className='errorMsg'></p>
+
+						<FormControl fullWidth margin='normal'>
+							<InputLabel id='demo-simple-select-label'>Favorite Category 1:</InputLabel>
+							<Select
+								labelId='demo-simple-select-label'
+								id='demo-simple-select'
+								value={formData.categoryOne}
+								label='Category'
+								size='small'
+								sx={{ margin: 1 }}
+								onChange={(e) => {setFormData({ ...formData, categoryOne: e.target.value }); }}
+								required
+							>
+								<MenuItem value={'Adventure'} className='menuItems'>
+									Adventure
+								</MenuItem>
+								<MenuItem value={'Horror'} className='menuItems'>
+									Horror
+								</MenuItem>
+								<MenuItem value={'Humour'} className='menuItems'>
+									Humour
+								</MenuItem>
+								<MenuItem value={'Non-Fiction'} className='menuItems'>
+									Non-Fiction
+								</MenuItem>
+								<MenuItem value={'Romance'} className='menuItems'>
+									Romance
+								</MenuItem>
+							</Select>
+						</FormControl>
+
+
+						<FormControl fullWidth margin='normal'>
+							<InputLabel id='demo-simple-select-label'>Favorite Category 2:</InputLabel>
+							<Select
+								labelId='demo-simple-select-label'
+								id='demo-simple-select'
+								value={formData.categoryTwo}
+								label='Category'
+								size='small'
+								sx={{ margin: 1 }}
+								onChange={(e) => {setFormData({ ...formData, categoryTwo: e.target.value }); }}
+								required
+							>
+								<MenuItem value={'Adventure'} className='menuItems'>
+									Adventure
+								</MenuItem>
+								<MenuItem value={'Horror'} className='menuItems'>
+									Horror
+								</MenuItem>
+								<MenuItem value={'Humour'} className='menuItems'>
+									Humour
+								</MenuItem>
+								<MenuItem value={'Non-Fiction'} className='menuItems'>
+									Non-Fiction
+								</MenuItem>
+								<MenuItem value={'Romance'} className='menuItems'>
+									Romance
+								</MenuItem>
+							</Select>
+						</FormControl>
 
 						<label>Password</label>
 						<input name='password' className='control' placeholder='Password' type='password' required onChange={handleChange} />

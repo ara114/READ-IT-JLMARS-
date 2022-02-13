@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { login } from '../../actions/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { GoogleLogin } from 'react-google-login'
 
 function Login(props) {
 	const dispatch = useDispatch()
@@ -36,6 +37,7 @@ function Login(props) {
 						Login
 					</Button>
 				</section>
+				<GoogleLogin clientId='Google ID'/>
 				<div className='msgContainer'>
 					<p className='msg'>Not a member?</p>
 					<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>
