@@ -16,7 +16,7 @@ const Read = () => {
 		dispatch(getStories())
 	}, [dispatch])
 	const stories = useSelector((state) => state.stories)
-	
+
 	const wrapperRef = useCallback((wrapper) => {
 		if (wrapper == null) return
 		wrapper.innerHTML = ''
@@ -24,12 +24,11 @@ const Read = () => {
 		wrapper.append(editor)
 		const q = new Quill(editor, { theme: 'bubble' })
 		q.disable()
-		{stories.map(
-			(storyy) =>{
-				if (storyy.storyID === `${storyId}`)
-				q.setContents(storyy.story)
-			}
-		)}
+		{
+			stories.map((storyy) => {
+				if (storyy.storyID === `${storyId}`) q.setContents(storyy.story)
+			})
+		}
 	}, [])
 	return (
 		<Container contentClass={'content'} nav={<NavBar />}>
