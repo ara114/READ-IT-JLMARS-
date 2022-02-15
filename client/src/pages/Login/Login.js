@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { login } from '../../actions/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { GoogleLogin } from 'react-google-login'
+// import { GoogleLogin } from 'react-google-login'
 
 function Login(props) {
 	const dispatch = useDispatch()
@@ -54,11 +54,11 @@ function Login(props) {
 						Login
 					</Button>
 				</section>
-				<GoogleLogin 
+				{/* <GoogleLogin 
 				clientId='351534931705-6vbgo7schhjsfniqlc6qppal9snur04t.apps.googleusercontent.com'
 				onSuccess={googleSuccess}
 				onFailure={googleFailure}
-				cookiePolicy='single_host_origin'/>
+				cookiePolicy='single_host_origin'/> */}
 				<div className='msgContainer'>
 					<p className='msg'>Not a member?</p>
 					<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>
