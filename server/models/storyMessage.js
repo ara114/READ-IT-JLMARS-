@@ -7,9 +7,9 @@ const storySchema = mongoose.Schema({
     image: String,
     category: String,
     story: Object,
-    likeCount: {
-        type: Number,
-        default: 0
+    likes: {
+        type: [String],
+        default: []
     },
     createdAt: {
         type: Date,

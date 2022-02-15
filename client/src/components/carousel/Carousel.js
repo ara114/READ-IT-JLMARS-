@@ -11,6 +11,7 @@ import {CircularProgress} from '@material-ui/core';
 function Carousel() {
 
 	const stories = useSelector((state)=> state.stories);
+	const user = JSON.parse(localStorage.getItem('profile'));
 
 	// const boxInfo = [
 	// 	{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
@@ -114,7 +115,7 @@ function Carousel() {
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{stories.map((story) => (
-							story.category !== '' && (<Story key={story._id} story={story}/>)
+							(story.category === user?.result?.categoryOne || story.category === user?.result?.categoryTwo) && (<Story key={story._id} story={story}/>)
 						))}
 					</Slider>
 				)}

@@ -23,6 +23,23 @@ function Login(props) {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
+	const googleSuccess = async (res) => {
+		const result = res?.profileObj; 
+		const token = res?.tokenId;
+
+		try {
+			dispatch({type: 'AUTH', data: {result, token}});
+			navigate('/home');
+		} catch(error) {
+			console.log(error);
+		}
+	}
+
+	const googleFailure = (error) => {
+		console.log(error);
+
+	}
+
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
@@ -37,7 +54,11 @@ function Login(props) {
 						Login
 					</Button>
 				</section>
-				<GoogleLogin clientId='Google ID'/>
+				<GoogleLogin 
+				clientId='351534931705-6vbgo7schhjsfniqlc6qppal9snur04t.apps.googleusercontent.com'
+				onSuccess={googleSuccess}
+				onFailure={googleFailure}
+				cookiePolicy='single_host_origin'/>
 				<div className='msgContainer'>
 					<p className='msg'>Not a member?</p>
 					<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>

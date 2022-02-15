@@ -13,7 +13,7 @@ export const getStories = async (req, res) => {
 
 export const createStory = async (req, res) => {
     const story = req.body;
-    const newStory = new StoryMessage(story);
+    const newStory = new StoryMessage({...story, createdAt: new Date().toISOString()});
     try {
         await newStory.save();
         res.status(201).json(newStory);
@@ -26,8 +26,21 @@ export const createStory = async (req, res) => {
 export const likeStory = async (req, res) => {
     const { id } = req.params;
 
+    if(!req.userId) return res.json({message: 'Unauthenticated'}); 
+
     const story = await StoryMessage.findOne({storyID: id});
-    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, {likeCount: story.likeCount + 1}, {new: true})
+
+    const index = story.likes.findIndex((id) => id === String(req.userId)); // if already liked
+
+    if(index === -1){
+        //like story
+        story.likes.push(req.userId);
+    }
+    else{
+        story.likes = story.likes.filter((id) => id !== String(req.userId));
+
+    }
+    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, story, {new: true})
 
     res.json(updatedStory);
 

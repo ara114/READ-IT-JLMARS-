@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './UserNav.css'
-function UserNav() {
+import {useDispatch} from 'react-redux'
+function UserNav({setUser}) {
 	// These states help in closing the shadow box
 	const [click, setClick] = useState(false)
 	const handleClick = () => setClick(!click)
@@ -13,6 +14,13 @@ function UserNav() {
 			top: 0,
 			behavior: 'smooth',
 		})
+	}
+	const dispatch = useDispatch();
+	// const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+	const logout = () => {
+		dispatch({type: 'LOGOUT'});
+		setUser(null);
 	}
 
 	return (
@@ -40,27 +48,27 @@ function UserNav() {
 					<li className='itemNav' onClick={scrollToTop}>
 						{/* These are all the items in the nav bar */}
 						<Link to='/user' className='itemLinks' onClick={closeMobileMenu}>
-							<i class='fas fa-cogs'></i>
+							<i className='fas fa-cogs'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/account' className='itemLinks' onClick={closeMobileMenu}>
-							<i class='fas fa-user-edit'></i>
+							<i className='fas fa-user-edit'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/security' className='itemLinks' onClick={closeMobileMenu}>
-							<i class='fas fa-lock'></i>
+							<i className='fas fa-lock'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/About' className='itemLinks' onClick={closeMobileMenu}>
-							<i class='fas fa-book'></i>
+							<i className='fas fa-book'></i>
 						</Link>
 					</li>
 					<li className='itemNav'>
-						<Link to='/' className='itemLinks' onClick={closeMobileMenu}>
-							<i class='fas fa-sign-out-alt'></i>
+						<Link to='/' className='itemLinks' onClick={logout}>
+							<i className='fas fa-sign-out-alt'></i>
 						</Link>
 					</li>
 				</ul>

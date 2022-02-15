@@ -39,13 +39,14 @@ function SignUp() {
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const initialState = { image: '', Nickname: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
+	const initialState = { firstName: '', lastName: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
 	const [formData, setFormData] = useState(initialState)
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
 		dispatch(signup(formData, navigate))
+		console.log('signup', formData);
 	}
 
 	const handleChange = (e) => {
@@ -58,10 +59,13 @@ function SignUp() {
 			<div className='signCard'>
 				<section className='loginContainer'>
 					<form onSubmit={handleSubmit}>
-						<label>Profile picture</label>
-						<FileBase type='file' multiple={false} onDone={({ base64 }) => setFormData({ ...formData, image: base64 })} required />
-						<label>Nickname</label>
-						<input name='Nickname' className='control' required placeholder='Nickname' onChange={handleChange} />
+						{/* <label>Profile picture</label>
+						<FileBase type='file' multiple={false} onDone={({ base64 }) => setFormData({ ...formData, image: base64 })} required /> */}
+						<label>First Name</label>
+						<input name='firstName' className='control' required placeholder='First Name' onChange={handleChange} />
+
+						<label>Last Name</label>
+						<input name='lastName' className='control' required placeholder='Last Name' onChange={handleChange} />
 
 						<label>Email</label>
 						<input name='email' className='control' type='email' required placeholder='Email address' onChange={handleChange} />
