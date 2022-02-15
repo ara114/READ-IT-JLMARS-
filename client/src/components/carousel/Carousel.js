@@ -13,14 +13,11 @@ function Carousel() {
 	const stories = useSelector((state)=> state.stories);
 	const user = JSON.parse(localStorage.getItem('profile'));
 
-	// const boxInfo = [
-	// 	{ image: '/images/universe.png', to: { pathname: '/home' }, name: 'Universe and I', alt: 'first pic' },
-	// 	{ image: '/images/roses.png', to: { pathname: '/home' }, name: 'Roses and Guns', alt: 'second pic' },
-	// 	{ image: '/images/way.png', to: { pathname: '/home' }, name: 'The way back home', alt: 'third pic' },
-	// 	{ image: '/images/abracadabra.png', to: { pathname: '' }, name: 'Abracadabra', alt: 'fourth pic' },
-	// 	{ image: '/images/download.png', to: { pathname: '/home' }, name: 'Downlaod', alt: 'third pic' },
-	// 	{ image: '/images/OIP.png', to: { pathname: '/home' }, name: 'OIP', alt: 'third pic' },
-	// ]
+	const storyCat1 = stories.filter(story => story.category === user?.result?.categoryOne);
+	const storyCat2 = stories.filter(story => story.category === user?.result?.categoryTwo);
+
+	const storyCat1Last4 = storyCat1.slice(storyCat1.length - 4);
+	const storyCat2Last4 = storyCat2.slice(storyCat2.length - 4);
 
 	const PrevBtn = (props) => {
 		const { className, onClick } = props
@@ -114,8 +111,11 @@ function Carousel() {
 						{/* {boxInfo.map((box, index) => (
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
-						{stories.map((story) => (
-							(story.category === user?.result?.categoryOne || story.category === user?.result?.categoryTwo) && (<Story key={story._id} story={story}/>)
+						{storyCat1Last4.map((story) => (
+							<Story key={story._id} story={story}/>
+						))}
+						{storyCat2Last4.map((story) => (
+							<Story key={story._id} story={story}/>
 						))}
 					</Slider>
 				)}
