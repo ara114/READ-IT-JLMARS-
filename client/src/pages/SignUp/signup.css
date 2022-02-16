@@ -47,6 +47,15 @@
 	align-items: center;
 }
 
+.backBtn {
+	margin-top: 15%;
+	margin-bottom: 5%;
+}
+
+.names{
+	display: flex;
+	justify-content: space-between;
+}
 .linkText {
 	color: #700b97;
 	font-size: 15px;

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signup } from '../../actions/auth'
-import FileBase from 'react-file-base64'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
@@ -39,8 +38,9 @@ function SignUp() {
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const initialState = { firstName: '', lastName: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
+	const initialState = { bio: '', firstName: '', lastName: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
 	const [formData, setFormData] = useState(initialState)
+	const [isNext, setIsNext]= useState(false);
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -55,22 +55,65 @@ function SignUp() {
 
 	return (
 		<div className='loginSignUpContainer'>
-			{' '}
 			<div className='signCard'>
 				<section className='loginContainer'>
-					<form onSubmit={handleSubmit}>
-						{/* <label>Profile picture</label>
-						<FileBase type='file' multiple={false} onDone={({ base64 }) => setFormData({ ...formData, image: base64 })} required /> */}
-						<label>First Name</label>
-						<input name='firstName' className='control' required placeholder='First Name' onChange={handleChange} />
+				<form onSubmit={handleSubmit}>
+					{!isNext ? (
+						<>
+						<div className='names'>
+							<div>
+								<label>First Name</label>
+								<input name='firstName'  required placeholder='First Name' onChange={handleChange} style={{ width: '90%' }}/>
+							</div>
+							<div>
+								<label>Last Name</label>
+								<input name='lastName' required placeholder='Last Name' onChange={handleChange} />
+							</div>
+						</div>
 
-						<label>Last Name</label>
-						<input name='lastName' className='control' required placeholder='Last Name' onChange={handleChange} />
 
 						<label>Email</label>
 						<input name='email' className='control' type='email' required placeholder='Email address' onChange={handleChange} />
 						<p className='errorMsg'></p>
 
+						<label>Password</label>
+						<input name='password' className='control' placeholder='Password' type='password' required onChange={handleChange} />
+						<p className='errorMsg'></p>
+
+						<label>Confirm Password</label>
+						<input
+							name='ConfirmPassword'
+							className='control'
+							placeholder='Confirm Password'
+							type='password'
+							required
+							onChange={handleChange}
+						/>
+						<p className='errorMsg'></p>
+
+						<section className='signupBtn'>
+							<Button onClick={() => setIsNext(!isNext)} buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
+								Next
+							</Button>
+						</section>
+						<div className='SignmsgContainer'>
+							<p className='msg'>You're a member? </p>
+							<Link className='linkText' to='/login' style={{ textDecoration: 'none' }}>
+								Login
+							</Link>
+						</div>
+					</>
+					) : (
+						<>
+							<section>
+								<Button onClick={() => setIsNext(!isNext)} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
+									{`${'<'}`}
+								</Button>
+							</section>
+							<div>
+								<label>Bio</label>
+								<input name='bio'  required placeholder='Bio' onChange={handleChange}/>
+							</div>
 						<FormControl fullWidth margin='normal'>
 							<InputLabel id='demo-simple-select-label'>Favorite Category 1:</InputLabel>
 							<Select
@@ -131,33 +174,13 @@ function SignUp() {
 								</MenuItem>
 							</Select>
 						</FormControl>
-
-						<label>Password</label>
-						<input name='password' className='control' placeholder='Password' type='password' required onChange={handleChange} />
-						<p className='errorMsg'></p>
-
-						<label>Confirm Password</label>
-						<input
-							name='ConfirmPassword'
-							className='control'
-							placeholder='Confirm Password'
-							type='password'
-							required
-							onChange={handleChange}
-						/>
-						<p className='errorMsg'></p>
-
 						<section className='signupBtn'>
 							<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 								Signup
 							</Button>
 						</section>
-						<div className='SignmsgContainer'>
-							<p className='msg'>You're a member? </p>
-							<Link className='linkText' to='/login' style={{ textDecoration: 'none' }}>
-								Login
-							</Link>
-						</div>
+					</>
+					)}
 					</form>
 				</section>
 			</div>

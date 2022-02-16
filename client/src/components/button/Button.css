@@ -40,6 +40,17 @@ root {
 	transition: all 0.3s ease-out;
 	font-family: 'Signika', sans-serif;
 }
+
+.backBtn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+	border: 2px solid #4d0e66;
+	border-radius: 50%;
+	width: 5%;
+}
 .tester {
 	display: flex;
 	justify-content: center;

@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import Container from '../../components/container/container'
 import UserNav from '../../pages/user/UserNav'
 import './Account.css'
+import FileBase from 'react-file-base64'
 
 export default function Account() {
 	const nameInput = useRef()
@@ -22,9 +23,15 @@ export default function Account() {
 				</div>
 				<div className='form-div'>
 					<form onSubmit={handleSubmit}>
+					<div className='input'>
+						<aside className='inp inp-label'>
+							<label htmlFor='name'>Profile Picture </label>
+						</aside>
+						<FileBase type='file' multiple={false} onDone={({ base64 }) => base64} required />
+						</div>
 						<div className='input'>
 							<aside className='inp inp-label'>
-								<label htmlFor='name'>Name </label>
+								<label htmlFor='name'>First Name </label>
 							</aside>
 							<div className='inp inp-inp'>
 								<input type='text' id='name' ref={nameInput} />
@@ -33,28 +40,40 @@ export default function Account() {
 
 						<div className='input'>
 							<aside className='inp inp-label'>
-								<label htmlFor='user-name'>Username </label>
+								<label htmlFor='name'>Last Name </label>
 							</aside>
 							<div className='inp inp-inp'>
-								<input type='text' id='user-name' ref={userNameInput} />
+								<input type='text' id='name' ref={nameInput} />
 							</div>
 						</div>
 
 						<div className='input'>
 							<aside className='inp inp-label'>
-								<label htmlFor='email'>Email Address</label>
+								<label htmlFor='name'>Favorite Category1 </label>
 							</aside>
 							<div className='inp inp-inp'>
-								<input type='email' id='email' ref={emailInput} />
+							<select name="favCategoryOne" id="favCategoryOne">
+								<option value="adventure">Adventure</option>
+								<option value="humour">Humour</option>
+								<option value="horror">Horror</option>
+								<option value="romance">Romance</option>
+								<option value="nonFiction">Non-Fiction</option>
+							</select>
 							</div>
 						</div>
 
 						<div className='input'>
 							<aside className='inp inp-label'>
-								<label htmlFor='dob'>Date Of Birth </label>
+								<label htmlFor='name'>Favorite Category2 </label>
 							</aside>
 							<div className='inp inp-inp'>
-								<input type='date' id='dob' ref={dobInput} />
+								<select name="favCategoryTwo" id="favCategoryTwo">
+									<option value="adventure">Adventure</option>
+									<option value="humour">Humour</option>
+									<option value="horror">Horror</option>
+									<option value="romance">Romance</option>
+									<option value="nonFiction">Non-Fiction</option>
+								</select>
 							</div>
 						</div>
 
