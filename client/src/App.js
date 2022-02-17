@@ -43,7 +43,7 @@ function App() {
 				<Route path='/category/adventure' element={<Adventure />} />
 				<Route path='/category/horror' element={<Horror />} />
 				<Route path='/category/humour' element={<Humour />} />
-				<Route path='/category/nonFiction' element={<NonFiction />} />
+				<Route path='/category/Non-Fiction' element={<NonFiction />} />
 				<Route path='/category/romance' element={<Romance />} />
 				<Route
 					path='/Create'

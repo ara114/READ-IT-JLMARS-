@@ -1,14 +1,48 @@
-.user-container1{
+.gridCont {
+	display: grid;
+	padding: 2%;
+	/* justify-content: center; */
+	grid-template-columns: auto;
+	grid-template-rows: auto auto auto;
+	grid-gap: 2%;
+
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
+	-webkit-filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
+	filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
+	border-radius: 10px;
+}
+.gridCont11 {
 	display: grid;
 	/* justify-content: center; */
-	grid-template-columns: 200px 600px;
+	grid-template-columns: auto;
+	/* border: 2px solid; */
+}
+.gridCont12 {
+	display: grid;
+	/* justify-content: center; */
+	grid-template-columns: auto;
+	/* border: 2px solid; */
+}
+.gridCont13 {
+	display: grid;
+	/* justify-content: center; */
+	grid-template-columns: auto;
+	padding-bottom: 2%;
+	/* border: 2px solid; */
 }
 
-.likedStories{
-    padding-top: 50px;
+.likedStories {
+	padding-top: 5%;
 }
 
-.editProfilePic{
+.userFavoriteBtns {
+	padding: 3% 1% 0% 1%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.editProfilePic {
 	display: flex;
 	justify-content: center;
 	align-items: center;
