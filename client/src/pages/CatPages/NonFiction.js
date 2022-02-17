@@ -7,8 +7,17 @@ import React, {useEffect} from 'react';
 import {getStories} from '../../actions/stories';
 import {CircularProgress} from '@material-ui/core';
 import NavBar from '../../components/navbar/NavBar';
+import { useNavigate } from 'react-router-dom'
 function NonFiction() {
 	const dispatch = useDispatch();
+
+	const navigate = useNavigate();
+	const user = JSON.parse(localStorage.getItem('profile'));
+
+	useEffect(() => {
+		if(!user) navigate('/')
+	}, [])
+
 
 	useEffect(() => {
 		dispatch(getStories());

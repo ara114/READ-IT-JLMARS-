@@ -9,6 +9,13 @@ const Create = () => {
 	const navigate = useNavigate()
 	const [code, setCode] = useState('')
 
+	const user = JSON.parse(localStorage.getItem('profile'));
+
+	useEffect(() => {
+		if(!user) navigate('/')
+	}, [])
+
+
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log(code)

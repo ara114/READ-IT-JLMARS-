@@ -1,9 +1,11 @@
 import './LandingPage.css'
 import { useState, useEffect } from 'react'
 import { Button } from '../../components/button/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function LandingPage() {
 	const [isMobile, setIsMobile] = useState(true)
+	const user = JSON.parse(localStorage.getItem('profile'));
+	const navigate = useNavigate();
 	//choose the screen size
 	const handleResize = () => {
 		if (window.innerWidth <= 1200) {
@@ -15,6 +17,7 @@ function LandingPage() {
 	// create an event listener
 	useEffect(() => {
 		handleResize()
+		if(user) navigate('/home')
 	}, [])
 	window.addEventListener('resize', handleResize)
 	return (

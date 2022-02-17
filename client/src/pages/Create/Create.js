@@ -31,6 +31,12 @@ const Create = () => {
 		story: '',
 		category: '',
 	})
+	const user = JSON.parse(localStorage.getItem('profile'));
+
+	useEffect(() => {
+		if(!user) navigate('/')
+	}, [])
+
 	const [socket, setSocket] = useState()
 
 	useEffect(() => {

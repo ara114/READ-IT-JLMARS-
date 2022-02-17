@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getStories } from '../../actions/stories'
 import NavBar from '../../components/navbar/NavBar'
@@ -16,6 +16,14 @@ const Read = () => {
 		dispatch(getStories())
 	}, [dispatch])
 	const stories = useSelector((state) => state.stories)
+
+	const navigate = useNavigate();
+	const user = JSON.parse(localStorage.getItem('profile'));
+
+	useEffect(() => {
+		if(!user) navigate('/')
+	}, [])
+
 
 	const wrapperRef = useCallback((wrapper) => {
 		if (wrapper == null) return
