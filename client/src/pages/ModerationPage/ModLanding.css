@@ -1,0 +1,48 @@
+.Modtext > h1 {
+	color: #700b97;
+	font-size: 70px;
+	margin-top: -50px;
+	text-align: center;
+	font-family: 'Aclonica', sans-serif;
+	font-style: italic;
+}
+.Modtext > p {
+	color: #700b97;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 32px;
+	padding-left: 8%;
+	padding-right: 8%;
+	font-family: 'Mogra', cursive;
+	font-style: italic;
+}
+
+@media screen and (max-width: 1200px) {
+	.Modtext > h1 {
+		font-size: 55px;
+		margin-top: -60px;
+		text-align: center;
+	}
+	.Modtext > p {
+		text-align: center;
+		margin-top: 8px;
+		font-size: 26px;
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.Modtext > h1 {
+		font-size: 30px;
+		margin-top: -50px;
+	}
+	.Modtext > p {
+		font-size: 18px;
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	.Buttons {
+		padding-top: 2%;
+	}
+}
