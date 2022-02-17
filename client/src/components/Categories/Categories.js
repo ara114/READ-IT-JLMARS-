@@ -3,7 +3,6 @@ import './Categories.css'
 import '../Line.css'
 import { Link } from 'react-router-dom'
 const Categories = () => {
-
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -29,7 +28,7 @@ const Categories = () => {
 				<Link to='/category/Humour' className='nostyle categories Humour' onClick={scrollToTop}>
 					Humour
 				</Link>
-				<Link to='/category/Nonfiction' className='nostyle categories Non-fiction' onClick={scrollToTop}>
+				<Link to='/category/Non-Fiction' className='nostyle categories Non-fiction' onClick={scrollToTop}>
 					Non-fiction
 				</Link>
 			</div>
