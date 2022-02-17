@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './UserNav.css'
 import {useDispatch} from 'react-redux'
-function UserNav({setUser}) {
+function UserNav({user, setUser, setCurrentId}) {
 	// These states help in closing the shadow box
 	const [click, setClick] = useState(false)
 	const handleClick = () => setClick(!click)
@@ -52,7 +52,7 @@ function UserNav({setUser}) {
 						</Link>
 					</li>
 					<li className='itemNav'>
-						<Link to='/account' className='itemLinks' onClick={closeMobileMenu}>
+						<Link to={`/user/${user?.result?._id}`} className='itemLinks' onClick={() => setCurrentId(user?.result?._id)}>
 							<i className='fas fa-user-edit'></i>
 						</Link>
 					</li>

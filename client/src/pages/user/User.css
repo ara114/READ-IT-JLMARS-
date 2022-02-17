@@ -1,0 +1,17 @@
+.user-container1{
+	display: grid;
+	/* justify-content: center; */
+	grid-template-columns: 200px 600px;
+}
+
+.likedStories{
+    padding-top: 50px;
+}
+
+.editProfilePic{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* width: 50%;
+	height: 50%; */
+}

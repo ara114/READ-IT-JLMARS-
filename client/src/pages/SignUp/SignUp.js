@@ -38,7 +38,7 @@ function SignUp() {
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const initialState = { bio: '', firstName: '', lastName: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
+	const initialState = { image: '', bio: '', firstName: '', lastName: '', email: '', password: '', ConfirmPassword: '', categoryOne: '', categoryTwo: ''}
 	const [formData, setFormData] = useState(initialState)
 	const [isNext, setIsNext]= useState(false);
 

@@ -19,9 +19,16 @@ import Security from './Settings/Security/Security'
 import Settings from './Settings/Settings'
 import Read from './pages/Read/Read'
 import {v4 as uuidV4} from 'uuid' 
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import {getStories} from './actions/stories';
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
+	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(getStories());
+	}, [dispatch]);
 	return (
 		<div className='App'>
 			<Routes>
@@ -44,7 +51,7 @@ function App() {
 				<Route path='/:id' element={<Read />} />
 				<Route path="/settings" exact element={<Settings/>} /> 
 				<Route path="/about" exact element={<About/>} />
-				<Route path="/account" exact element={<Account/>} />
+				<Route path="/user/:id" exact element={<Account/>} />
 				<Route path="/security" exact element={<Security/>} />
 				{/* <Route path="/logout" exact element={<Logout/>} /> */}
 			</Routes>

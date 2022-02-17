@@ -36,7 +36,7 @@ export const signup = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`, categoryOne: categoryOne, categoryTwo: categoryTwo, bio: bio });
+    const result = await User.create({ image: '', email, password: hashedPassword, name: `${firstName} ${lastName}`, categoryOne: categoryOne, categoryTwo: categoryTwo, bio: bio });
 
     const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
 
@@ -47,3 +47,16 @@ export const signup = async (req, res) => {
     console.log(error);
   }
 };
+
+export const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const { image, bio, firstName, lastName, categoryOne, categoryTwo } = req.body;
+  
+  // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No user with id: ${id}`);
+
+  const updatedUser = { image, name: `${firstName} ${lastName}`, bio, categoryOne, categoryTwo, _id: id };
+
+  await User.findByIdAndUpdate(id, updatedUser, { new: true });
+
+  res.json(updatedUser);
+}

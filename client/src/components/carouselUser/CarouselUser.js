@@ -102,15 +102,22 @@ function Carousel() {
 
 	return (
 			<div className='main'>
-				{!stories.length ? <CircularProgress/> : (
-					<Slider {...properties}>
-						{/* {boxInfo.map((box, index) => (
-							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
-						))} */}
-						{likedStories.map((story) => (
-							<Story key={story._id} story={story}/>
-						))}
-					</Slider>
+				{!likedStories.length ? <CircularProgress/> : (
+					<>
+						{likedStories.length > 4 ? 
+							<Slider {...properties}>
+								{likedStories.map((story) => (
+									<Story key={story._id} story={story}/>
+								))}
+							</Slider>
+						: (
+							<div className='cat-container'>
+								{likedStories.map((story) => (
+									<Story key={story._id} story={story}/>
+								))}
+							</div>
+						)}
+					</>
 				)}
 			</div>
 

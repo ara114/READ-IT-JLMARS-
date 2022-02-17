@@ -28,3 +28,13 @@ export const signup = (formData,navigate) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const updateUser = (id, user) => async (dispatch) => {
+    try {
+      const { data } = await api.updateUser(id, user);
+  
+      dispatch({ type: 'UPDATE', payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };

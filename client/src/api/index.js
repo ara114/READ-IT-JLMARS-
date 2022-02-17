@@ -17,3 +17,5 @@ export const deleteStory = (id) => API.delete(`/stories/${id}`);
 
 export const login = (formData) => API.post('/users/login', formData);
 export const signup = (formData) => API.post('/users/signup', formData);
+
+export const updateUser = (id, updatedUser) => API.patch(`/users/${id}`, updatedUser);
