@@ -17,6 +17,7 @@ import Account from './Settings/Account/Account'
 import Security from './Settings/Security/Security'
 import Settings from './Settings/Settings'
 import Read from './pages/Read/Read'
+import Display from './pages/Display/Display'
 import { v4 as uuidV4 } from 'uuid'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
@@ -55,6 +56,7 @@ function App() {
 				<Route path='/Create/:id' element={<Create />} />
 				<Route path='/Join' element={<Join />} />
 				<Route path='/:id' element={<Read />} />
+				<Route path='/Display/:id' element={<Display />} />
 				<Route path='/settings' exact element={<Settings />} />
 				<Route path='/about' exact element={<About />} />
 				<Route path='/user/:id' exact element={<Account />} />

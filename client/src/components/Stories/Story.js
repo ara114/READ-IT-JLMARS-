@@ -32,7 +32,7 @@ function Story({ story }) {
 	return (
 		<div className='item'>
 			<div className='link'>
-				<Link to={`/${story.storyID}`} className='link' onClick={scrollToTop}>
+				<Link to={`/Display/${story.storyID}`} className='link' onClick={scrollToTop}>
 					<figure className='pictureWrap'>
 						<img src={story.image} alt={story.title} className='image' />
 					</figure>
