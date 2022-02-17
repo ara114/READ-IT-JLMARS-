@@ -9,6 +9,16 @@ function Container(props) {
 				{props.nav}
 				<div className={`content ${props.contentClass}`}>{props.children}</div>
 			</div>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
 			<Footer />
 		</div>
 	)
