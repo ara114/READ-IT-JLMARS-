@@ -1,4 +1,3 @@
-
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
@@ -18,17 +17,20 @@ import Account from './Settings/Account/Account'
 import Security from './Settings/Security/Security'
 import Settings from './Settings/Settings'
 import Read from './pages/Read/Read'
-import {v4 as uuidV4} from 'uuid' 
-import React, {useEffect} from 'react';
-import { useDispatch } from 'react-redux';
-import {getStories} from './actions/stories';
+import { v4 as uuidV4 } from 'uuid'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getStories } from './actions/stories'
+import ModHome from './pages/ModerationPage/ModHome'
+import ModLanding from './pages/ModerationPage/ModLanding'
+import ModLogin from './pages/ModerationPage/ModLogin'
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
 	const dispatch = useDispatch()
 	useEffect(() => {
-		dispatch(getStories());
-	}, [dispatch]);
+		dispatch(getStories())
+	}, [dispatch])
 	return (
 		<div className='App'>
 			<Routes>
@@ -43,16 +45,23 @@ function App() {
 				<Route path='/category/nonFiction' element={<NonFiction />} />
 				<Route path='/category/romance' element={<Romance />} />
 				<Route
-					path="/Create"
-					element={<Navigate to= {`/Create/${uuidV4()}`} ><Create/></Navigate>}
+					path='/Create'
+					element={
+						<Navigate to={`/Create/${uuidV4()}`}>
+							<Create />
+						</Navigate>
+					}
 				/>
 				<Route path='/Create/:id' element={<Create />} />
 				<Route path='/Join' element={<Join />} />
 				<Route path='/:id' element={<Read />} />
-				<Route path="/settings" exact element={<Settings/>} /> 
-				<Route path="/about" exact element={<About/>} />
-				<Route path="/user/:id" exact element={<Account/>} />
-				<Route path="/security" exact element={<Security/>} />
+				<Route path='/settings' exact element={<Settings />} />
+				<Route path='/about' exact element={<About />} />
+				<Route path='/user/:id' exact element={<Account />} />
+				<Route path='/security' exact element={<Security />} />
+				<Route path='/modhome' exact element={<ModHome />} />
+				<Route path='/modland' exact element={<ModLanding />} />
+				<Route path='/modlogin' exact element={<ModLogin />} />
 				{/* <Route path="/logout" exact element={<Logout/>} /> */}
 			</Routes>
 		</div>
