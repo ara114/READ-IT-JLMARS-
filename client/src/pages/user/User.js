@@ -48,6 +48,7 @@ function User() {
 
 	return (
 		<Container nav={<UserNav user={user} setUser={setUser} setCurrentId={setCurrentId} />}>
+			<div className='userBox'>
 			<div className='gridCont'>
 				{isEdit ? (
 					//First Element
@@ -67,49 +68,41 @@ function User() {
 				) : (
 					<>
 						<div className='gridCont11'>
-							<div>
-								<Avatar
-									style={{ height: '100px', width: '100px', background: '#8e05c2' }}
+							<div className='avatar_wrap'>
+								<Avatar className='avatar'
+									style={{ height: '150px', width: '150px' }}
 									alt={user?.result.name}
 									src={user?.result.image}
+									onClick={() => setIsEdit(true)}
 								>
 									{user?.result.name.charAt(0)}
 								</Avatar>
-								<button onClick={() => setIsEdit(true)}>Edit</button>
+								<p className='avatar_description' onClick={() => setIsEdit(true)}>Change Picture</p>
 							</div>
-
-							<div className='userName'> {user?.result.name}</div>
 						</div>
 						<div className='gridCont12'>
+						<div className='userName'> {user?.result.name}</div>
 							<div className='bio'>
-								Bio:
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-									standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-									type specimen book. It has survived not only five centuries,but also the leap into electronic typesetting,
-									remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-									Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-									of Lorem Ipsum.
-								</p>
+								<p className='biograph'> {user?.result.bio}</p>
 							</div>
-						</div>
-						<div className='gridCont13'>
-							<p></p>
-							<div className='category-header'>
-								Favorite Categories:
+							<div className='gridCont13'>
 								<div className='userFavoriteBtns'>
+									<div className='button2601'>
 									<Link to={`/category/${user?.result?.categoryOne}`} className='nostyle categories' onClick={scrollToTop}>
 										{user?.result?.categoryOne}
 									</Link>
-									<Link to={`/category/${user?.result?.categoryTwo}`} className='nostyle categories' onClick={scrollToTop}>
+									</div>
+									<Link to={`/category/${user?.result?.categoryTwo}`} className='nostyle categories b2' onClick={scrollToTop}>
 										{user?.result?.categoryTwo}
 									</Link>
 								</div>
-							</div>
 						</div>
+						</div>
+
 						{/* <div className='user-container2'></div> */}
 					</>
 				)}
+			</div>
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>

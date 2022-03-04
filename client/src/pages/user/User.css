@@ -1,10 +1,17 @@
+.userBox{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .gridCont {
 	display: grid;
 	padding: 2%;
 	/* justify-content: center; */
-	grid-template-columns: auto;
-	grid-template-rows: auto auto auto;
-	grid-gap: 2%;
+	/*Remove one auto to make it look like the one col one */
+	grid-template-columns: auto auto;
+	grid-template-rows: auto;
+	column-gap: 2%;
 
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
 	-webkit-filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
@@ -14,7 +21,8 @@
 .gridCont11 {
 	display: grid;
 	/* justify-content: center; */
-	grid-template-columns: auto;
+	align-items: center;
+	justify-items: center;
 	/* border: 2px solid; */
 }
 .gridCont12 {
@@ -23,24 +31,6 @@
 	grid-template-columns: auto;
 	/* border: 2px solid; */
 }
-.gridCont13 {
-	display: grid;
-	/* justify-content: center; */
-	grid-template-columns: auto;
-	padding-bottom: 2%;
-	/* border: 2px solid; */
-}
-
-.likedStories {
-	padding-top: 5%;
-}
-
-.userFavoriteBtns {
-	padding: 3% 1% 0% 1%;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-}
 
 .editProfilePic {
 	display: flex;
@@ -48,4 +38,69 @@
 	align-items: center;
 	/* width: 50%;
 	height: 50%; */
+}
+
+
+/*This is the GRID11 Items, avatar and Username*/
+.avatar_wrap{
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+.avatar{
+	background: #8e05c2 ;
+}
+
+.avatar_description {
+	width: 150px;
+	position:absolute;
+	color: #fff;
+	visibility: hidden;
+	opacity: 0;
+	/* transition effect. not necessary */
+	transition: opacity .2s, visibility .2s;
+
+	word-wrap: break-word
+}
+
+.userName{
+padding-bottom: 6%;
+}
+
+.avatar_wrap:hover .avatar{
+	filter: blur(4px);
+	-webkit-filter: blur(1px);  
+}
+.avatar_wrap:hover .avatar_description{
+	visibility: visible;
+	opacity: 1;
+}
+
+
+/*This is the GRID12 Items, BIO*/
+
+
+
+/*This is the GRID13 Items, Fav Cat*/
+.gridCont13{
+	display: flex;
+}
+.userFavoriteBtns {
+	position: relative;
+	align-items: center;
+	justify-content: space-around;
+	padding: 2% 0% 0% 0%;
+}
+.button2601{
+padding-top: 2%;
+padding-bottom: 2%;
+}
+.biograph{
+	font-size: 1.2rem;
+}
+
+/*This is the Under the grid liked Stories */
+.likedStories {
+	padding-top: 5%;
 }
