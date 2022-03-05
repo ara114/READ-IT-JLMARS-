@@ -20,6 +20,8 @@ const TOOLBAR_OPTIONS = [
 export default function TextEditor(props) {
 	// const {id: docID} = useParams();
 	const docID = props.docID
+	const docIDslice = docID.slice(0, 7);
+	const docIDslice2 = docID.slice(7);
 	// const [socket, setSocket] = useState()
 	const [quill, setQuill] = useState()
 	console.log(docID)
@@ -40,8 +42,12 @@ export default function TextEditor(props) {
 			props.setStoryData(doc)
 			quill.setContents(doc.story)
 			quill.enable()
+			
 		})
-		props.socket.emit('get-document', docID)
+		if(docIDslice === 'mashup-') 
+			props.socket.emit('get-document', docIDslice2)
+		else
+			props.socket.emit('get-document', docID)
 	}, [props.socket,props.setStoryData, quill, docID])
 
 	useEffect(() => {

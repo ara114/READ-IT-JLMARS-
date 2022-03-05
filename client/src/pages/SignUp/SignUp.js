@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import '../SignUp/signup.css'
 import '../Login/Login.css'
-import { useAuth } from '../../contexts/AuthContext'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -137,19 +136,19 @@ function SignUp() {
 										}}
 										required
 									>
-										<MenuItem value={'adventure'} className='menuItems'>
+										<MenuItem value={'Adventure'} className='menuItems'>
 											Adventure
 										</MenuItem>
-										<MenuItem value={'horror'} className='menuItems'>
+										<MenuItem value={'Horror'} className='menuItems'>
 											Horror
 										</MenuItem>
-										<MenuItem value={'humour'} className='menuItems'>
+										<MenuItem value={'Humour'} className='menuItems'>
 											Humour
 										</MenuItem>
 										<MenuItem value={'Non-Fiction'} className='menuItems'>
 											Non-Fiction
 										</MenuItem>
-										<MenuItem value={'romance'} className='menuItems'>
+										<MenuItem value={'Romance'} className='menuItems'>
 											Romance
 										</MenuItem>
 									</Select>

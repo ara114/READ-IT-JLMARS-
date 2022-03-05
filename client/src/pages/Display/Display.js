@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getStories } from '../../actions/stories'
 import NavBar from '../../components/navbar/NavBar'
 import Container from '../../components/container/container'
 import { Link } from 'react-router-dom'
-import Quill from 'quill'
 import 'quill/dist/quill.bubble.css'
 import './Display.css'
 const Display = () => {
 	const { id: storyId } = useParams()
-	console.log(storyId)
+	// console.log(storyId)
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(getStories())
@@ -43,10 +42,10 @@ const Display = () => {
 							</div>
 							<div className='title-container'>{storyy.title}</div>
 							<div className='author-container'>Author(s): {storyy.author}</div>
-							{console.log(storyy.story)}
+							{/* {console.log(storyy.story)} */}
 							<div className="write-container">
 								<Link to={`/${storyy.storyID}`} className='nostyle write Create' onClick={scrollToTop}>Read</Link>
-								<Link to={`/Create/${storyy.storyID}`} className='nostyle write Join' onClick={scrollToTop}>Mashup</Link>
+								<Link to={`/Create/mashup-${storyy.storyID}`} className='nostyle write Join' onClick={scrollToTop}>Mashup</Link>
 							</div>
 						</div>
 					)

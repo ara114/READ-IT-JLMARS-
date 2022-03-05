@@ -19,23 +19,28 @@ import { io } from 'socket.io-client'
 const Create = () => {
 	const { id: docID } = useParams()
 	const dispatchh = useDispatch()
-
-	const classes = useStyles()
-	const navigate = useNavigate()
-	const [copied, setCopied] = useState(false)
+	const [checkSocket, setCheckSocket] = useState(false)
+	const [checkSocket1, setCheckSocket1] = useState(false)
 	const [storyData, setStoryData] = useState({
 		storyID: docID,
 		image: '',
-		author: '',
+		author: [],
+		reports: [],
 		title: '',
 		story: '',
 		category: '',
+		clear: false
 	})
 	const user = JSON.parse(localStorage.getItem('profile'));
 
 	useEffect(() => {
 		if(!user) navigate('/')
+		else setCheckSocket(true)
 	}, [])
+
+	const classes = useStyles()
+	const navigate = useNavigate()
+	const [copied, setCopied] = useState(false)
 
 	const [socket, setSocket] = useState()
 
@@ -47,6 +52,13 @@ const Create = () => {
 			s.disconnect()
 		}
 	}, [])
+
+	useEffect(() => {
+		if (socket == null) return
+		socket.emit('send-author', `${user?.result?.name}`)
+		console.log('send: ', `${user?.result?.name}`)
+		setCheckSocket1(true)
+	},[checkSocket])
 
 	useEffect(() => {
 		if (socket == null) return
@@ -65,11 +77,25 @@ const Create = () => {
 		if (socket == null) return
 		const handler = (authors) => {
 			setStoryData({ ...storyData, author: authors })
+			console.log('receive: ', storyData.author)
 		}
 		socket.on('receive-author', handler)
 
 		return () => {
 			socket.off('receive-author', handler)
+
+		}
+	}, [checkSocket1])
+
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (img) => {
+			setStoryData({ ...storyData, image: img })
+		}
+		socket.on('receive-image', handler)
+
+		return () => {
+			socket.off('receive-image', handler)
 
 		}
 	}, [socket,storyData])
@@ -108,6 +134,9 @@ const Create = () => {
 		navigate('/home', { replace: true })
 
 	}
+	// function refreshPage() {
+	// 	window.location.reload(false);
+	//   }
 
 	return (
 		<Container nav={<NavBar />}>
@@ -133,7 +162,7 @@ const Create = () => {
 						{/* <Typography variant="h6"> Room code: {makeid()}</Typography> */}
 						<div className={classes.fileInput}>
 							<Typography variant='h6'>Upload Cover Page</Typography>
-							<FileBase type='file' multiple={false} onDone={({ base64 }) => setStoryData({ ...storyData, image: base64 })} required />
+							<FileBase type='file' multiple={false} onDone={({ base64 }) => {setStoryData({ ...storyData, image: base64 }); socket.emit('send-image', base64)}} required />
 						</div>
 						<FormControl fullWidth margin='normal'>
 							<InputLabel id='demo-simple-select-label'>Category</InputLabel>
@@ -175,17 +204,18 @@ const Create = () => {
 							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title', e.target.value)}}
 							required
 						/>
+						{/* If you do not see your name in the author(s) section, reload the page. */}
 						<TextField
+							disabled
 							name='author'
 							variant='outlined'
-							label='Author'
+							label='Author(s)'
 							fullWidth
 							size='small'
 							value={storyData.author}
-							onChange={(e) => {setStoryData({ ...storyData, author: e.target.value }); socket.emit('send-author', e.target.value)}}
 							required
 						/>
-						{/* <TextField multiline rows={10} name="story" variant="outlined" label="Text Editor" fullWidth value={storyData.story} onChange={(e) => setStoryData({...storyData, story: e.target.value})} required /> */}
+
 						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
