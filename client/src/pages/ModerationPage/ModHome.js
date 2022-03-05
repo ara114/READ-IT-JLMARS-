@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getStories } from '../../actions/stories'
 import { CircularProgress } from '@material-ui/core'
-import Story from '../../components/Stories/Story'
+import ModStory from '../../components/Stories/ModStory'
 import '../CatPages/Cat.css'
 
 function ModHome() {
@@ -23,7 +23,7 @@ function ModHome() {
 	) : (
 		<Container nav={<ModNav />}>
 			<h1>Reported Stories</h1>
-			<div className='cat-container'>{stories.map((story) => story.category === 'Adventure' && <Story key={story._id} story={story} />)}</div>
+			<div className='cat-container'>{stories.map((story) => <ModStory key={story._id} story={story} />)}</div>
 		</Container>
 	)
 }

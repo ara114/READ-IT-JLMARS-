@@ -11,7 +11,7 @@ import React, {useEffect, useState } from 'react';
 import {getStories} from '../../actions/stories';
 function Story({story}) {
 	const dispatch = useDispatch()
-	const user = JSON.parse(localStorage.getItem('profile'));
+	// const user = JSON.parse(localStorage.getItem('profile'));
 	const [isReported, setIsReported] = useState(false);
 	useEffect(() => {
 		dispatch(getStories());
@@ -33,25 +33,16 @@ function Story({story}) {
 	// 	}
 	// }
 	return (
-		story.reports.find((report) => report === user?.result?._id) ?  (
+		story.reports.length!==0 && (
 			<div className='item'>
 				<div className='link'>
-					{story.title}
-					<p>Reported story: Story is being reviewed.</p>
-					<div className='btns'>
-					</div>
-				</div>
-			</div>
-		) : (
-			<div className='item'>
-				<div className='link'>
-					<Link to={`/Display/${story.storyID}`} className='link' onClick={scrollToTop}>
+					<Link to={`/modDisplay/${story.storyID}`} className='link' onClick={scrollToTop}>
 						<figure className='pictureWrap'>
 							<img src={story.image} alt={story.title} className='image' />
 						</figure>
 						<h5 className='name'>{story.title}</h5>
 					</Link>
-					<div className='btns'>
+					{/* <div className='btns'>
 						<Button size='small' style={{ color: '#8e05c2' }} onClick={() => dispatch(likeStory(story.storyID))}>
 							{story.likes.find((like) => like === (user?.result?.googleId || user?.result?._id)) ? (<ThumbUpAltIcon fontSize='small' className='likesBtn' />) : (<ThumbUpAltOutlined fontSize='small' className='likesBtn' />)}
 							&nbsp;{story.likes.length}
@@ -62,10 +53,20 @@ function Story({story}) {
 						<Button size='small' style={{ color: '#8e05c2' }} onClick={() => dispatch(deleteStory(story.storyID))}>
 							<DeleteIcon fontSize='small' className='deleteBtn' />
 						</Button>
-					</div>
+					</div> */}
 				</div>
 			</div>
-		)
+		) 
+        // : (
+		// 	<div className='item'>
+		// 		<div className='link'>
+		// 			{story.title}
+		// 			<p>Reported story: Story is being reviewed.</p>
+		// 			<div className='btns'>
+		// 			</div>
+		// 		</div>
+		// 	</div>
+		// )
 	)
 }
 

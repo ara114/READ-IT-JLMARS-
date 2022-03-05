@@ -46,6 +46,34 @@ export const likeStory = async (req, res) => {
 
 }
 
+export const reportStory = async (req, res) => {
+    const { id } = req.params;
+
+    if(!req.userId) return res.json({message: 'Unauthenticated'}); 
+
+    const story = await StoryMessage.findOne({storyID: id});
+    if(story.clear === false)
+        story.reports.push(req.userId);
+    console.log(story.reports);
+    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, story, {new: true})
+
+    res.json(updatedStory);
+
+}
+
+export const unreportStory = async (req, res) => {
+    const { id } = req.params;
+
+    const story = await StoryMessage.findOne({storyID: id});
+    story.reports.length = 0;
+    story.clear = true;
+    console.log(story.reports);
+    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, story, {new: true})
+
+    res.json(updatedStory);
+
+}
+
 export const deleteStory = async (req, res) => {
     const { id } = req.params;
 

@@ -3,10 +3,17 @@ import mongoose from 'mongoose';
 const storySchema = mongoose.Schema({
     storyID: String,
     title: String,
-    author: String,
+    author: {
+        type: [String],
+        default: []
+    },
     image: String,
     category: String,
     story: Object,
+    reports: {
+        type: [String],
+        default: []
+    },
     likes: {
         type: [String],
         default: []
@@ -14,6 +21,10 @@ const storySchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date()
+    },
+    clear: {
+        type: Boolean,
+        default: false
     }
 });
 

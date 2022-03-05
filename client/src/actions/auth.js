@@ -29,6 +29,21 @@ export const signup = (formData,navigate) => async (dispatch) => {
     }
 }
 
+export const loginMod = (formData,navigate) => async (dispatch) => {
+ 
+    try {
+
+        const { data } = await api.loginMod(formData);
+
+        dispatch({ type: 'LOGINMOD', data});
+
+
+        navigate('/modhome');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const updateUser = (id, user) => async (dispatch) => {
     try {
       const { data } = await api.updateUser(id, user);

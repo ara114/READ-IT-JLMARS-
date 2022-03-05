@@ -25,6 +25,7 @@ import { getStories } from './actions/stories'
 import ModHome from './pages/ModerationPage/ModHome'
 import ModLanding from './pages/ModerationPage/ModLanding'
 import ModLogin from './pages/ModerationPage/ModLogin'
+import ModDisplay from './pages/ModerationPage/ModDisplay'
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
 				<Route path='/modhome' exact element={<ModHome />} />
 				<Route path='/modland' exact element={<ModLanding />} />
 				<Route path='/modlogin' exact element={<ModLogin />} />
+				<Route path='/modDisplay/:id' exact element={<ModDisplay />} />
 				{/* <Route path="/logout" exact element={<Logout/>} /> */}
 			</Routes>
 		</div>

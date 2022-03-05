@@ -13,9 +13,13 @@ API.interceptors.request.use((req) => {
 export const fetchStories = () => API.get('/stories');
 export const createStory = (newStory) => API.post('/stories', newStory);
 export const likeStory = (id) => API.patch(`/stories/${id}/likeStory`);
+export const reportStory = (id) => API.patch(`/stories/${id}/reportStory`);
+export const unreportStory = (id) => API.patch(`/stories/${id}/unreportStory`);
 export const deleteStory = (id) => API.delete(`/stories/${id}`);
 
 export const login = (formData) => API.post('/users/login', formData);
 export const signup = (formData) => API.post('/users/signup', formData);
+
+export const loginMod = (formData) => API.post('/moderator/loginMod', formData);
 
 export const updateUser = (id, updatedUser) => API.patch(`/users/${id}`, updatedUser);

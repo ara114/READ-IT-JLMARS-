@@ -8,6 +8,10 @@ const authReducer = (state = { authData: null }, action) => {
 
       return { ...state, authData: action.data, loading: false, errors: null };
 
+    case 'LOGINMOD':
+
+      return { ...state, authData: action.data, loading: false, errors: null };
+
     case 'UPDATE':
       // localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
       const user = JSON.parse(localStorage.getItem('profile'));

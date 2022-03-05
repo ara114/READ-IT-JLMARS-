@@ -36,6 +36,11 @@ function LandingPage() {
 					<Button buttonSize={isMobile ? 'largestBtn' : 'largeBtn'}>Sign Up</Button>
 				</Link>
 			</section>
+			<section className="toModerator">
+				<Link to={'/modlogin'}>
+					<p>Login as Moderator</p>
+				</Link>
+			</section>
 		</div>
 	)
 }

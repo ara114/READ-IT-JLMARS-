@@ -34,6 +34,28 @@ export const likeStory = (id) => async (dispatch) => {
 
 }
 
+export const reportStory = (id) => async (dispatch) => {
+
+    try {
+        const { data } = await api.reportStory(id);
+        dispatch({type: 'REPORT', payload: data});
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export const unreportStory = (id) => async (dispatch) => {
+
+    try {
+        const { data } = await api.unreportStory(id);
+        dispatch({type: 'UNREPORT', payload: data});
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 export const deleteStory = (id) => async (dispatch) => {
 
     try {

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import '../Login/Login'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
-import { login } from '../../actions/auth'
+import { loginMod } from '../../actions/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 // import { GoogleLogin } from 'react-google-login'
@@ -16,27 +16,11 @@ function ModLogin(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		dispatch(login(formData, navigate))
+		dispatch(loginMod(formData, navigate))
 	}
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
-	}
-
-	const googleSuccess = async (res) => {
-		const result = res?.profileObj
-		const token = res?.tokenId
-
-		try {
-			dispatch({ type: 'AUTH', data: { result, token } })
-			navigate('/modhome')
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-	const googleFailure = (error) => {
-		console.log(error)
 	}
 
 	return (
