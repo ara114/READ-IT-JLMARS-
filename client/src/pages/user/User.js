@@ -83,16 +83,18 @@ function User() {
 						<div className='gridCont12'>
 						<div className='userName'> {user?.result.name}</div>
 							<div className='bio'>
-								<p className='biograph'> {user?.result.bio}</p>
+								<p className='biograph'>{user?.result.bio} </p>
 							</div>
 							<div className='gridCont13'>
+							
 								<div className='userFavoriteBtns'>
+								<p className=''>Favorite Categories:</p>
 									<div className='button2601'>
-									<Link to={`/category/${user?.result?.categoryOne}`} className='nostyle categories' onClick={scrollToTop}>
+									<Link to={`/category/${user?.result?.categoryOne}`} className='nostyle  ' onClick={scrollToTop}>
 										{user?.result?.categoryOne}
 									</Link>
 									</div>
-									<Link to={`/category/${user?.result?.categoryTwo}`} className='nostyle categories b2' onClick={scrollToTop}>
+									<Link to={`/category/${user?.result?.categoryTwo}`} className='nostyle  b2  ' onClick={scrollToTop}>
 										{user?.result?.categoryTwo}
 									</Link>
 								</div>

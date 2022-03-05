@@ -9,14 +9,15 @@
 	padding: 2%;
 	/* justify-content: center; */
 	/*Remove one auto to make it look like the one col one */
-	grid-template-columns: auto auto;
+	grid-template-columns: auto 900px;
 	grid-template-rows: auto;
 	column-gap: 2%;
 
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
+	/* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
 	-webkit-filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
 	filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
-	border-radius: 10px;
+	border-radius: 10px; */
+	border-bottom: 2px solid #dbdbdb;
 }
 .gridCont11 {
 	display: grid;
@@ -65,7 +66,9 @@
 }
 
 .userName{
-padding-bottom: 6%;
+padding-bottom: 3%;
+/* padding-top: 5%; */
+font-size: 2rem;
 }
 
 .avatar_wrap:hover .avatar{
@@ -83,21 +86,24 @@ padding-bottom: 6%;
 
 
 /*This is the GRID13 Items, Fav Cat*/
-.gridCont13{
+/* .gridCont13{
 	display: flex;
-}
+} */
 .userFavoriteBtns {
+
 	position: relative;
+	display: flex;
 	align-items: center;
-	justify-content: space-around;
-	padding: 2% 0% 0% 0%;
+	padding-top: 2%;
+
 }
-.button2601{
+/* .button2601{
 padding-top: 2%;
 padding-bottom: 2%;
-}
+} */
 .biograph{
-	font-size: 1.2rem;
+	font-size: 1.5rem;
+	font-family: 'Nunito', sans-serif;
 }
 
 /*This is the Under the grid liked Stories */
