@@ -38,11 +38,20 @@ io.on('connection', socket => {
         socket.on('send-title', titles => {
             socket.broadcast.to(docID).emit('receive-title', titles);
         })
-        socket.on('send-author', authors => {
-            console.log('backend: ', authors)
-            authorList.push(authors);
+        socket.on('send-author', author => {
+            console.log('backend: ', author)
+            if(!authorList.find((author1) => author1 === author))
+                authorList.push(author);
             console.log('backend list: ', authorList)
             io.to(docID).emit('receive-author', authorList);
+        })
+        socket.on('leave-room', author => {
+            console.log('backend-leave: ', author)
+            if(authorList.find((author1) => author1 === author)) {
+                authorList.splice(authorList.indexOf(author), 1);
+            }
+            console.log('backend list-leave: ', authorList)
+            socket.broadcast.to(docID).emit('receive-author', authorList);
         })
         socket.on('send-category', categories => {
             socket.broadcast.to(docID).emit('receive-category', categories);

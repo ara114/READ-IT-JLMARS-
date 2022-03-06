@@ -144,6 +144,15 @@ const Create = () => {
 			<Grow in>
 				<Paper className={classes.paper}>
 					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit', storyData)}}>
+						<Button
+							className={classes.buttonSubmit}
+							variant='contained'
+							style={{ backgroundColor: 'red', color: '#fff' }}
+							size='small'
+							onClick={(e) => {handleSubmit(e); socket.emit('leave-room', `${user?.result?.name}`)}}
+						>
+							Leave
+						</Button>
 						<Typography variant='h6'>Room code:</Typography>
 						<TextField
 							disabled
