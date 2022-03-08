@@ -60,9 +60,9 @@ function NavBar() {
 						</Link>
 					</li>
 					{user?.result ? (
-						<li className='navItem'>
+						<li className='navItem' onClick={scrollToTop} >
 							<Link to='/user' className='navLinks' onClick={closeMobileMenu}>
-								<Avatar style={{background: '#8e05c2'}} alt={user?.result.name} src={user?.result.image}>{user?.result.name.charAt(0)}</Avatar>
+								<Avatar className='navAvatar' style={{background: '#8e05c2'}} alt={user?.result.name} src={user?.result.image}>{user?.result.name.charAt(0)}</Avatar>
 							</Link>
 							{/* <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography> */}
 						</li>
