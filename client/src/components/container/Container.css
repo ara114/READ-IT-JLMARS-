@@ -19,6 +19,13 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.contentUser {
+	font-size: 1.5rem;
+	/* font-weight: 700; */
+	margin: 30px 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .joinContent {
 	font-size: 1.5rem;
 	/* font-weight: 700; */
