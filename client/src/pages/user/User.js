@@ -47,8 +47,7 @@ function User() {
 	}
 
 	return (
-		<Container nav={<UserNav user={user} setUser={setUser} setCurrentId={setCurrentId} />}>
-			<div className='userBox'>
+		<Container nav={<UserNav user={user} setUser={setUser} setCurrentId={setCurrentId} />} contentClass='contentUser'>
 			<div className='gridCont'>
 				{isEdit ? (
 					//First Element
@@ -81,30 +80,24 @@ function User() {
 							</div>
 						</div>
 						<div className='gridCont12'>
-						<div className='userName'> {user?.result.name}</div>
+							<div className='userName'> {user?.result.name}</div>
 							<div className='bio'>
-								<p className='biograph'>{user?.result.bio} </p>
+								<p className='biograph'>{user?.result.bio} as dadsd sadsa dsa dsa dsa  dsasadsad dsadsa d sadsa dsa dsa s da</p>
 							</div>
-							<div className='gridCont13'>
-							
 								<div className='userFavoriteBtns'>
-								<p className=''>Favorite Categories:</p>
-									<div className='button2601'>
-									<Link to={`/category/${user?.result?.categoryOne}`} className='nostyle  ' onClick={scrollToTop}>
+								<p className='favCat'>Favorite Categories:</p>
+									<Link to={`/category/${user?.result?.categoryOne}`} className='userCatBtns' onClick={scrollToTop}>
 										{user?.result?.categoryOne}
 									</Link>
-									</div>
-									<Link to={`/category/${user?.result?.categoryTwo}`} className='nostyle  b2  ' onClick={scrollToTop}>
+									<Link to={`/category/${user?.result?.categoryTwo}`} className='userCatBtns' onClick={scrollToTop}>
 										{user?.result?.categoryTwo}
 									</Link>
-								</div>
 						</div>
 						</div>
 
 						{/* <div className='user-container2'></div> */}
 					</>
 				)}
-			</div>
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>
