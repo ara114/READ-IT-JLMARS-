@@ -21,7 +21,7 @@ function Home({ handleLogout }) {
 	}, [dispatch]);
 
 	return (
-		<Container nav={<NavBar/>}>
+		<Container nav={<NavBar/>} contentClass='content'>
 			<Recommended />
 			<Categories />
 			<Write />
