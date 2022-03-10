@@ -59,7 +59,7 @@ function ModNav() {
 					</li>
 					<li className='navItem'>
 						{/* onClick={logout} */}
-						<Link to='/modland' className='navLinks'>
+						<Link to='/' className='navLinks'>
 							<i className='fas fa-sign-out-alt'></i>
 						</Link>
 					</li>
