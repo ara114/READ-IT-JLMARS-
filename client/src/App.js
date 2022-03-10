@@ -11,6 +11,7 @@ import Humour from './pages/CatPages/Humour.js'
 import NonFiction from './pages/CatPages/NonFiction'
 import Romance from './pages/CatPages/Romance'
 import Create from './pages/Create/Create'
+import Mashup from './pages/Mashup/Mashup'
 import Join from './pages/Join/Join'
 import About from './Settings/About/About'
 import Account from './Settings/Account/Account'
@@ -55,6 +56,7 @@ function App() {
 					}
 				/>
 				<Route path='/Create/:id' element={<Create />} />
+				<Route path='/Mashup/:id' element={<Mashup docc={`${uuidV4()}`}/>} />
 				<Route path='/Join' element={<Join />} />
 				<Route path='/:id' element={<Read />} />
 				<Route path='/Display/:id' element={<Display />} />

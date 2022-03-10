@@ -25,6 +25,10 @@ const storySchema = mongoose.Schema({
     clear: {
         type: Boolean,
         default: false
+    },
+    finished: {
+        type: Boolean,
+        default: false
     }
 });
 

@@ -17,11 +17,11 @@ const TOOLBAR_OPTIONS = [
 	['blockquote', 'code-block'],
 	['clean'],
 ]
-export default function TextEditor(props) {
+export default function MashupTextEditor(props) {
 	// const {id: docID} = useParams();
 	const docID = props.docID
-	const docIDslice = docID.slice(0, 7);
-	const docIDslice2 = docID.slice(7);
+	// const docIDslice = docID.slice(0, 7);
+	// const docIDslice2 = docID.slice(7);
 	// const [socket, setSocket] = useState()
 	const [quill, setQuill] = useState()
 	console.log(docID)
@@ -38,21 +38,21 @@ export default function TextEditor(props) {
 	useEffect(() => {
 		if (props.socket == null || quill == null) return
 
-		props.socket.once('load-document', (doc) => {
+		props.socket.once('load-document-mashup', (doc) => {
 			props.setStoryData(doc)
 			quill.setContents(doc.story)
 			quill.enable()
 			
 		})
-			props.socket.emit('get-document', docID)
+			props.socket.emit('get-document-mashup', {docID: docID, stry: props.storyData})
 	}, [props.socket,props.setStoryData, quill, docID])
 
 	useEffect(() => {
 		if (props.socket == null || quill == null) return
 
 		const interval = setInterval(() => {
-			props.socket.emit('save-document', quill.getContents())
-			props.socket.emit('save', props.storyData)
+			props.socket.emit('save-document-mashup', quill.getContents())
+			props.socket.emit('save-mashup', props.storyData)
 		}, SAVE_INTERVAL_MS)
 		return () => {
 			clearInterval(interval)
@@ -66,10 +66,10 @@ export default function TextEditor(props) {
 		const handler = (delta) => {
 			quill.updateContents(delta)
 		}
-		props.socket.on('receive-changes', handler)
+		props.socket.on('receive-changes-mashup', handler)
 
 		return () => {
-			props.socket.off('receive-changes', handler)
+			props.socket.off('receive-changes-mashup', handler)
 
 		}
 	}, [props.socket, quill])
@@ -78,12 +78,12 @@ export default function TextEditor(props) {
 		if (props.socket == null || quill == null) return
 		const handler = (delta, oldDelta, source) => {
 			if (source !== 'user') return
-			props.socket.emit('send-changes', delta)
+			props.socket.emit('send-changes-mashup', delta)
 		}
-		quill.on('text-change', handler)
+		quill.on('text-change-mashup', handler)
 
 		return () => {
-			quill.off('text-change', handler)
+			quill.off('text-change-mashup', handler)
 		}
 	}, [props.socket, quill])
 

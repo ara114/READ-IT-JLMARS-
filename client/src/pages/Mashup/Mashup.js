@@ -7,36 +7,45 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { createStory } from '../../actions/stories'
-import TextEditor from '../../components/TextEditor/TextEditor'
+import MashupTextEditor from '../../components/TextEditor/MashupTextEditor'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/navbar/NavBar'
 import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { io } from 'socket.io-client'
+import { v4 as uuidV4 } from 'uuid'
 
-const Create = () => {
-	const { id: docID } = useParams()
+const Mashup = ({docc}) => {
+    const { id: docID } = useParams()
+    const stories = useSelector((state) => state.stories)
+    // const [storyy, setStoryy] = useState(null) 
+    const storyy = stories.find(story => story.storyID === `${docID}`)
+    console.log(storyy)
 	const dispatchh = useDispatch()
 	const [checkSocket, setCheckSocket] = useState(false)
 	const [checkSocket1, setCheckSocket1] = useState(false)
+	// const [docc, setDocc] = useState('')
 	const [storyData, setStoryData] = useState({
-		storyID: docID,
-		image: '',
-		author: [],
-		reports: [],
-		title: '',
-		story: '',
-		category: '',
-		clear: false,
-		finished: false
+		storyID: docc,
+		image: storyy.image,
+		author: storyy.author,
+		reports: storyy.reports,
+		title: storyy.title,
+		story: storyy.story,
+		category: storyy.category,
+		clear: storyy.clear,
+		finished: storyy.finished
 	})
 	const user = JSON.parse(localStorage.getItem('profile'));
 
 	useEffect(() => {
 		if(!user) navigate('/')
-		else setCheckSocket(true)
+		else {
+			setCheckSocket(true)
+			// setDocc(`${uuidV4()}`)
+		}
 	}, [])
 
 	const classes = useStyles()
@@ -54,49 +63,49 @@ const Create = () => {
 		}
 	}, [])
 
-	useEffect(() => {
-		if (socket == null) return
-		socket.emit('send-author', `${user?.result?.name}`)
-		console.log('send: ', `${user?.result?.name}`)
-		setCheckSocket1(true)
-	},[checkSocket])
+	// useEffect(() => {
+	// 	if (socket == null) return
+	// 	socket.emit('send-author-mashup', `${user?.result?.name}`)
+	// 	console.log('send-mashup: ', `${user?.result?.name}`)
+	// 	setCheckSocket1(true)
+	// },[checkSocket])
 
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (titles) => {
 			setStoryData({ ...storyData, title: titles })
 		}
-		socket.on('receive-title', handler)
+		socket.on('receive-title-mashup', handler)
 
 		return () => {
-			socket.off('receive-title', handler)
+			socket.off('receive-title-mashup', handler)
 
 		}
 	}, [socket,storyData]);
 
-	useEffect(() => {
-		if (socket == null) return
-		const handler = (authors) => {
-			setStoryData({ ...storyData, author: authors })
-			console.log('receive: ', storyData.author)
-		}
-		socket.on('receive-author', handler)
+	// useEffect(() => {
+	// 	if (socket == null) return
+	// 	const handler = (authors) => {
+	// 		setStoryData({ ...storyData, author: authors })
+	// 		console.log('receive-mashup: ', storyData.author)
+	// 	}
+	// 	socket.on('receive-author-mashup', handler)
 
-		return () => {
-			socket.off('receive-author', handler)
+	// 	return () => {
+	// 		socket.off('receive-author-mashup', handler)
 
-		}
-	}, [checkSocket1])
+	// 	}
+	// }, [checkSocket1])
 
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (img) => {
 			setStoryData({ ...storyData, image: img })
 		}
-		socket.on('receive-image', handler)
+		socket.on('receive-image-mashup', handler)
 
 		return () => {
-			socket.off('receive-image', handler)
+			socket.off('receive-image-mashup', handler)
 
 		}
 	}, [socket,storyData])
@@ -106,10 +115,10 @@ const Create = () => {
 		const handler = (categories) => {
 			setStoryData({ ...storyData, category: categories })
 		}
-		socket.on('receive-category', handler)
+		socket.on('receive-category-mashup', handler)
 
 		return () => {
-			socket.off('receive-category', handler)
+			socket.off('receive-category-mashup', handler)
 
 		}
 	}, [socket,storyData])
@@ -117,12 +126,13 @@ const Create = () => {
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (storyDat) => {
+			dispatchh(createStory(storyDat));
 			navigate('/home', { replace: true })
 		}
-		socket.on('receive-form', handler)
+		socket.on('receive-form-mashup', handler)
 
 		return () => {
-			socket.off('receive-form', handler)
+			socket.off('receive-form-mashup', handler)
 
 		}
 	}, [socket, dispatchh])
@@ -130,7 +140,7 @@ const Create = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// console.log(storyData)
-		dispatchh(createStory(storyData));
+		
 		navigate('/home', { replace: true })
 
 	}
@@ -143,13 +153,13 @@ const Create = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit', storyData)}}>
+					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit-mashup', storyData)}}>
 						<Button
 							className={classes.buttonSubmit}
 							variant='contained'
 							style={{ backgroundColor: 'red', color: '#fff' }}
 							size='small'
-							onClick={(e) => {handleSubmit(e); socket.emit('leave-room', `${user?.result?.name}`)}}
+							onClick={(e) => {handleSubmit(e); socket.emit('leave-room-mashup', `${user?.result?.name}`)}}
 						>
 							Leave
 						</Button>
@@ -158,11 +168,11 @@ const Create = () => {
 							disabled
 							fullWidth
 							variant='outlined'
-							defaultValue={docID}
+							defaultValue={docc}
 							size='small'
 							inputProps={{ style: { textAlign: 'center' } }}
 						/>
-						<CopyToClipboard text={docID} onCopy={() => setCopied(true)}>
+						<CopyToClipboard text={docc} onCopy={() => setCopied(true)}>
 							<Button variant='contained' style={{ backgroundColor: '#8e05c2', color: '#fff' }}>
 								{!copied ? 'Copy' : 'Copied!'}
 							</Button>
@@ -171,7 +181,7 @@ const Create = () => {
 						{/* <Typography variant="h6"> Room code: {makeid()}</Typography> */}
 						<div className={classes.fileInput}>
 							<Typography variant='h6'>Upload Cover Page</Typography>
-							<FileBase type='file' multiple={false} onDone={({ base64 }) => {setStoryData({ ...storyData, image: base64 }); socket.emit('send-image', base64)}} required />
+							<FileBase type='file' multiple={false} onDone={({ base64 }) => {setStoryData({ ...storyData, image: base64 }); socket.emit('send-image-mashup', base64)}} required />
 						</div>
 						<FormControl fullWidth margin='normal'>
 							<InputLabel id='demo-simple-select-label'>Category</InputLabel>
@@ -182,7 +192,7 @@ const Create = () => {
 								label='Category'
 								size='small'
 								sx={{ margin: 1 }}
-								onChange={(e) => {setStoryData({ ...storyData, category: e.target.value }); socket.emit('send-category', e.target.value)}}
+								onChange={(e) => {setStoryData({ ...storyData, category: e.target.value }); socket.emit('send-category-mashup', e.target.value)}}
 								required
 							>
 								<MenuItem value={'Adventure'} className='menuItems'>
@@ -210,7 +220,7 @@ const Create = () => {
 							fullWidth
 							size='small'
 							value={storyData.title}
-							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title', e.target.value)}}
+							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title-mashup', e.target.value)}}
 							required
 						/>
 						{/* If you do not see your name in the author(s) section, reload the page. */}
@@ -225,7 +235,7 @@ const Create = () => {
 							required
 						/>
 
-						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
+						<MashupTextEditor docID={docc} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
 							variant='contained'
@@ -243,4 +253,4 @@ const Create = () => {
 	)
 }
 
-export default Create
+export default Mashup

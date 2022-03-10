@@ -3,7 +3,7 @@ import StoryMessage from '../models/storyMessage.js';
 export const getStories = async (req, res) => {
     try {
         // trying to retreive all stories in db
-        const storyMessages = await StoryMessage.find();
+        const storyMessages = await StoryMessage.find({finished: true});
         res.status(200).json(storyMessages);
     } catch (error) {
         res.status(404).json({message: error.message});
@@ -13,9 +13,11 @@ export const getStories = async (req, res) => {
 
 export const createStory = async (req, res) => {
     const story = req.body;
-    const newStory = new StoryMessage({...story, createdAt: new Date().toISOString()});
+    const update = await StoryMessage.findOneAndUpdate({storyID: story.storyID}, {finished: true}, {new: true})
+    // const newStory = new StoryMessage({...story, finished: true, createdAt: new Date().toISOString()});
+    const newStory = await StoryMessage.find({storyID: story.storyID});
     try {
-        await newStory.save();
+        // await newStory.save();
         res.status(201).json(newStory);
     } catch (error) {
         res.status(409).json({message: error.message});

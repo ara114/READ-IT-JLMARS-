@@ -9,6 +9,7 @@ import { createServer } from 'http';
 import storyText from './models/storyMessage.js';
 import userRoutes from './routes/users.js';
 import moderatorRoutes from './routes/moderator.js';
+import { v4 as uuidV4 } from 'uuid';
 
 const app = express();
 const server = createServer(app); 
@@ -77,6 +78,56 @@ io.on('connection', socket => {
 
     });
 
+
+    socket.on('get-document-mashup', async ({docID, stry}) => {
+        const storyy = await loadStory(docID, stry);
+        socket.join(docID);
+        socket.emit('load-document-mashup', storyy);
+        socket.on('send-changes-mashup', delta => {
+        socket.broadcast.to(docID).emit('receive-changes-mashup', delta);
+        });
+        socket.on('send-title-mashup', titles => {
+            socket.broadcast.to(docID).emit('receive-title-mashup', titles);
+        })
+        // socket.on('send-author-mashup', author => {
+        //     console.log('backend-mashup: ', author)
+        //     if(!authorList.find((author1) => author1 === author))
+        //         authorList.push(author);
+        //     console.log('backend list-mashup: ', authorList)
+        //     io.to(docID).emit('receive-author-mashup', authorList);
+        // })
+        socket.on('leave-room-mashup', author => {
+            console.log('backend-leave-mashup ', author)
+            if(authorList.find((author1) => author1 === author)) {
+                authorList.splice(authorList.indexOf(author), 1);
+            }
+            console.log('backend list-leave-mashup: ', authorList)
+            socket.broadcast.to(docID).emit('receive-author-mashup', authorList);
+        })
+        socket.on('send-category-mashup', categories => {
+            socket.broadcast.to(docID).emit('receive-category-mashup', categories);
+        })
+        socket.on('send-image-mashup', img => {
+            socket.broadcast.to(docID).emit('receive-image-mashup', img);
+        })
+        socket.on('form-submit-mashup', storyData => {
+            authorList.length = 0;
+            socket.broadcast.to(docID).emit('receive-form-mashup', {...storyData, finished: true});
+        })
+
+        socket.on('save-document-mashup', async data => {
+            await storyText.findOneAndUpdate({storyID: docID}, {story: data}, {new: true})
+            // const s = await storyText.findOne({storyID: docID});
+            // console.log(s);
+        })
+        socket.on('save-mashup', async data => {
+            await storyText.findOneAndUpdate({storyID: docID}, {author: data.author, image: data.image, title: data.title, category: data.category}, {new: true})
+            // const s = await storyText.findOne({storyID: docID});
+            // console.log(s);
+        })
+
+    });
+
     console.log('connected');
 });
 dotenv.config();
@@ -94,11 +145,20 @@ mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedT
     .then(() => server.listen(PORT, () => console.log(`Server running on port ${PORT}`))) // if successful connection
     .catch((err) => console.log(err.message)); // if failure
 
-async function findOrCreateStory(mid){
-    if(mid == null) return;
+async function findOrCreateStory(sid){
+    if(sid == null) return;
 
-    const hmm = await storyText.findOne({storyID: mid});
+    const hmm = await storyText.findOne({storyID: sid});
     if(hmm) 
         return hmm;
-    return await storyText.create({storyID: mid, image: '', author: '', title: '', category: '', story: defaultValue});
+    return await storyText.create({storyID: sid, image: '', author: '', title: '', category: '', story: defaultValue, reports: [], clear: false});
+}
+
+async function loadStory(sid, stry){
+    // if(sid == null) return;
+
+    const hmm = await storyText.findOne({storyID: sid, finished: true});
+    if(hmm)
+        sid = `${uuidV4()}`;
+    return await storyText.create({storyID: sid, image: stry.image, author: stry.author, title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false});
 }
