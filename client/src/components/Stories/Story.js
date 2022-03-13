@@ -13,6 +13,7 @@ function Story({story}) {
 	const dispatch = useDispatch()
 	const user = JSON.parse(localStorage.getItem('profile'));
 	const [isReported, setIsReported] = useState(false);
+	const [likes, setLikes] = useState(story?.likes);
 	useEffect(() => {
 		dispatch(getStories());
 	}, [dispatch]);
@@ -24,14 +25,13 @@ function Story({story}) {
 		})
 	}
 
-	// const Likes = () => {
-	// 	if(story.likes.length > 0) {
-	// 		return story.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
-	// 		? (
-	// 			<><ThumbUpAltIcon fontSize='small' className='likesBtn'/>&nbsp;</>
-	// 		)
-	// 	}
-	// }
+	const handleLike = async () => {
+		dispatch(likeStory(story.storyID));
+		if(story.likes.find((like) => like === (user?.result?.googleId || user?.result?._id)))
+			setLikes(story.likes.filter((id) => id !== (user?.result?._id)))
+		else
+			setLikes([...story.likes, user?.result?._id])
+	}
 	return (
 		story.reports.find((report) => report === user?.result?._id) ?  (
 			<div className='item'>
@@ -52,9 +52,9 @@ function Story({story}) {
 						<h5 className='name'>{story.title}</h5>
 					</Link>
 					<div className='btns'>
-						<Button size='small' style={{ color: '#8e05c2' }} onClick={() => dispatch(likeStory(story.storyID))}>
-							{story.likes.find((like) => like === (user?.result?.googleId || user?.result?._id)) ? (<ThumbUpAltIcon fontSize='small' className='likesBtn' />) : (<ThumbUpAltOutlined fontSize='small' className='likesBtn' />)}
-							&nbsp;{story.likes.length}
+						<Button size='small' style={{ color: '#8e05c2' }} onClick={handleLike}>
+							{likes.find((like) => like === (user?.result?.googleId || user?.result?._id)) ? (<ThumbUpAltIcon fontSize='small' className='likesBtn' />) : (<ThumbUpAltOutlined fontSize='small' className='likesBtn' />)}
+							&nbsp;{likes.length}
 						</Button>
 						<Button size='small' style={{ color: '#8e05c2' }} onClick={() => {setIsReported(true); dispatch(reportStory(story.storyID))}}>
 							<FlagIcon fontSize='small' className='deleteBtn' />
