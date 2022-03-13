@@ -48,6 +48,20 @@ export const likeStory = async (req, res) => {
 
 }
 
+export const commentStory = async (req, res) => {
+    const { id } = req.params;
+    const { value } = req.body;
+
+    const story = await StoryMessage.findOne({storyID: id});
+
+    story.comments.push(value);
+
+    const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, story, {new: true});
+
+    res.json(updatedStory);
+
+}
+
 export const reportStory = async (req, res) => {
     const { id } = req.params;
 

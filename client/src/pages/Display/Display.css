@@ -1,3 +1,7 @@
+.reviewContainer{
+	padding-top: 60px;
+}
+
 .read {
 	display: flex;
 	justify-content: center;

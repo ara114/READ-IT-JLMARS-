@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import 'quill/dist/quill.bubble.css'
 import './Display.css'
 import { v4 as uuidV4 } from 'uuid'
+import Reviews from './Reviews'
 const Display = () => {
 	const { id: storyId } = useParams()
 	// console.log(storyId)
@@ -55,6 +56,7 @@ const Display = () => {
 								<Link to={`/${storyy.storyID}`} className='nostyle write Create' onClick={scrollToTop}>Read</Link>
 								<Link to={`/Mashup/${storyy.storyID}-${uuidV4()}`} className='nostyle write Join' onClick={scrollToTop}>Mashup</Link>
 							</div>
+							<Reviews story={storyy}/>
 						</div>
 					)
 			)}
