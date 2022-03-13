@@ -102,7 +102,7 @@ io.on('connection', socket => {
                 authorList.splice(authorList.indexOf(author), 1);
             }
             console.log('backend list-leave-mashup: ', authorList)
-            socket.broadcast.to(docID).emit('receive-author-mashup', authorList);
+            // socket.broadcast.to(docID).emit('receive-author-mashup', authorList);
         })
         socket.on('send-category-mashup', categories => {
             socket.broadcast.to(docID).emit('receive-category-mashup', categories);
@@ -121,7 +121,7 @@ io.on('connection', socket => {
             // console.log(s);
         })
         socket.on('save-mashup', async data => {
-            await storyText.findOneAndUpdate({storyID: docID}, {author: data.author, image: data.image, title: data.title, category: data.category}, {new: true})
+            await storyText.findOneAndUpdate({storyID: docID}, {image: data.image, title: data.title, category: data.category}, {new: true})
             // const s = await storyText.findOne({storyID: docID});
             // console.log(s);
         })
@@ -151,14 +151,14 @@ async function findOrCreateStory(sid){
     const hmm = await storyText.findOne({storyID: sid});
     if(hmm) 
         return hmm;
-    return await storyText.create({storyID: sid, image: '', author: '', title: '', category: '', story: defaultValue, reports: [], clear: false});
+    return await storyText.create({storyID: sid, image: '', author: '', title: '', category: '', story: defaultValue, reports: [], clear: false, mashup: false});
 }
 
 async function loadStory(sid, stry){
     // if(sid == null) return;
 
-    const hmm = await storyText.findOne({storyID: sid, finished: true});
+    const hmm = await storyText.findOne({storyID: sid});
     if(hmm)
-        sid = `${uuidV4()}`;
-    return await storyText.create({storyID: sid, image: stry.image, author: stry.author, title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false});
+        return hmm;
+    return await storyText.create({storyID: sid, originalStory: stry, image: stry.image, title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false, mashup: true});
 }

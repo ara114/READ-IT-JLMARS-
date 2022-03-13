@@ -3,7 +3,7 @@ import StoryMessage from '../models/storyMessage.js';
 export const getStories = async (req, res) => {
     try {
         // trying to retreive all stories in db
-        const storyMessages = await StoryMessage.find({finished: true});
+        const storyMessages = await StoryMessage.find();
         res.status(200).json(storyMessages);
     } catch (error) {
         res.status(404).json({message: error.message});

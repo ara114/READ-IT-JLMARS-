@@ -15,37 +15,42 @@ import NavBar from '../../components/navbar/NavBar'
 import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { io } from 'socket.io-client'
-import { v4 as uuidV4 } from 'uuid'
 
-const Mashup = ({docc}) => {
-    const { id: docID } = useParams()
-    const stories = useSelector((state) => state.stories)
-    // const [storyy, setStoryy] = useState(null) 
-    const storyy = stories.find(story => story.storyID === `${docID}`)
-    console.log(storyy)
+const Mashup = () => {
+	const { id: docID } = useParams()
 	const dispatchh = useDispatch()
+	const stories = useSelector((state)=> state.stories);
 	const [checkSocket, setCheckSocket] = useState(false)
 	const [checkSocket1, setCheckSocket1] = useState(false)
-	// const [docc, setDocc] = useState('')
+  const docSlice1 = docID.slice(0, 36);
+  const docSlice2 = docID.slice(37, docID.length);
+  console.log('docSlice1: ',docSlice1);
+  console.log('docSlice2: ',docSlice2);
+
+  var storyy = null;
+  console.log('stories: ',stories);
+  stories.map((story) => {
+    if(story.storyID === docSlice1)
+    	storyy = story
+  })
+  console.log('story',storyy);
+
 	const [storyData, setStoryData] = useState({
-		storyID: docc,
+		storyID: docSlice2,
 		image: storyy.image,
-		author: storyy.author,
 		reports: storyy.reports,
 		title: storyy.title,
 		story: storyy.story,
 		category: storyy.category,
 		clear: storyy.clear,
-		finished: storyy.finished
+		finished: false,
+    	mashup: true
 	})
 	const user = JSON.parse(localStorage.getItem('profile'));
 
 	useEffect(() => {
 		if(!user) navigate('/')
-		else {
-			setCheckSocket(true)
-			// setDocc(`${uuidV4()}`)
-		}
+		else setCheckSocket(true)
 	}, [])
 
 	const classes = useStyles()
@@ -87,12 +92,12 @@ const Mashup = ({docc}) => {
 	// 	if (socket == null) return
 	// 	const handler = (authors) => {
 	// 		setStoryData({ ...storyData, author: authors })
-	// 		console.log('receive-mashup: ', storyData.author)
+	// 		console.log('receive: ', storyData.author)
 	// 	}
-	// 	socket.on('receive-author-mashup', handler)
+	// 	socket.on('receive-author', handler)
 
 	// 	return () => {
-	// 		socket.off('receive-author-mashup', handler)
+	// 		socket.off('receive-author', handler)
 
 	// 	}
 	// }, [checkSocket1])
@@ -126,7 +131,6 @@ const Mashup = ({docc}) => {
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (storyDat) => {
-			dispatchh(createStory(storyDat));
 			navigate('/home', { replace: true })
 		}
 		socket.on('receive-form-mashup', handler)
@@ -140,7 +144,7 @@ const Mashup = ({docc}) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// console.log(storyData)
-		
+		dispatchh(createStory(storyData));
 		navigate('/home', { replace: true })
 
 	}
@@ -168,11 +172,11 @@ const Mashup = ({docc}) => {
 							disabled
 							fullWidth
 							variant='outlined'
-							defaultValue={docc}
+							defaultValue={docSlice2}
 							size='small'
 							inputProps={{ style: { textAlign: 'center' } }}
 						/>
-						<CopyToClipboard text={docc} onCopy={() => setCopied(true)}>
+						<CopyToClipboard text={docID} onCopy={() => setCopied(true)}>
 							<Button variant='contained' style={{ backgroundColor: '#8e05c2', color: '#fff' }}>
 								{!copied ? 'Copy' : 'Copied!'}
 							</Button>
@@ -224,7 +228,7 @@ const Mashup = ({docc}) => {
 							required
 						/>
 						{/* If you do not see your name in the author(s) section, reload the page. */}
-						<TextField
+						{/* <TextField
 							disabled
 							name='author'
 							variant='outlined'
@@ -233,9 +237,9 @@ const Mashup = ({docc}) => {
 							size='small'
 							value={storyData.author}
 							required
-						/>
+						/> */}
 
-						<MashupTextEditor docID={docc} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
+						<MashupTextEditor docID={docSlice2} docID2={docSlice1} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
 							variant='contained'

@@ -20,6 +20,7 @@ const TOOLBAR_OPTIONS = [
 export default function MashupTextEditor(props) {
 	// const {id: docID} = useParams();
 	const docID = props.docID
+	const docID2 = props.docID2
 	// const docIDslice = docID.slice(0, 7);
 	// const docIDslice2 = docID.slice(7);
 	// const [socket, setSocket] = useState()
@@ -44,7 +45,7 @@ export default function MashupTextEditor(props) {
 			quill.enable()
 			
 		})
-			props.socket.emit('get-document-mashup', {docID: docID, stry: props.storyData})
+			props.socket.emit('get-document-mashup', {docID: docID, stry: {...props.storyData, storyID: docID2}})
 	}, [props.socket,props.setStoryData, quill, docID])
 
 	useEffect(() => {

@@ -40,6 +40,14 @@
 	color: #5f0e80;
 	font-family: 'Concert One', cursive;
 }
+.originalStory-container {
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #5f0e80;
+	font-family: 'Concert One', cursive;
+}
 .read-content {
 	display: block;
 	justify-content: center;

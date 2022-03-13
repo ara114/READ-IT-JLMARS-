@@ -56,7 +56,7 @@ function App() {
 					}
 				/>
 				<Route path='/Create/:id' element={<Create />} />
-				<Route path='/Mashup/:id' element={<Mashup docc={`${uuidV4()}`}/>} />
+				<Route path='/Mashup/:id' element={<Mashup />} />
 				<Route path='/Join' element={<Join />} />
 				<Route path='/:id' element={<Read />} />
 				<Route path='/Display/:id' element={<Display />} />

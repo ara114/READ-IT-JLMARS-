@@ -10,6 +10,7 @@ const storySchema = mongoose.Schema({
     image: String,
     category: String,
     story: Object,
+    originalStory: Object,
     reports: {
         type: [String],
         default: []
@@ -27,6 +28,10 @@ const storySchema = mongoose.Schema({
         default: false
     },
     finished: {
+        type: Boolean,
+        default: false
+    },
+    mashup: {
         type: Boolean,
         default: false
     }

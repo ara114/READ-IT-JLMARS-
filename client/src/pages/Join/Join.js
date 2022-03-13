@@ -4,6 +4,7 @@ import { TextField, Button, Typography, Paper, Grow } from '@material-ui/core'
 import useStyles from './Joinstyles'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/navbar/NavBar'
+import { useSelector } from 'react-redux'
 const Create = () => {
 	const classes = useStyles()
 	const navigate = useNavigate()
@@ -15,11 +16,22 @@ const Create = () => {
 		if(!user) navigate('/')
 	}, [])
 
-
+	const stories = useSelector((state)=> state.stories);
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log(code)
-		navigate(`/Create/${code}`, { replace: true })
+		console.log('room',code)
+		var storyy = null;
+		var code1 = code.slice(0, 36)
+		console.log('stories: ',stories);
+		stories.map((story) => {
+		  if((story.storyID === code1) && code.length > 36)
+			  storyy = story
+		})
+		console.log('story',storyy);
+		if(storyy !== null) 
+			navigate(`/Mashup/${code}`, { replace: true })
+		else
+			navigate(`/Create/${code}`, { replace: true })
 	}
 
 	return (
