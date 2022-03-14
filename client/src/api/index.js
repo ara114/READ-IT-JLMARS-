@@ -13,7 +13,7 @@ API.interceptors.request.use((req) => {
 export const fetchStories = () => API.get('/stories');
 export const createStory = (newStory) => API.post('/stories', newStory);
 export const likeStory = (id) => API.patch(`/stories/${id}/likeStory`);
-export const commentStory = (value, id) => API.post(`/stories/${id}/commentStory`, {value});
+export const reviewStory = (value, id) => API.post(`/stories/${id}/reviewStory`, {value});
 export const reportStory = (id) => API.patch(`/stories/${id}/reportStory`);
 export const unreportStory = (id) => API.patch(`/stories/${id}/unreportStory`);
 export const deleteStory = (id) => API.delete(`/stories/${id}`);

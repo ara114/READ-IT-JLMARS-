@@ -34,12 +34,12 @@ export const likeStory = (id) => async (dispatch) => {
 
 }
 
-export const commentStory = (value, id) => async (dispatch) => {
+export const reviewStory = (value, id) => async (dispatch) => {
     
     try {
-        const { data } = await api.commentStory(value, id);
-        dispatch({type: 'COMMENT', payload: data});
-        return data.comments;
+        const { data } = await api.reviewStory(value, id);
+        dispatch({type: 'REVIEW', payload: data});
+        return data.reviews;
     } catch (error) {
         console.log(error);
     }

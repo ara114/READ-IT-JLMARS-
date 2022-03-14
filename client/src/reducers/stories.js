@@ -2,7 +2,7 @@ export default (stories = [], action) => {
     switch(action.type) {
         case 'LIKE':
             return stories.map((story) => story.storyID === action.payload ? action.payload : story)
-        case 'COMMENT':
+        case 'REVIEW':
             return stories.map((story) => story.storyID === action.payload ? action.payload : story)
         case 'REPORT':
             return stories.map((story) => story.storyID === action.payload ? action.payload : story)

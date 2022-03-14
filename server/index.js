@@ -9,7 +9,6 @@ import { createServer } from 'http';
 import storyText from './models/storyMessage.js';
 import userRoutes from './routes/users.js';
 import moderatorRoutes from './routes/moderator.js';
-import { v4 as uuidV4 } from 'uuid';
 
 const app = express();
 const server = createServer(app); 

@@ -19,7 +19,7 @@ const storySchema = mongoose.Schema({
         type: [String],
         default: []
     },
-    comments: {
+    reviews: {
         type: [String],
         default: []
     },
