@@ -43,28 +43,30 @@ function Login(props) {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
-				<label>Email</label>
-				<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
-				<p className='errorMsg'></p>
-				<label>Password</label>
-				<input name='password' className='control' type='password' placeholder='Enter your password' required onChange={handleChange} />
-				<p className='errorMsg'></p>
-				<section className='loginButton'>
-					<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'} onClick={handleSubmit}>
-						Login
-					</Button>
-				</section>
-				{/* <GoogleLogin 
-				clientId='351534931705-6vbgo7schhjsfniqlc6qppal9snur04t.apps.googleusercontent.com'
-				onSuccess={googleSuccess}
-				onFailure={googleFailure}
-				cookiePolicy='single_host_origin'/> */}
-				<div className='msgContainer'>
-					<p className='msg'>Not a member?</p>
-					<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>
-						Signup
-					</Link>
-				</div>
+				<form onSubmit={handleSubmit}>
+					<label>Email</label>
+					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
+					<p className='errorMsg'></p>
+					<label>Password</label>
+					<input name='password' className='control' type='password' placeholder='Enter your password' required onChange={handleChange} />
+					<p className='errorMsg'></p>
+					<section className='loginButton'>
+						<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'} type='submit'>
+							Login
+						</Button>
+					</section>
+					{/* <GoogleLogin 
+					clientId='351534931705-6vbgo7schhjsfniqlc6qppal9snur04t.apps.googleusercontent.com'
+					onSuccess={googleSuccess}
+					onFailure={googleFailure}
+					cookiePolicy='single_host_origin'/> */}
+					<div className='msgContainer'>
+						<p className='msg'>Not a member?</p>
+						<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>
+							Signup
+						</Link>
+					</div>
+				</form>
 			</div>
 		</div>
 	)
