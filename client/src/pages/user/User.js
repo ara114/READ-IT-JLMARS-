@@ -82,7 +82,7 @@ function User() {
 						<div className='gridCont12'>
 							<div className='userName'> {user?.result.name}</div>
 							<div className='bio'>
-								<p className='biograph'>{user?.result.bio} as dadsd sadsa dsa dsa dsa  dsasadsad dsadsa d sadsa dsa dsa s da</p>
+								<p className='biograph'>{user?.result.bio}</p>
 							</div>
 								<div className='userFavoriteBtns'>
 								<p className='favCat'>Favorite Categories:</p>

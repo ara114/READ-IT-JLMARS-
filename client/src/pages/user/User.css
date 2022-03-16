@@ -10,7 +10,7 @@
 	/* grid-template-rows: auto; */
 	column-gap: 2%;
 
-
+	justify-content: left;
 	/* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.39);
 	-webkit-filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
 	filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.017));
@@ -90,7 +90,7 @@ font-size: 2rem;
 	display: flex;
 	align-items: center;
 	padding-top: 2%;
-
+	margin-right: -25%;
 }
 
 .favCat{
