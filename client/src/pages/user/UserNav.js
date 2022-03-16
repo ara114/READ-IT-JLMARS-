@@ -3,11 +3,14 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './UserNav.css'
 import {useDispatch} from 'react-redux'
-function UserNav({user, setUser, setCurrentId}) {
+import { Avatar } from '@material-ui/core';
+
+function UserNav({setUser, setCurrentId}) {
 	// These states help in closing the shadow box
 	const [click, setClick] = useState(false)
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
+
 
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -16,7 +19,7 @@ function UserNav({user, setUser, setCurrentId}) {
 		})
 	}
 	const dispatch = useDispatch();
-	// const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+	const user = JSON.parse(localStorage.getItem('profile'));
 
 	const logout = () => {
 		dispatch({type: 'LOGOUT'});
@@ -39,36 +42,38 @@ function UserNav({user, setUser, setCurrentId}) {
 					<i className={click ? 'fas fa-times' : 'fas fa-cog'} />
 				</div>
 				<ul className={click ? 'menu active' : 'menu'}>
-					<li className='itemNav' onClick={scrollToTop}>
-						{/* These are all the items in the nav bar */}
-						<Link to='/home' className='itemLinks' onClick={closeMobileMenu}>
-							<i className='fas fa-home'></i>
-						</Link>
-					</li>
-					<li className='itemNav' onClick={scrollToTop}>
-						{/* These are all the items in the nav bar */}
-						<Link to='/user' className='itemLinks' onClick={closeMobileMenu}>
-							<i className='fas fa-cogs'></i>
-						</Link>
-					</li>
+				{user?.result ? (
+						<li className='itemNav' onClick={scrollToTop} >
+							<Link to='/user' className='itemLinks' onClick={closeMobileMenu}>
+								<Avatar className='navAvatar' style={{background: '#8e05c2'}} alt={user?.result.name} src={user?.result.image}>{user?.result.name.charAt(0)}</Avatar>
+							</Link>
+							{/* <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography> */}
+						</li>
+					) : (
+						<li className='itemNav' onClick={scrollToTop}>
+							<Link to='/user' className='itemLinks' onClick={closeMobileMenu}>
+								<i className='fas fa-user-circle'></i>
+							</Link>
+						</li>
+					)}
 					<li className='itemNav'>
 						<Link to={`/user/${user?.result?._id}`} className='itemLinks' onClick={() => setCurrentId(user?.result?._id)}>
-							<i className='fas fa-user-edit'></i>
+						<h1 className='home-txt'> Edit </h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/security' className='itemLinks' onClick={closeMobileMenu}>
-							<i className='fas fa-lock'></i>
+						<h1 className='home-txt'> Security</h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/About' className='itemLinks' onClick={closeMobileMenu}>
-							<i className='fas fa-book'></i>
+						<h1 className='home-txt'> About Us</h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/' className='itemLinks' onClick={logout}>
-							<i className='fas fa-sign-out-alt'></i>
+						<h1 className='home-txt'> Logout</h1>
 						</Link>
 					</li>
 				</ul>
