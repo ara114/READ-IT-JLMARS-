@@ -90,7 +90,7 @@ font-size: 2rem;
 	display: flex;
 	align-items: center;
 	padding-top: 2%;
-	margin-right: -25%;
+	margin-right: -24%;
 }
 
 .favCat{
@@ -132,6 +132,42 @@ font-size: 2rem;
 		font-size: 1.2rem;
 	}
 }
+@media all and (max-width: 750px) {
+
+	.userFavoriteBtns {
+		margin-right: -20%;
+	}
+}
+@media all and (max-width: 723px) {
+	.userFavoriteBtns {
+		margin-right: -24%;
+	}
+}
+@media all and (max-width: 633px) {
+	.userFavoriteBtns {
+		margin-right: -14%;
+	}
+}
+@media all and (max-width: 606px) {
+	.userName{
+		font-size: 1.25rem;
+	}
+	.favCat, .userCatBtns, .biograph {
+		font-size: 1.05rem;
+	}
+
+}
+@media all and (max-width: 583px) {
+	.userName{
+		font-size: 1.25rem;
+	}
+	.favCat, .userCatBtns, .biograph {
+		font-size: 1.05rem;
+	}
+	.userFavoriteBtns {
+		margin-right: -10%;
+	}
+}
 @media all and (max-width: 572px) {
 	.userName{
 		font-size: 1.3rem;
@@ -140,13 +176,14 @@ font-size: 2rem;
 		font-size: 1.1rem;
 	}
 }
-@media all and (max-width: 537px) {
-
+@media all and (max-width: 547px) {
+	.userFavoriteBtns {
+		margin-right: 0%;
+	}
 	.favCat{
 		width: 50%;
 	}
 } 
-
 
 @media all and (max-width: 460px) {
 
