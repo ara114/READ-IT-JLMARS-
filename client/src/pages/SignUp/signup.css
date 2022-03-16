@@ -68,6 +68,10 @@
 	transition: all 0.3s ease-out;
 }
 
+#demo-simple-select-label{
+	margin: 0% !important;
+}
+
 @media all and (max-width: 1400px) {
 	.signCard {
 		width: 36%;
