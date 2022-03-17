@@ -8,6 +8,10 @@ const authReducer = (state = { authData: null }, action) => {
 
       return { ...state, authData: action.data, loading: false, errors: null };
 
+    case 'AUTH-FAIL':
+
+      return { errors: action.payload };
+
     case 'LOGINMOD':
 
       return { ...state, authData: action.data, loading: false, errors: null };
