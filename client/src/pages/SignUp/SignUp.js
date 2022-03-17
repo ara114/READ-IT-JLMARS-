@@ -12,28 +12,6 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 
 function SignUp() {
-	// const emailRef = useRef();
-	// const passwordRef = useRef();
-	// const passwordConfirmRef = useRef();
-	// const {signup} = useAuth()
-	// const [error, setError] = useState('');
-	// const [loading, setLoading] = useState(false);
-
-	// async function handleSubmit(e) {
-	// 	e.preventDefault();
-
-	// 	if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-	// 		return setError('passwords dont match')
-	// 	}
-	// 	try{
-	// 		setError('')
-	// 		setLoading(true)
-	// 		await signup(emailRef.current.value, passwordRef.current.value);
-	// 	} catch{
-	// 		setError('Failed to create an account')
-	// 	}
-	// 	setLoading(false)
-	// }
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
@@ -50,6 +28,33 @@ function SignUp() {
 	}
 	const [formData, setFormData] = useState(initialState)
 	const [isNext, setIsNext] = useState(false)
+	const [selected, setSelected] = useState('')
+	let categoriesChosen = null;
+	let type = null;
+	const categories1 = ['Horror', 'Humour', 'Non-Fiction', 'Romance']
+	const categories2 = ['Adventure', 'Humour', 'Non-Fiction', 'Romance']
+	const categories3 = ['Adventure', 'Horror', 'Non-Fiction', 'Romance']
+	const categories4 = ['Adventure', 'Horror', 'Humour', 'Romance']
+	const categories5 = ['Adventure', 'Horror', 'Humour', 'Non-Fiction']
+
+	const changeSelectOptionHandler = (event) => {
+		setSelected(event.target.value);
+	};
+
+	if(selected === 'Adventure')
+		type = categories1
+	if(selected === 'Horror')
+		type = categories2
+	if(selected === 'Humour')
+		type = categories3
+	if(selected === 'Non-Fiction')
+		type = categories4
+	if(selected === 'Romance')
+		type = categories5
+
+	if(type)
+		categoriesChosen = type.map((category) => <MenuItem value={`${category}`} key={category} className='menuItems'>{category}</MenuItem>)
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -132,7 +137,8 @@ function SignUp() {
 										size='small'
 										sx={{ margin: 1 }}
 										onChange={(e) => {
-											setFormData({ ...formData, categoryOne: e.target.value })
+											setFormData({ ...formData, categoryOne: e.target.value });
+											changeSelectOptionHandler(e)
 										}}
 										required
 									>
@@ -168,21 +174,7 @@ function SignUp() {
 										}}
 										required
 									>
-										<MenuItem value={'Adventure'} className='menuItems'>
-											Adventure
-										</MenuItem>
-										<MenuItem value={'Horror'} className='menuItems'>
-											Horror
-										</MenuItem>
-										<MenuItem value={'Humour'} className='menuItems'>
-											Humour
-										</MenuItem>
-										<MenuItem value={'Non-Fiction'} className='menuItems'>
-											Non-Fiction
-										</MenuItem>
-										<MenuItem value={'Romance'} className='menuItems'>
-											Romance
-										</MenuItem>
+										{categoriesChosen}
 									</Select>
 								</FormControl>
 								<section className='signupBtn'>
