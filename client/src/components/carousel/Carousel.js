@@ -112,9 +112,11 @@ function Carousel() {
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{storyCat1Last4.map((story) => (
+							story.reports.length === 0 && 
 							<Story key={story._id} story={story}/>
 						))}
 						{storyCat2Last4.map((story) => (
+							story.reports.length === 0 && 
 							<Story key={story._id} story={story}/>
 						))}
 					</Slider>
