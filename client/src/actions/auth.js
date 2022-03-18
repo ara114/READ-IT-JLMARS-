@@ -25,7 +25,7 @@ export const signup = (formData,navigate) => async (dispatch) => {
 
         navigate('/home');
     } catch (error) {
-        console.log(error);
+        dispatch({ type: 'AUTH-FAIL', payload: error.response.data.message});
     }
 }
 
