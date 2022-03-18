@@ -15,9 +15,7 @@ function Login(props) {
 
 	const state = useSelector(state => {
 		return state.authReducer;
-	})
-
-	console.log(state);
+	});
 
 	const {loading, authData, errors} = state;
 
