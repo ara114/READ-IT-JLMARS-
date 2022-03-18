@@ -3,13 +3,14 @@ import '../SignUp/signup.css'
 import '../Login/Login.css'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signup } from '../../actions/auth'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
+import Alert from '@mui/material/Alert';
 
 function SignUp() {
 
@@ -55,6 +56,11 @@ function SignUp() {
 	if(type)
 		categoriesChosen = type.map((category) => <MenuItem value={`${category}`} key={category} className='menuItems'>{category}</MenuItem>)
 
+	const state = useSelector(state => {
+		return state.authReducer;
+	});
+
+	const {loading, authData, errors} = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -177,6 +183,7 @@ function SignUp() {
 										{categoriesChosen}
 									</Select>
 								</FormControl>
+								{errors && (<Alert severity="error">{errors}</Alert>)}
 								<section className='signupBtn'>
 									<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 										Signup

@@ -30,9 +30,11 @@ export const signup = async (req, res) => {
   try {
     const oldUser = await User.findOne({ email });
 
-    if (oldUser) return res.status(400).json({ message: "User already exists" });
+    if (oldUser) return res.status(400).json({ message: "User already exists. Proceed to login." });
 
-    if(password !== ConfirmPassword) return res.status(400).json({ message: "Passwords dont match"});
+    if(password.length < 7) return res.status(400).json({ message: "Password must be at least 7 characters long."});
+
+    if(password !== ConfirmPassword) return res.status(400).json({ message: "Passwords do not match. Please try again."});
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
