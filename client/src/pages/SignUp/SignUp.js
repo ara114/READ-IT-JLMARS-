@@ -66,7 +66,6 @@ function SignUp() {
 		e.preventDefault()
 
 		dispatch(signup(formData, navigate))
-		console.log('signup', formData)
 	}
 
 	const handleChange = (e) => {
@@ -76,6 +75,7 @@ function SignUp() {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='signCard'>
+				<label>Sign Up</label>
 				<section className='loginContainer'>
 					<form onSubmit={handleSubmit}>
 						{!isNext ? (
