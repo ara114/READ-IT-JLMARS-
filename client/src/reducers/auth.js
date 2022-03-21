@@ -24,6 +24,9 @@ const authReducer = (state = { authData: null }, action) => {
       localStorage.clear();
 
       return { ...state, authData: null, loading: false, errors: null };
+    
+    case 'FORGOT':
+      return { ...state, authData: action.payload, loading: false, errors: null };
     default:
       return state;
   }

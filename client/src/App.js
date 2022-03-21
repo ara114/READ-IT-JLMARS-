@@ -3,6 +3,8 @@ import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
+import ResetPassword from './pages/ResetPassword/ResetPassword'
 import User from './pages/user/User'
 import Adventure from './pages/CatPages/Adventure'
 import './App.css'
@@ -41,6 +43,8 @@ function App() {
 				<Route path='/home' element={<Home />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<SignUp />} />
+				<Route path='/forgotPassword' element={<ForgotPassword />} />
+				<Route path='/reset/:id' element={<ResetPassword />} />
 				<Route path='/user' element={<User />} />
 				<Route path='/category/adventure' element={<Adventure />} />
 				<Route path='/category/horror' element={<Horror />} />

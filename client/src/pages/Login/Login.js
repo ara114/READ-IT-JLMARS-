@@ -32,6 +32,7 @@ function Login(props) {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
+				<label>Login</label>
 				{errors && (<Alert severity="error">{errors}</Alert>)}
 				<form onSubmit={handleSubmit}>
 					<label>Email</label>
@@ -45,6 +46,11 @@ function Login(props) {
 							Login
 						</Button>
 					</section>
+					<div className='msgContainer'>
+						<Link className='linkText' to='/forgotPassword' style={{ textDecoration: 'none', className: 'color' }}>
+							Forgot Password?
+						</Link>
+					</div>
 					<div className='msgContainer'>
 						<p className='msg'>Not a member?</p>
 						<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>

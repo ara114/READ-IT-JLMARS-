@@ -53,3 +53,25 @@ export const updateUser = (id, user) => async (dispatch) => {
       console.log(error);
     }
   };
+
+  export const forgotPassword = (details) => async (dispatch) => {
+    try {
+      const { data } = await api.forgotPassword(details);
+
+      dispatch({ type: 'FORGOT', payload: data });
+  
+    } catch (error) {
+      dispatch({ type: 'AUTH-FAIL', payload: error.response.data.message});
+    }
+  };
+
+  export const resetPassword = (id, details, navigate) => async (dispatch) => {
+    try {
+      const { data } = await api.resetPassword(id, details);
+
+      // dispatch({ type: 'UPDATE', payload: data });
+      navigate('/login');
+    } catch (error) {
+      dispatch({ type: 'AUTH-FAIL', payload: error.response.data.message});
+    }
+  };
