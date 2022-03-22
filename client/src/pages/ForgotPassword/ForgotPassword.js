@@ -4,9 +4,11 @@ import { Button } from '../../components/button/Button'
 import { forgotPassword } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import Alert from '@mui/material/Alert';
+import { useNavigate } from 'react-router-dom'
 
 function ForgotPassword(props) {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	const initialState = { email: '', redirect: 'http://localhost:3000/reset'}
 	const [formData, setFormData] = useState(initialState)
 
@@ -20,7 +22,7 @@ function ForgotPassword(props) {
 		e.preventDefault();
 		dispatch(forgotPassword(formData))
 	}
-	const [isNext, setIsNext] = useState(false)
+
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
@@ -30,7 +32,7 @@ function ForgotPassword(props) {
 			<div id="forgotBox" className='card'>
 				<form onSubmit={handleSubmit}>
 					<section>
-						<Button onClick={() => setIsNext(!isNext)} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
+						<Button onClick={() => navigate('/login')} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
 							{`${'<'}`}
 						</Button>
 				{errors && (<Alert severity="error">{errors}</Alert>)}
