@@ -61,7 +61,7 @@ export const updateUser = (id, user) => async (dispatch) => {
       dispatch({ type: 'FORGOT', payload: data });
   
     } catch (error) {
-      dispatch({ type: 'AUTH-FAIL', payload: error.response.data.message});
+      dispatch({ type: 'FORGOT-FAIL', payload: error.response.data.message});
     }
   };
 
@@ -72,6 +72,6 @@ export const updateUser = (id, user) => async (dispatch) => {
       // dispatch({ type: 'UPDATE', payload: data });
       navigate('/login');
     } catch (error) {
-      dispatch({ type: 'AUTH-FAIL', payload: error.response.data.message});
+      dispatch({ type: 'RESET-FAIL', payload: error.response.data.message});
     }
   };

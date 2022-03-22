@@ -18,7 +18,7 @@ function ResetPassword(props) {
 
 	const navigate = useNavigate();
 
-	const {loading, authData, errors} = state;
+	const {loading, authData, errorss} = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -33,7 +33,7 @@ function ResetPassword(props) {
 		<div className='loginSignUpContainer'>
 			<div className='card'>
 				<label>Reset Password</label>
-				{errors && (<Alert severity="error">{errors}</Alert>)}
+				{errorss && (<Alert severity="error">{errorss}</Alert>)}
 				<form onSubmit={handleSubmit}>
 					<label>Enter new password</label>
 					<input name='password' className='control' placeholder='New Password' type='password' required onChange={handleChange} />
