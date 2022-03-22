@@ -11,7 +11,7 @@
 .card {
 	background-color: #ffffff;
 	width: 26%;
-	height: 40%;
+	height: 50%;
 	padding: 1rem 3rem 1rem 2rem;
 	display: flex;
 	flex-direction: column;
@@ -19,11 +19,12 @@
 	box-shadow: 0 0px 5px #3e065f;
 	border-radius: 3%;
 }
+#cardTitle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -20%;
 
-.errorMsg {
-	color: red;
-	font-size: 20px;
-	font-family: 'Signika', sans-serif;
 }
 
 .control {
@@ -62,13 +63,13 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 5%;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 }
 .msgContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 10%;
+	height: 5%;
 	width: 100%;
 }
 .msg {
@@ -87,6 +88,18 @@
 	font-family: 'Signika', sans-serif;
 	text-decoration: none;
 }
+
+#t123{
+	display: flex;
+	position: relative;
+	width: 105%;
+	border-radius: 20px;
+}
+
+#pushdown{
+	margin-bottom: -20%;
+}
+
 @media all and (max-width: 1400px) {
 	.card {
 		width: 36%;
@@ -129,7 +142,7 @@
 @media all and (max-width: 540px) {
 	.card {
 		width: 76%;
-		height: 36%;
+		height: 46%;
 	}
 
 	.errorMsg {
@@ -150,7 +163,7 @@
 @media all and (max-width: 380px) {
 	.card {
 		width: 86%;
-		height: 36%;
+		height: 46%;
 	}
 
 	.errorMsg {
@@ -187,50 +200,55 @@
 
 @media all and (max-height: 920px) {
 	.card {
-		height: 45%;
+		height: 55%;
 	}
 }
 
 @media all and (max-height: 800px) {
 	.card {
-		height: 50%;
+		height: 60%;
 	}
 }
 
 @media all and (max-height: 720px) {
 	.card {
-		height: 55%;
+		height: 65%;
 	}
 }
 
 @media all and (max-height: 655px) {
 	.card {
-		height: 60%;
+		height: 70%;
 	}
 }
 @media all and (max-height: 600px) {
 	.card {
-		height: 64%;
+		height: 74%;
+	}
+}
+@media all and (max-height: 561px) {
+	.card {
+		height: 84%;
 	}
 }
 @media all and (max-height: 544px) {
 	.card {
-		height: 74%;
+		height: 84%;
 	}
 }
-@media all and (max-height: 488px) {
+@media all and (max-height: 490px) {
 	.card {
-		height: 78%;
+		height: 88%;
+	}
+}
+@media all and (max-height: 467px) {
+	.card {
+		height: 94%;
 	}
 }
 @media all and (max-height: 455px) {
 	.card {
-		height: 84%;
-	}
-}
-@media all and (max-height: 455px) {
-	.card {
-		height: 84%;
+		height: 94%;
 	}
 	.card label {
 		margin: 10px 0;
@@ -240,10 +258,15 @@
 		font-size: 12px;
 	}
 }
-
+@media all and (max-height: 435px) {
+	.loginButton{
+		padding-top:2.5%;
+		padding-bottom: 2.5%;
+	}
+}
 @media all and (max-height: 343px) and (max-width: 306px) {
 	.card {
-		height: 84%;
+		height: 94%;
 	}
 	.card label {
 		margin: 10px 0;

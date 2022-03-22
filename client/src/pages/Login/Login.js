@@ -32,10 +32,11 @@ function Login(props) {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
-				<label>Login</label>
-				{errors && (<Alert severity="error">{errors}</Alert>)}
+			<label id='cardTitle'>Login</label>
 				<form onSubmit={handleSubmit}>
-					<label>Email</label>
+					{errors && (<Alert id='t123' severity="error">{errors}</Alert>)}
+					<div id='pushdown'>
+					<label id='emailLabel'>Email</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
 					<p className='errorMsg'></p>
 					<label>Password</label>
@@ -56,6 +57,7 @@ function Login(props) {
 						<Link className='linkText' to='/signup' style={{ textDecoration: 'none', className: 'color' }}>
 							Signup
 						</Link>
+					</div>
 					</div>
 				</form>
 			</div>
