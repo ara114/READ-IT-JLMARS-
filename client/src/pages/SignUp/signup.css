@@ -38,8 +38,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 15%;
-	margin-bottom: 5%;
+	margin-top: 6%;
+	margin-bottom: 2%;
 }
 .SignmsgContainer {
 	display: flex;
@@ -48,7 +48,7 @@
 }
 
 .backBtn {
-	margin-top: 15%;
+	margin-top: -5%;
 	margin-bottom: 5%;
 }
 

@@ -75,9 +75,9 @@ function SignUp() {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='signCard'>
-				<label>Sign Up</label>
 				<section className='loginContainer'>
-					<form onSubmit={handleSubmit}>
+				<label id='cardTitle'>Sign Up</label>
+					<form id='pushdown' onSubmit={handleSubmit}>
 						{!isNext ? (
 							<>
 								<div className='names'>
@@ -90,15 +90,12 @@ function SignUp() {
 										<input name='lastName' required placeholder='Last Name' onChange={handleChange} />
 									</div>
 								</div>
-
 								<label>Email</label>
 								<input name='email' className='control' type='email' required placeholder='Email address' onChange={handleChange} />
 								<p className='errorMsg'></p>
-
 								<label>Password</label>
 								<input name='password' className='control' placeholder='Password' type='password' required onChange={handleChange} />
 								<p className='errorMsg'></p>
-
 								<label>Confirm Password</label>
 								<input
 									name='ConfirmPassword'
@@ -109,7 +106,6 @@ function SignUp() {
 									onChange={handleChange}
 								/>
 								<p className='errorMsg'></p>
-
 								<section className='signupBtn'>
 									<Button onClick={() => setIsNext(!isNext)} buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 										Next
