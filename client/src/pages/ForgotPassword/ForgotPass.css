@@ -1,0 +1,13 @@
+#forgotBtn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    padding-top: 10%;
+}
+#forgotBox{
+    width: 26%;
+	height: 40%;
+}
+#labelEnter{
+    padding-top: 5%;
+}

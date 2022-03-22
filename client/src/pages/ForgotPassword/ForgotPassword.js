@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './ForgotPassword.css'
+import '../ForgotPassword/ForgotPass.css'
 import { Button } from '../../components/button/Button'
 import { forgotPassword } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
@@ -20,20 +20,25 @@ function ForgotPassword(props) {
 		e.preventDefault();
 		dispatch(forgotPassword(formData))
 	}
-
+	const [isNext, setIsNext] = useState(false)
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
 	return (
 		<div className='loginSignUpContainer'>
-			<div className='card'>
+			<div id="forgotBox" className='card'>
+				<form onSubmit={handleSubmit}>
+					<section>
+						<Button onClick={() => setIsNext(!isNext)} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
+							{`${'<'}`}
+						</Button>
 				{errors && (<Alert severity="error">{errors}</Alert>)}
 				{authData && (<Alert severity="success">{authData.message}</Alert>)}
-				<form onSubmit={handleSubmit}>
-					<label>Enter your email address</label>
+					</section>
+					<label id="labelEnter">Enter your email address</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
-					<section className='submitButton'>
+					<section  id="forgotBtn" className='submitButton'>
 						<Button buttonStyle={'loginBtn'} buttonSize={'largeBtn'} type='submit'>
 							Submit
 						</Button>
