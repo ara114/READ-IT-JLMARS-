@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './ResetPassword.css'
 import { Button } from '../../components/button/Button'
 import { resetPassword } from '../../actions/auth'
 import { useDispatch, useSelector } from 'react-redux'
