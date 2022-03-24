@@ -22,8 +22,8 @@ function UserNav({setUser, setCurrentId}) {
 	const user = JSON.parse(localStorage.getItem('profile'));
 
 	const logout = () => {
-		dispatch({type: 'LOGOUT'});
 		setUser(null);
+		dispatch({type: 'LOGOUT'});
 	}
 
 	return (
