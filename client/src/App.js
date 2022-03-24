@@ -36,13 +36,16 @@ function App() {
 	useEffect(() => {
 		dispatch(getStories())
 	}, [dispatch])
+
+	const user = JSON.parse(localStorage.getItem('profile'));
+
 	return (
 		<div className='App'>
 			<Routes>
 				<Route path='/' exact element={<LandingPage />} />
 				<Route path='/home' element={<Home />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/signup' element={<SignUp />} />
+				<Route path='/login' element={!user ? <Login /> : <Navigate to='/home'/>} />
+				<Route path='/signup' element={!user ? <SignUp /> : <Navigate to='/home'/>} />
 				<Route path='/forgotPassword' element={<ForgotPassword />} />
 				<Route path='/reset/:id' element={<ResetPassword />} />
 				<Route path='/user' element={<User />} />
