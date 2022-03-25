@@ -89,13 +89,6 @@
 	text-decoration: none;
 }
 
-#t123{
-	display: flex;
-	position: relative;
-	width: 105%;
-	border-radius: 20px;
-}
-
 #pushdown{
 	margin-bottom: -20%;
 }

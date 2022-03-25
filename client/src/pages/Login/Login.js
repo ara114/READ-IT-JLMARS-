@@ -34,7 +34,7 @@ function Login(props) {
 			<div className='card'>
 				<label id='cardTitle'>Login</label>
 				<form onSubmit={handleSubmit}>
-					{error && (<Alert id='t123' severity="error">{error}</Alert>)}
+					{error && (<Alert severity="error">{error}</Alert>)}
 					<div id='pushdown'>
 					<label id='emailLabel'>Email</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
