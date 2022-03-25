@@ -22,7 +22,11 @@ const authReducer = (state = { authData: null }, action) => {
 
     case 'LOGINMOD':
 
-      return { ...state, authData: action.data, loading: false, errors: null };
+      return { ...state, authData: action.data, loading: false, moderror: null };
+
+    case 'LOGINMOD-FAIL':
+
+      return { moderror: action.payload };
 
     case 'UPDATE':
       // localStorage.setItem('profile', JSON.stringify({ ...action?.data }));

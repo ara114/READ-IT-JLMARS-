@@ -3,9 +3,9 @@ import '../Login/Login'
 import { Button } from '../../components/button/Button'
 import { Link } from 'react-router-dom'
 import { loginMod } from '../../actions/auth'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-// import { GoogleLogin } from 'react-google-login'
+import Alert from '@mui/material/Alert';
 
 function ModLogin(props) {
 	const dispatch = useDispatch()
@@ -23,9 +23,16 @@ function ModLogin(props) {
 		setFormData({ ...formData, [e.target.name]: e.target.value })
 	}
 
+	const state = useSelector(state => {
+		return state.authReducer;
+	});
+
+	const {loading, authData, moderror} = state;
+
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
+				{moderror && (<Alert severity="error">{moderror}</Alert>)}
 				<label>Email</label>
 				<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />
 				<p className='errorMsg'></p>

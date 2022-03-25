@@ -40,7 +40,7 @@ export const loginMod = (formData,navigate) => async (dispatch) => {
 
         navigate('/modhome');
     } catch (error) {
-        console.log(error);
+      dispatch({ type: 'LOGINMOD-FAIL', payload: error.response.data.message});
     }
 }
 
