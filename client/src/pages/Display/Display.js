@@ -43,7 +43,8 @@ const Display = () => {
 								<img src={storyy.image} alt={`${storyy.title}`} className='readImg' />
 							</div>
 							<div className='title-container'>{storyy.title}</div>
-							<div className='author-container'>Author(s): {storyy.author}</div>
+							<div className='author-container'>Author(s): {storyy.author.join(', ')}</div>
+							<div className='author-container'>Category: {storyy.category}</div>
 							{storyy.mashup === true && (
 								<div className='originalStory-container' >
 									Original Story: &nbsp;
