@@ -42,8 +42,8 @@ function App() {
 				<Route path='/' exact element={<LandingPage />} />
 				<Route path='/home' element={<Home />} />
 				<Route path='/search' element={<SearchStories />} />
-				<Route path='/login' element={!user ? <Login /> : <Navigate to='/home'/>} />
-				<Route path='/signup' element={!user ? <SignUp /> : <Navigate to='/home'/>} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/signup' element={<SignUp />} />
 				<Route path='/forgotPassword' element={<ForgotPassword />} />
 				<Route path='/reset/:id' element={<ResetPassword />} />
 				<Route path='/user' element={<User />} />
