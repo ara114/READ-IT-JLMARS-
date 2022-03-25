@@ -10,11 +10,11 @@ const authReducer = (state = { authData: null }, action) => {
 
     case 'AUTH-FAIL':
 
-      return { error: action.payload };
+      return { errors: action.payload };
 
     case 'FORGOT-FAIL':
 
-      return { errors: action.payload };
+      return { error: action.payload };
 
     case 'RESET-FAIL':
 
@@ -34,7 +34,7 @@ const authReducer = (state = { authData: null }, action) => {
       return { ...state, authData: null, loading: false, errors: null };
     
     case 'FORGOT':
-      return { ...state, authData: action.payload, loading: false, errors: null };
+      return { ...state, authData: action.payload, loading: false, error: null };
     default:
       return state;
   }

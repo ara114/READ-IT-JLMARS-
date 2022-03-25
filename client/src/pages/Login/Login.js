@@ -17,7 +17,7 @@ function Login() {
 		return state.authReducer;
 	});
 
-	const {loading, authData, error} = state;
+	const {loading, authData, errors} = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -34,7 +34,7 @@ function Login() {
 			<div className='card'>
 				<label id='cardTitle'>Login</label>
 				<form onSubmit={handleSubmit}>
-					{error && (<Alert severity="error">{error}</Alert>)}
+					{errors && (<Alert severity="error">{errors}</Alert>)}
 					<div id='pushdown'>
 					<label id='emailLabel'>Email</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />

@@ -8,7 +8,6 @@ import FlagIcon from '@mui/icons-material/Flag';
 import { useDispatch } from 'react-redux'
 import { deleteStory, likeStory, reportStory } from '../../actions/stories'
 import React, {useEffect, useState } from 'react';
-import {getStories} from '../../actions/stories';
 function Story({story}) {
 	const dispatch = useDispatch()
 	const user = JSON.parse(localStorage.getItem('profile'));

@@ -16,7 +16,7 @@ function ForgotPassword(props) {
 		return state.authReducer;
 	});
 
-	const {loading, authData, errors} = state;
+	const {loading, authData, error} = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -35,7 +35,7 @@ function ForgotPassword(props) {
 						<Button onClick={() => navigate('/login')} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
 							{`${'<'}`}
 						</Button>
-				{errors && (<Alert severity="error">{errors}</Alert>)}
+				{error && (<Alert severity="error">{error}</Alert>)}
 				{authData && (<Alert severity="success">{authData.message}</Alert>)}
 					</section>
 					<label id="labelEnter">Enter your email address</label>
