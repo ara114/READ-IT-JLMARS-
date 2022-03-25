@@ -1,5 +1,5 @@
 .loginSignUpContainer {
-	background-color: #fafafa;
+	background-color: #e2e2e2;
 	height: 100vh;
 	width: 100%;
 	display: flex;
@@ -16,7 +16,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	box-shadow: 0 0px 5px #3e065f;
+	box-shadow: 0 2px 8px #3e065f;
 	border-radius: 3%;
 }
 #cardTitle{

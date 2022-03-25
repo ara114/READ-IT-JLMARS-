@@ -32,7 +32,7 @@ function Login(props) {
 	return (
 		<div className='loginSignUpContainer'>
 			<div className='card'>
-			<label id='cardTitle'>Login</label>
+				<label id='cardTitle'>Login</label>
 				<form onSubmit={handleSubmit}>
 					{error && (<Alert id='t123' severity="error">{error}</Alert>)}
 					<div id='pushdown'>
