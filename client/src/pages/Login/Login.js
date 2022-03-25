@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 
-function Login(props) {
+function Login() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const initialState = { email: '', password: '' }
