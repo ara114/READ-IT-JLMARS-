@@ -14,9 +14,6 @@ function Story({story}) {
 	const user = JSON.parse(localStorage.getItem('profile'));
 	const [isReported, setIsReported] = useState(false);
 	const [likes, setLikes] = useState(story?.likes);
-	useEffect(() => {
-		dispatch(getStories());
-	}, [dispatch]);
 
 	const scrollToTop = () => {
 		window.scrollTo({

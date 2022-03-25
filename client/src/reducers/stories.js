@@ -12,6 +12,8 @@ export default (stories = [], action) => {
             return stories.filter((story) => story.storyID !== action.payload);
         case 'FETCH_ALL':
             return action.payload;
+        case 'FETCH_BY_SEARCH':
+            return action.payload;    
         case 'CREATE':
             return [...stories, action.payload];
         default:

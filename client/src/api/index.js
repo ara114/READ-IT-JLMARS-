@@ -11,6 +11,7 @@ API.interceptors.request.use((req) => {
 });
 
 export const fetchStories = () => API.get('/stories');
+export const fetchStoriesBySearch = (searchQuery) => API.get(`/stories/search?searchQuery=${searchQuery}`);
 export const createStory = (newStory) => API.post('/stories', newStory);
 export const likeStory = (id) => API.patch(`/stories/${id}/likeStory`);
 export const reviewStory = (value, id) => API.post(`/stories/${id}/reviewStory`, {value});

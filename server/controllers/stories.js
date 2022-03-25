@@ -11,6 +11,18 @@ export const getStories = async (req, res) => {
 
 }
 
+export const getStoriesBySearch = async (req, res) => {
+    const {searchQuery} = req.query;
+    try {
+        const title = new RegExp(searchQuery, 'i');
+        const story = await StoryMessage.find({ title });
+        res.status(200).json(story);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+
+}
+
 export const createStory = async (req, res) => {
     const story = req.body;
     const update = await StoryMessage.findOneAndUpdate({storyID: story.storyID}, {finished: true}, {new: true})

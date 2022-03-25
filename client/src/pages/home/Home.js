@@ -6,6 +6,7 @@ import React, {useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import {getStories} from '../../actions/stories';
 import NavBar from '../../components/navbar/NavBar';
+import Search from '../../components/Search/Search';
 import { useNavigate } from 'react-router-dom'
 function Home({ handleLogout }) {
 	const dispatch = useDispatch()
@@ -22,6 +23,7 @@ function Home({ handleLogout }) {
 
 	return (
 		<Container nav={<NavBar/>} contentClass='content'>
+			<Search/>
 			<Recommended />
 			<Categories />
 			<Write />

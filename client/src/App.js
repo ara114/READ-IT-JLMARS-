@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
+import SearchStories from './pages/SearchStories/SearchStories'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
@@ -32,10 +33,6 @@ import ModDisplay from './pages/ModerationPage/ModDisplay'
 // import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
-	const dispatch = useDispatch()
-	useEffect(() => {
-		dispatch(getStories())
-	}, [dispatch])
 
 	const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -44,6 +41,7 @@ function App() {
 			<Routes>
 				<Route path='/' exact element={<LandingPage />} />
 				<Route path='/home' element={<Home />} />
+				<Route path='/search' element={<SearchStories />} />
 				<Route path='/login' element={!user ? <Login /> : <Navigate to='/home'/>} />
 				<Route path='/signup' element={!user ? <SignUp /> : <Navigate to='/home'/>} />
 				<Route path='/forgotPassword' element={<ForgotPassword />} />

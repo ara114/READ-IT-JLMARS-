@@ -12,6 +12,16 @@ export const getStories = () => async (dispatch) => {
 
 }
 
+export const getStoriesBySearch = (searchQuery) => async (dispatch) => {
+
+    try {
+        const { data } = await api.fetchStoriesBySearch(searchQuery);
+        dispatch({type: 'FETCH_BY_SEARCH', payload: data});
+    } catch (error) {
+        console.log(error);
+    }
+
+}
 export const createStory = (story) => async (dispatch) => {
 
     try {
