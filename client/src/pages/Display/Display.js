@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import 'quill/dist/quill.bubble.css'
 import './Display.css'
 import { v4 as uuidV4 } from 'uuid'
-import Reviews from './Reviews'
+import Reviews from '../../components/Reviews/Reviews'
 const Display = () => {
 	const { id: storyId } = useParams()
 	// console.log(storyId)
