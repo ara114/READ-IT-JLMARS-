@@ -1,3 +1,6 @@
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import {getStories} from '../../actions/stories';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -10,8 +13,13 @@ import {CircularProgress} from '@material-ui/core';
 
 function Carousel({user}) {
 
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(getStories());
+	}, [dispatch]);
+
 	const stories = useSelector((state)=> state.stories);
-	// const user = JSON.parse(localStorage.getItem('profile'));
 
 	const likedStories = stories.filter(story => story.likes.findIndex((id) => id === String(user._id)) !== -1);
 	
