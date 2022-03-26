@@ -60,7 +60,7 @@ function SignUp() {
 		return state.authReducer;
 	});
 
-	const {loading, authData, errors} = state;
+	const {loading, authData, errorSignUp} = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -179,7 +179,7 @@ function SignUp() {
 										{categoriesChosen}
 									</Select>
 								</FormControl>
-								{errors && (<Alert severity="error">{errors}</Alert>)}
+								{errorSignUp && (<Alert severity="error">{errorSignUp}</Alert>)}
 								<section className='signupBtn'>
 									<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 										Signup

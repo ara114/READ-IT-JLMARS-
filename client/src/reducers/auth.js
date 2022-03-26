@@ -6,11 +6,15 @@ const authReducer = (state = { authData: null }, action) => {
       
       localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
 
-      return { ...state, authData: action.data, loading: false, errors: null };
+      return { ...state, authData: action.data, loading: false, errors: null, errorSignUp: null };
 
     case 'AUTH-FAIL':
 
       return { errors: action.payload };
+
+    case 'AUTH-FAILS':
+
+      return { errorSignUp: action.payload };
 
     case 'FORGOT-FAIL':
 
@@ -39,6 +43,9 @@ const authReducer = (state = { authData: null }, action) => {
     
     case 'FORGOT':
       return { ...state, authData: action.payload, loading: false, error: null };
+    
+    case 'RESET':
+      return { ...state, authData: action.payload, loading: false, error: null, errorss: null };
     default:
       return state;
   }
