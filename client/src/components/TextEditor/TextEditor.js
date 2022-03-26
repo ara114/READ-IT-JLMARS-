@@ -24,7 +24,6 @@ export default function TextEditor(props) {
 	const docIDslice2 = docID.slice(7);
 	// const [socket, setSocket] = useState()
 	const [quill, setQuill] = useState()
-	console.log(docID)
 
 	// useEffect(() => {
 	// 	const s = io('http://localhost:5000')
