@@ -39,6 +39,10 @@ const Mashup = () => {
 		storyID: docSlice2,
 		image: storyy.image,
 		reports: storyy.reports,
+		author: [  {
+			authorID: '',
+			authorName: ''
+		  }],
 		title: storyy.title,
 		story: storyy.story,
 		category: storyy.category,
@@ -68,12 +72,11 @@ const Mashup = () => {
 		}
 	}, [])
 
-	// useEffect(() => {
-	// 	if (socket == null) return
-	// 	socket.emit('send-author-mashup', `${user?.result?.name}`)
-	// 	console.log('send-mashup: ', `${user?.result?.name}`)
-	// 	setCheckSocket1(true)
-	// },[checkSocket])
+	useEffect(() => {
+		if (socket == null) return
+		socket.emit('send-author-mashup', ({ authorID: `${user?.result?._id}`, authorName: `${user?.result?.name}`}))
+		console.log('send-author-mashup');
+	},[socket])
 
 	useEffect(() => {
 		if (socket == null) return
@@ -88,19 +91,19 @@ const Mashup = () => {
 		}
 	}, [socket,storyData]);
 
-	// useEffect(() => {
-	// 	if (socket == null) return
-	// 	const handler = (authors) => {
-	// 		setStoryData({ ...storyData, author: authors })
-	// 		console.log('receive: ', storyData.author)
-	// 	}
-	// 	socket.on('receive-author', handler)
+	useEffect(() => {
+		if (socket == null) return
+		const handler = (authors) => {
+			setStoryData({ ...storyData, author: authors })
+			console.log('receive: ', storyData.author)
+		}
+		socket.on('receive-author-mashup', handler)
 
-	// 	return () => {
-	// 		socket.off('receive-author', handler)
+		return () => {
+			socket.off('receive-author-mashup', handler)
 
-	// 	}
-	// }, [checkSocket1])
+		}
+	}, [socket, storyData])
 
 	useEffect(() => {
 		if (socket == null) return
@@ -157,11 +160,11 @@ const Mashup = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room', `${user?.result?.name}`)}}>
+					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room-mashup', ({ authorID: `${user?.result?._id}`, authorName: `${user?.result?.name}`}))}}>
 							Leave
 						</Button>
 					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit-mashup', storyData)}}>
-						<Typography variant='h6'>Room code:</Typography>
+						{/* <Typography variant='h6'>Room code:</Typography>
 						<TextField
 							disabled
 							fullWidth
@@ -174,7 +177,7 @@ const Mashup = () => {
 							<Button variant='contained' style={{ backgroundColor: '#8e05c2', color: '#fff' }}>
 								{!copied ? 'Copy' : 'Copied!'}
 							</Button>
-						</CopyToClipboard>
+						</CopyToClipboard> */}
 						{/* <Typography variant="h6">{currentID ? 'Editing' : 'Creating'} a memory</Typography> */}
 						{/* <Typography variant="h6"> Room code: {makeid()}</Typography> */}
 						<div className={classes.fileInput}>
@@ -221,17 +224,11 @@ const Mashup = () => {
 							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title-mashup', e.target.value)}}
 							required
 						/>
-						{/* If you do not see your name in the author(s) section, reload the page. */}
-						{/* <TextField
-							disabled
-							name='author'
-							variant='outlined'
-							label='Author(s)'
-							fullWidth
-							size='small'
-							value={storyData.author}
-							required
-						/> */}
+						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
+						{storyData.author.map(
+							(authorr, index) => (
+								<Typography key={index} gutterBottom variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
+							))}
 
 						<MashupTextEditor docID={docSlice2} docID2={docSlice1} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button

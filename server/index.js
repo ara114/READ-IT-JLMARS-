@@ -86,20 +86,18 @@ io.on('connection', socket => {
         socket.on('send-title-mashup', titles => {
             socket.broadcast.to(docID).emit('receive-title-mashup', titles);
         })
-        // socket.on('send-author-mashup', author => {
-        //     console.log('backend-mashup: ', author)
-        //     if(!authorList.find((author1) => author1 === author))
-        //         authorList.push(author);
-        //     console.log('backend list-mashup: ', authorList)
-        //     io.to(docID).emit('receive-author-mashup', authorList);
-        // })
+        socket.on('send-author-mashup', author => {
+            console.log('backend: ', author)
+            if(!authorList.find((author1) => author1.authorID === author.authorID))
+                authorList.push(author);
+            console.log('backend list: ', authorList)
+            io.to(docID).emit('receive-author-mashup', authorList);
+        })
         socket.on('leave-room-mashup', author => {
-            console.log('backend-leave-mashup ', author)
-            if(authorList.find((author1) => author1 === author)) {
-                authorList.splice(authorList.indexOf(author), 1);
-            }
-            console.log('backend list-leave-mashup: ', authorList)
-            // socket.broadcast.to(docID).emit('receive-author-mashup', authorList);
+            console.log('backend-leave: ', author)
+            authorList = authorList.filter(author1 => author1.authorID !== author.authorID)
+            console.log('backend list-leave: ', authorList)
+            socket.broadcast.to(docID).emit('receive-author-mashup', authorList);
         })
         socket.on('send-category-mashup', categories => {
             socket.broadcast.to(docID).emit('receive-category-mashup', categories);
@@ -118,7 +116,7 @@ io.on('connection', socket => {
             // console.log(s);
         })
         socket.on('save-mashup', async data => {
-            await storyText.findOneAndUpdate({storyID: docID}, {image: data.image, title: data.title, category: data.category}, {new: true})
+            await storyText.findOneAndUpdate({storyID: docID}, {author: data.author, image: data.image, title: data.title, category: data.category}, {new: true})
             // const s = await storyText.findOne({storyID: docID});
             // console.log(s);
         })
@@ -157,5 +155,5 @@ async function loadStory(sid, stry){
     const hmm = await storyText.findOne({storyID: sid});
     if(hmm)
         return hmm;
-    return await storyText.create({storyID: sid, originalStory: stry, image: stry.image, title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false, mashup: true});
+    return await storyText.create({storyID: sid, originalStory: stry, image: stry.image, author: '', title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false, mashup: true});
 }
