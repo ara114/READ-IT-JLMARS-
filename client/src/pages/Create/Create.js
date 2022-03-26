@@ -209,17 +209,6 @@ const Create = () => {
 							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title', e.target.value)}}
 							required
 						/>
-						{/* If you do not see your name in the author(s) section, reload the page. */}
-						{/* <TextField
-							disabled
-							name='author'
-							variant='outlined'
-							label='Author(s)'
-							fullWidth
-							size='small'
-							value={storyData.author[0].authorName}
-							required
-						/> */}
 						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
 						{storyData.author.map(
 							(authorr, index) => (
