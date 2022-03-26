@@ -2,6 +2,11 @@
 	padding-top: 60px;
 }
 
+.author{
+	text-decoration: none;
+	color: #5f0e80;
+}
+
 .read {
 	display: flex;
 	justify-content: center;
