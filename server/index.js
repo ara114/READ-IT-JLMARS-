@@ -22,7 +22,7 @@ const io = new Server(server
 );
 
 const defaultValue = "";
-const authorList = [];
+let authorList = [];
 
 io.on('connection', socket => {
     
@@ -47,7 +47,7 @@ io.on('connection', socket => {
         })
         socket.on('leave-room', author => {
             console.log('backend-leave: ', author)
-            authorList.splice(authorList.indexOf(author), 1);
+            authorList = authorList.filter(author1 => author1.authorID !== author.authorID)
             console.log('backend list-leave: ', authorList)
             socket.broadcast.to(docID).emit('receive-author', authorList);
         })
