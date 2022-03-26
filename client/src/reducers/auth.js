@@ -2,6 +2,11 @@
 
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {
+
+    case 'FETCH_USER':
+
+      return { otherUser: action.data };
+
     case 'AUTH':
       
       localStorage.setItem('profile', JSON.stringify({ ...action?.data }));

@@ -75,3 +75,16 @@ export const updateUser = (id, user) => async (dispatch) => {
       dispatch({ type: 'RESET-FAIL', payload: error.response.data.message});
     }
   };
+
+  export const getUser = (id) => async (dispatch) => {
+    try {
+      const { data } = await api.getUser(id);
+
+      console.log(data);
+
+      dispatch({ type: 'FETCH_USER', data });
+    } catch (error) {
+      // dispatch({ type: 'RESET-FAIL', payload: error.response.data.message});
+      console.log(error);
+    }
+  };

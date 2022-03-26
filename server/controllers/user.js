@@ -21,6 +21,13 @@ const transporter = NodeMailer.createTransport({
   }
 });
 
+export const getUser = async (req, res) => {
+  const { id } = req.params;
+
+  const data = await User.findById(id);
+
+  res.json(data);
+};
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -37,7 +44,7 @@ export const login = async (req, res) => {
 
     res.status(200).json({ result: oldUser, token });
   } catch (err) {
-    res.status(400).json({ message: "Something went wrong" });
+    res.status(400).json({ message: err });
   }
 };
 

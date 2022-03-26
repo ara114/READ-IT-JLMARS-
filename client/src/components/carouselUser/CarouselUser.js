@@ -8,12 +8,12 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import {useSelector} from 'react-redux';
 import {CircularProgress} from '@material-ui/core';
 
-function Carousel() {
+function Carousel({user}) {
 
 	const stories = useSelector((state)=> state.stories);
-	const user = JSON.parse(localStorage.getItem('profile'));
+	// const user = JSON.parse(localStorage.getItem('profile'));
 
-	const likedStories = stories.filter(story => story.likes.findIndex((id) => id === String(user?.result?._id)) !== -1);
+	const likedStories = stories.filter(story => story.likes.findIndex((id) => id === String(user._id)) !== -1);
 	
 	const PrevBtn = (props) => {
 		const { className, onClick } = props
