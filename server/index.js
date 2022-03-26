@@ -40,16 +40,14 @@ io.on('connection', socket => {
         })
         socket.on('send-author', author => {
             console.log('backend: ', author)
-            if(!authorList.find((author1) => author1 === author))
+            if(!authorList.find((author1) => author1.authorID === author.authorID))
                 authorList.push(author);
             console.log('backend list: ', authorList)
             io.to(docID).emit('receive-author', authorList);
         })
         socket.on('leave-room', author => {
             console.log('backend-leave: ', author)
-            if(authorList.find((author1) => author1 === author)) {
-                authorList.splice(authorList.indexOf(author), 1);
-            }
+            authorList.splice(authorList.indexOf(author), 1);
             console.log('backend list-leave: ', authorList)
             socket.broadcast.to(docID).emit('receive-author', authorList);
         })

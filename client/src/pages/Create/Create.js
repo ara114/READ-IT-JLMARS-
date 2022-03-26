@@ -24,7 +24,10 @@ const Create = () => {
 	const [storyData, setStoryData] = useState({
 		storyID: docID,
 		image: '',
-		author: [],
+		author: [  {
+			authorID: '',
+			authorName: ''
+		  }],
 		reports: [],
 		title: '',
 		story: '',
@@ -56,10 +59,9 @@ const Create = () => {
 
 	useEffect(() => {
 		if (socket == null) return
-		socket.emit('send-author', `${user?.result?.name}`)
-		console.log('send: ', `${user?.result?.name}`)
-		setCheckSocket1(true)
-	},[checkSocket])
+		socket.emit('send-author', ({ authorID: `${user?.result?._id}`, authorName: `${user?.result?.name}`}))
+		console.log('send-author');
+	},[socket])
 
 	useEffect(() => {
 		if (socket == null) return
@@ -77,8 +79,8 @@ const Create = () => {
 	useEffect(() => {
 		if (socket == null) return
 		const handler = (authors) => {
-			setStoryData({ ...storyData, author: authors })
-			console.log('receive: ', storyData.author)
+			setStoryData({ ...storyData, author: authors });
+			console.log('recieve', storyData.author)
 		}
 		socket.on('receive-author', handler)
 
@@ -86,7 +88,7 @@ const Create = () => {
 			socket.off('receive-author', handler)
 
 		}
-	}, [checkSocket1])
+	}, [storyData]);
 
 	useEffect(() => {
 		if (socket == null) return
@@ -143,7 +145,7 @@ const Create = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room', `${user?.result?.name}`)}}>
+					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room', ({ authorID: `${user?.result?._id}`, authorName: `${user?.result?.name}`}))}}>
 							Leave
 						</Button>
 					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit', storyData)}}>
@@ -208,16 +210,21 @@ const Create = () => {
 							required
 						/>
 						{/* If you do not see your name in the author(s) section, reload the page. */}
-						<TextField
+						{/* <TextField
 							disabled
 							name='author'
 							variant='outlined'
 							label='Author(s)'
 							fullWidth
 							size='small'
-							value={storyData.author}
+							value={storyData.author[0].authorName}
 							required
-						/>
+						/> */}
+						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
+						{storyData.author.map(
+							(authorr, index) => (
+								<Typography key={index} gutterBottom variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
+							))}
 
 						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button

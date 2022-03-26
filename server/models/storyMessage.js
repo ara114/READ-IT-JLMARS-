@@ -4,7 +4,7 @@ const storySchema = mongoose.Schema({
     storyID: String,
     title: String,
     author: {
-        type: [String],
+        type: [Object],
         default: []
     },
     image: String,
