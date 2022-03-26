@@ -82,7 +82,7 @@ export const updateUser = (id, user) => async (dispatch) => {
 
       console.log(data);
 
-      dispatch({ type: 'FETCH_USER', data });
+      dispatch({ type: 'FETCH_USER', payload: data });
     } catch (error) {
       // dispatch({ type: 'RESET-FAIL', payload: error.response.data.message});
       console.log(error);

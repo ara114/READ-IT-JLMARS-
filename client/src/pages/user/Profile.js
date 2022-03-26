@@ -11,18 +11,18 @@ import CarouselUser from '../../components/carouselUser/CarouselUser';
 const Profile = () => {
   const { id: userID } = useParams();
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
 		dispatch(getUser(userID));
-	}, []);
+	}, [dispatch]);
 
   const state = useSelector(state => {
 		return state.authReducer;
 	});
 
   const {otherUser} = state;
-  // console.log(otherUser);
+  console.log('state', state);
+  console.log(otherUser);
 
   const scrollToTop = () => {
 		window.scrollTo({

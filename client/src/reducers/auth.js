@@ -5,7 +5,7 @@ const authReducer = (state = { authData: null }, action) => {
 
     case 'FETCH_USER':
 
-      return { otherUser: action.data };
+      return { otherUser: action.payload };
 
     case 'AUTH':
       
