@@ -70,6 +70,14 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.MuiButton-root{
+	min-width: 50px !important;
+}
+.MuiSvgIcon-fontSizeSmall{
+	font-size: 1.5rem !important;
+}
+
 /* 
 Note for future self: The more the size of the cards increase, increase the size of th padding which is found in the item.
 Combine this with the carousel responsive breakpoints and then you will get a responsive carousel with multi items. */
@@ -80,69 +88,6 @@ Combine this with the carousel responsive breakpoints and then you will get a re
 	}
 }
 
-@media only screen and (max-width: 1024px) {
-	.item {
-		display: flex;
-		flex: 0.5;
-		margin: 0 0.5rem;
-		margin-bottom: -2rem;
-		margin-top: -0.5rem;
-
-		border-radius: 10px;
-	}
-	.pictureWrap::after {
-		font-size: 9px;
-		padding: 3px 2px;
-	}
-	.name {
-		padding: 10px 10px 10px;
-		font-size: 14px;
-		line-height: 15px;
-	}
-}
-
-@media only screen and (max-width: 590px) {
-	.item {
-		display: flex;
-		flex: 0.5;
-		margin: 0 0.2rem;
-		margin-bottom: -1.5rem;
-		margin-top: -1rem;
-		border-radius: 10px;
-	}
-	.pictureWrap::after {
-		font-size: 9px;
-		padding: 2px 1px;
-	}
-	.name {
-		padding: 6px 6px 6px;
-		font-size: 8px;
-		line-height: 10px;
-	}
-}
-
-@media only screen and (max-width: 420px) {
-	.item {
-		display: flex;
-		flex: 0.5;
-		margin: 0 0.1rem;
-		margin-bottom: -2.5rem;
-		margin-top: -0.5rem;
-		border-radius: 10px;
-	}
-	.pictureWrap::after {
-		font-size: 9px;
-		padding: 2px 1px;
-	}
-	.name {
-		padding: 4px 4px 4px;
-		font-size: 6px;
-		line-height: 8px;
-	}
-	.link {
-		width: 90%;
-	}
-}
 @media only screen and (max-width: 446px) {
 	.deleteBtn {
 		margin-right: 5%;
@@ -153,7 +98,7 @@ Combine this with the carousel responsive breakpoints and then you will get a re
 		padding: 1%;
 	}
 }
-@media only screen and (max-width: 420px) {
+/* @media only screen and (max-width: 420px) {
 	.MuiSvgIcon-fontSizeSmall {
 		font-size: 0.8rem;
 	}
@@ -172,4 +117,4 @@ Combine this with the carousel responsive breakpoints and then you will get a re
 	.MuiButton-root {
 		min-width: 17px;
 	}
-}
+} */

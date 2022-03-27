@@ -29,7 +29,7 @@ function NonFiction() {
 		!stories.length ? <CircularProgress/> : (
 			<Container nav={<NavBar/>}>
 				<h1>Non-Fiction</h1>
-				<div className='cat-container'>
+				<div className='cat-container2'>
 					{stories.map((story) => (
 						story.category === 'Non-Fiction' && (<Story key={story._id} story={story}/>)
 					))}

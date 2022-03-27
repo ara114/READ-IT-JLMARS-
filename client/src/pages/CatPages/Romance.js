@@ -29,7 +29,7 @@ function Romance() {
 		!stories.length ? <CircularProgress/> : (
 			<Container nav={<NavBar/>}>
 				<h1>Romance</h1>
-				<div className='cat-container'>
+				<div className='cat-container2'>
 					{stories.map((story) => (
 						story.category === 'Romance' && (<Story key={story._id} story={story}/>)
 					))}
