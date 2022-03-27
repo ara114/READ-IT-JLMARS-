@@ -88,7 +88,7 @@ const Create = () => {
 			socket.off('receive-author', handler)
 
 		}
-	}, [storyData]);
+	}, [socket]);
 
 	useEffect(() => {
 		if (socket == null) return
@@ -212,9 +212,9 @@ const Create = () => {
 						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
 						{storyData.author.map(
 							(authorr, index) => (
-								<Typography key={index} gutterBottom variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
+								<Typography key={index} variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
 							))}
-
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
