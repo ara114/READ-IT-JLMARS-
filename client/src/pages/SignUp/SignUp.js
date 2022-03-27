@@ -127,7 +127,7 @@ function SignUp() {
 								</section>
 								<div>
 									<label>Bio</label>
-									<input name='bio' required placeholder='Bio' onChange={handleChange} />
+									<input name='bio' maxlength='149' placeholder='Bio' onChange={handleChange} />
 								</div>
 								<FormControl fullWidth margin='normal'>
 									<InputLabel id='demo-simple-select-label'>Favorite Category 1:</InputLabel>

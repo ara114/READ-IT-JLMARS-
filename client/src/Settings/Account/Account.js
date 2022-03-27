@@ -143,9 +143,9 @@ export default function Account() {
 							fullWidth
 							multiline
 							rows={10}
+							inputProps={{ maxLength: 149 }}
 							value={userData.bio}
 							onChange={(e) => setUserData({ ...userData, bio: e.target.value })}
-							required
 						/>
 						<Button
 							className={classes.buttonSubmit}
