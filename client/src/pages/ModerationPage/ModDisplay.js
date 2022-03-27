@@ -10,7 +10,7 @@ import { deleteStory, unreportStory } from '../../actions/stories'
 import 'quill/dist/quill.bubble.css'
 import './ModDisplay.css'
 const Display = () => {
-	const { id: storyId } = useParams()
+	const { id: storyId } = useParams();
 	// console.log(storyId)
 	const dispatch = useDispatch()
 	useEffect(() => {
@@ -63,7 +63,7 @@ const Display = () => {
 									</div>
                                 </div>
                                 <div className="write-container">
-                                    <Link to={'/modhome'} className='nostyle write Create'>Warn Author</Link>
+                                    <Link to={`/modwarn/${storyy.storyID}`} className='nostyle write Create'>Warn Author</Link>
                                     <Link to={'/modhome'} className='nostyle write Join' onClick={() => dispatch(deleteStory(storyy.storyID))}>Delete</Link>
 							    </div>
                             </div>

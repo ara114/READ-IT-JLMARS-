@@ -18,6 +18,7 @@ export const reviewStory = (value, id) => API.post(`/stories/${id}/reviewStory`,
 export const reportStory = (id) => API.patch(`/stories/${id}/reportStory`);
 export const unreportStory = (id) => API.patch(`/stories/${id}/unreportStory`);
 export const deleteStory = (id) => API.delete(`/stories/${id}`);
+export const warnAuthor = (story, details) => API.post(`/users/warn`, {story, details});
 
 export const login = (formData) => API.post('/users/login', formData);
 export const signup = (formData) => API.post('/users/signup', formData);

@@ -88,3 +88,16 @@ export const updateUser = (id, user) => async (dispatch) => {
       console.log(error);
     }
   };
+
+  export const warnAuthor = (story, details, navigate) => async (dispatch) => {
+
+    try {
+        const { data } = await api.warnAuthor(story, details);
+        console.log(data);
+        // dispatch({type: 'DELETE', payload: data});
+        navigate('/modhome');
+    } catch (error) {
+        console.log(error);
+    }
+
+}

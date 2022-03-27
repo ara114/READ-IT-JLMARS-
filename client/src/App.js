@@ -30,6 +30,7 @@ import { v4 as uuidV4 } from 'uuid'
 import ModHome from './pages/ModerationPage/ModHome'
 import ModLanding from './pages/ModerationPage/ModLanding'
 import ModLogin from './pages/ModerationPage/ModLogin'
+import ModWarn from './pages/ModerationPage/ModWarn'
 import ModDisplay from './pages/ModerationPage/ModDisplay'
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
 				<Route path='/Create/:id' element={<Create />} />
 				<Route path='/Mashup/:id' element={<Mashup />} />
 				<Route path='/Join' element={<Join />} />
-				<Route path='/:id' element={<Read />} />
+				<Route path='/read/:id' element={<Read />} />
 				<Route path='/Display/:id' element={<Display />} />
 				<Route path='/settings' exact element={<Settings />} />
 				<Route path='/about' exact element={<About />} />
@@ -77,6 +78,7 @@ function App() {
 				<Route path='/modhome' exact element={<ModHome />} />
 				<Route path='/modland' exact element={<ModLanding />} />
 				<Route path='/modlogin' exact element={<ModLogin />} />
+				<Route path='/modwarn/:id' exact element={<ModWarn />} />
 				<Route path='/modDisplay/:id' exact element={<ModDisplay />} />
 			</Routes>
 		</div>
