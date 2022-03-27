@@ -16,8 +16,8 @@ function Carousel() {
 	const storyCat1 = stories.filter(story => story.category === user?.result?.categoryOne && story.reports.length === 0);
 	const storyCat2 = stories.filter(story => story.category === user?.result?.categoryTwo && story.reports.length === 0);
 
-	const storyCat1Last4 = storyCat1.slice(storyCat1.length - 4);
-	const storyCat2Last4 = storyCat2.slice(storyCat2.length - 4);
+	const storyCat1Last4 = storyCat1.slice(Math.max(storyCat1.length - 4, 0));
+	const storyCat2Last4 = storyCat2.slice(Math.max(storyCat2.length - 4, 0));
 
 	const PrevBtn = (props) => {
 		const { className, onClick } = props
@@ -108,9 +108,6 @@ function Carousel() {
 			<div className='main'>
 				{!stories.length ? <CircularProgress/> : (
 					<Slider {...properties}>
-						{/* {boxInfo.map((box, index) => (
-							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
-						))} */}
 						{storyCat1Last4.map((story) => (
 							<Story key={story._id} story={story}/>
 						))}
