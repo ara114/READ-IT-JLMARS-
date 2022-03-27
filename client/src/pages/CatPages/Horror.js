@@ -29,7 +29,7 @@ function Horror() {
 		!stories.length ? <CircularProgress/> : (
 			<Container nav={<NavBar/>}>
 				<h1>Horror</h1>
-				<div className='cat-container'>
+				<div className='cat-container2'>
 					{stories.map((story) => (
 						story.category === 'Horror' && (<Story key={story._id} story={story}/>)
 					))}

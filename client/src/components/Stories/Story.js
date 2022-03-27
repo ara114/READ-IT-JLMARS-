@@ -90,13 +90,14 @@ function Story({story}) {
 						<h5 className='name'>{story.title}</h5>
 					</Link>
 					<div className='btns'>
-						<Button size='small' style={{ color: '#8e05c2' }} onClick={handleLike}>
+						<Button id="likeBtn" size='small' style={{ color: '#8e05c2' }} onClick={handleLike}>
 							{likes.find((like) => like === (user?.result?.googleId || user?.result?._id)) ? (<ThumbUpAltIcon fontSize='small' className='likesBtn' />) : (<ThumbUpAltOutlined fontSize='small' className='likesBtn' />)}
 							&nbsp;{likes.length}
 						</Button>
 						<Button
 							ref={anchorRef}
 							id="composition-button"
+							size='small'
 							aria-controls={open ? 'composition-menu' : undefined}
 							aria-expanded={open ? 'true' : undefined}
 							aria-haspopup="true"

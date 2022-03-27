@@ -34,7 +34,7 @@
 }
 .home-txt{
 	display: block;
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 }
 .fa-ellipsis-v {
 	display: block;
@@ -63,7 +63,7 @@
 	justify-content: center;
 	align-items: center;
 	max-width: 1100px;
-	width: 15%;
+	width: 8%;
 	position: absolute;
 	top: calc((0% + 170px) / 2);
 	right: calc((100% - 1099px) / 2);
@@ -107,7 +107,7 @@
 
 @media all and (max-width: 1206px) {
 	.home-txt{
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 	}
 }
 @media all and (max-width: 1100px) {
@@ -124,7 +124,7 @@
 }
 @media all and (max-width: 630px) {
 	.home-txt{
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 }
 @media all and (max-width: 600px) {
