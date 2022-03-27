@@ -4,7 +4,7 @@ import {getStories} from '../../actions/stories';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import './carouselUser.css'
+import './LikedCarousel.css'
 import Story from '../Stories/Story'
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded'

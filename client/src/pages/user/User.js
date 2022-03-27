@@ -4,7 +4,7 @@ import { getStories } from '../../actions/stories'
 import Container from '../../components/container/container'
 import UserNav from '../user/UserNav'
 import { Avatar } from '@material-ui/core'
-import CarouselUser from '../../components/carouselUser/CarouselUser'
+import LikedCarousel from '../../components/LikedCarousel/LikedCarousel'
 import './User.css'
 import FileBase from 'react-file-base64'
 import { updateUser } from '../../actions/auth'
@@ -101,7 +101,7 @@ function User() {
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>
-				<CarouselUser user={user?.result} />
+				<LikedCarousel user={user?.result} />
 			</div>
 		</Container>
 	)

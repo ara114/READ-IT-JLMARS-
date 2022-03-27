@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUsers } from '../../actions/auth';
 import { Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import CarouselUser from '../../components/carouselUser/CarouselUser';
+import LikedCarousel from '../../components/LikedCarousel/LikedCarousel';
 
 const Profile = () => {
   const { id: userID } = useParams();
@@ -69,7 +69,7 @@ const Profile = () => {
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>
-				<CarouselUser user={otherUser}/>
+				<LikedCarousel user={otherUser}/>
 			</div>
     </Container>
   )
