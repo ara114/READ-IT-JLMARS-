@@ -26,8 +26,9 @@ const Reviews = ({story}) => {
   return (
     <div className="reviewContainer">
       <div className={classes.reviewsOuterContainer}>
+      <Typography gutterBottom variant="h6"><strong>Reviews</strong></Typography>
         <div className={classes.reviewsInnerContainer}>
-        <Typography gutterBottom variant="h6"><strong>Reviews</strong></Typography>
+          {reviews.length === 0 && <Typography gutterBottom variant="subtitle1">No reviews</Typography>}
           {reviews?.map((c, i) => (
             <Typography key={i} gutterBottom variant="subtitle1">
               <strong>{c.split(': ')[0]}:</strong>
@@ -36,11 +37,12 @@ const Reviews = ({story}) => {
           ))}
           <div ref={reviewsRef}/>
         </div>
-        <div style={{ width: '70%' }} className="writeReview">
+        <div style={{ width: '100%' }} className="writeReview">
           <Typography gutterBottom variant="h6">Write a Review</Typography>
           <TextField
             fullWidth
             rows={4}
+            inputProps={{ maxLength: 1000 }}
             variant='outlined'
             label='Review'
             multiline={true}

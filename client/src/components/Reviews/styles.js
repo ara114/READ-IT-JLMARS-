@@ -2,12 +2,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   reviewsOuterContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
+    display: 'grid',
+    gridRow: 'auto auto auto',
+    // justifyContent: 'space-between',
   },
   reviewsInnerContainer: {
-    height: '200px',
+    minHeight: '100px',
+    width: '100%',
     overflowY: 'auto',
+    borderTop: '1px solid #dbdbdb',
     marginRight: '30px',
   },
 }));
