@@ -130,7 +130,7 @@ function Story({story}) {
 										onKeyDown={handleListKeyDown}
 									>
 										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => {navigate(`/Create/${story.storyID}`);}}><EditIcon fontSize='small' style={{ color: '#8e05c2' }}/>&nbsp;Edit</MenuItem>}
-										<MenuItem onClick={(e) => {setIsReported(true); dispatch(reportStory(story.storyID))}}><FlagOutlinedIcon fontSize='small' style={{ color: '#8e05c2' }} className='deleteBtn' />&nbsp;Report</MenuItem>
+										{!story.author.find((authors) => authors.authorID === user?.result?._id) && <MenuItem onClick={(e) => {setIsReported(true); dispatch(reportStory(story.storyID))}}><FlagOutlinedIcon fontSize='small' style={{ color: '#8e05c2' }} className='deleteBtn' />&nbsp;Report</MenuItem>}
 										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => dispatch(deleteStory(story.storyID))}><DeleteIcon fontSize='small' style={{ color: 'red' }} className='deleteBtn' />&nbsp;Delete</MenuItem>}
 									</MenuList>
 									</ClickAwayListener>
