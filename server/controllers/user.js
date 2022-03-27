@@ -145,3 +145,39 @@ export const resetPassword = async (req, res) => {
 
   res.json(updatedUser);
 }
+
+export const warnAuthor = async (req, res) => {
+  const {story, details} = req.body;
+
+  try {
+    story.author.forEach(async (user, i) => {
+      const data = await User.findById(user.authorID);
+      const email = data.email;
+      const mail = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: `${details.title}`,
+        html: `<p>Hi ${data.name},</p>
+    
+        <p>Your story ${story.title} was reported for inappropriateness by a reader. 
+        A Readit moderator has reviewed the report and has confirmed it as inappropriate. 
+        We are sending you this warning mail to edit your story within the next 14 days else your story will be deleted. 
+        Given below is the exact information on why your story is inappropriate.</p>
+        
+        <p>Moderator's message: ${details.message}</p>
+        
+        <p>Thanks and regards,</p>
+        <p>Readit</p>`
+      }
+    
+    
+      transporter.sendMail(mail);
+    })
+      res.status(201).json({ message: "Successfully sent warning message to user." });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Could not send an email." });
+  }
+
+
+}
