@@ -23,7 +23,7 @@ function ModHome() {
 	) : (
 		<Container nav={<ModNav />}>
 			<h1>Reported Stories</h1>
-			<div className='cat-container'>{stories.map((story) => <ModStory key={story._id} story={story} />)}</div>
+			<div className='cat-container1'>{stories.map((story) => <ModStory key={story._id} story={story} />)}</div>
 		</Container>
 	)
 }
