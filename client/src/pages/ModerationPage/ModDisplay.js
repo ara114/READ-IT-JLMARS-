@@ -45,10 +45,8 @@ const Display = () => {
 				(storyy) =>
 					storyy.storyID === `${storyId}` && (
 						<div key={storyy._id}>
-                            <div className="DisplayGrid">
-                                <div className="write-container">
-                                    <Link to={`/modhome`} className='nostyle write Create' onClick={() => dispatch(unreportStory(storyy.storyID))}>Mark Approriate</Link>
-                                </div>
+                                {/* <div className="write-container">
+							    </div> */}
                                 <div className="cover">
                                     <div className='img-container'>
                                         <img src={storyy.image} alt={`${storyy.title}`} className='readImg' />
@@ -62,13 +60,15 @@ const Display = () => {
 											))}
 									</div>
                                 </div>
-                                <div className="write-container">
-                                    <Link to={`/modwarn/${storyy.storyID}`} className='nostyle write Create'>Warn Author</Link>
-                                    <Link to={'/modhome'} className='nostyle write Join' onClick={() => dispatch(deleteStory(storyy.storyID))}>Delete</Link>
-							    </div>
+								<div className="DisplayGrid">
+									<div id= "modCont" className="write-container">
+										<Link to={`/modhome`}  className='nostyle write Create' onClick={() => dispatch(unreportStory(storyy.storyID))}>Mark Approriate</Link>
+										<Link to={'/modhome'} className='nostyle write Join' onClick={() => dispatch(deleteStory(storyy.storyID))}>Delete</Link>
+										<Link to={`/modwarn/${storyy.storyID}`} className='nostyle write Create'>Warn Author</Link>
+									</div>
                             </div>
 							<div className='text-content storyContent' ref={wrapperRef}></div>
-							{console.log(storyy.story)}
+							{/* {console.log(storyy.story)} */}
 						</div>
 					)
 			)}
