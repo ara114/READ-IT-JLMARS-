@@ -40,8 +40,8 @@ const Profile = () => {
     <Container nav={<NavBar />}>
         <div className='gridCont'>
 						<div className='gridCont11'>
-							<div className='avatar_wrap'>
-								<Avatar className='avatar'
+							<div id= "noblur" className='avatar_wrap'>
+								<Avatar id= "noblur" className='avatar'
 									style={{ height: '150px', width: '150px' }}
 									alt={otherUser.name}
 									src={otherUser.image}

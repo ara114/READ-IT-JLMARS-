@@ -67,7 +67,10 @@ padding-bottom: 2%;
 /* padding-top: 5%; */
 font-size: 2rem;
 }
-
+#noblur:hover #noblur{
+	filter: none;
+	-webkit-filter:none;
+}
 .avatar_wrap:hover .avatar{
 	filter: blur(4px);
 	-webkit-filter: blur(1px);  
