@@ -114,6 +114,12 @@ font-size: 2rem;
 
 /*This is the Under the grid liked Stories */
 .likedStories {
+	padding-top: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.yourStories {
 	padding-top: 5%;
 	padding-left: 2%;
 	padding-right: 2%;

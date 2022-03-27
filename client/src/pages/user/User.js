@@ -5,6 +5,7 @@ import Container from '../../components/container/container'
 import UserNav from '../user/UserNav'
 import { Avatar } from '@material-ui/core'
 import LikedCarousel from '../../components/LikedCarousel/LikedCarousel'
+import YourStoriesCarousel from '../../components/YourStoriesCarousel/YourStoriesCarousel'
 import './User.css'
 import FileBase from 'react-file-base64'
 import { updateUser } from '../../actions/auth'
@@ -98,6 +99,10 @@ function User() {
 						{/* <div className='user-container2'></div> */}
 					</>
 				)}
+			</div>
+			<div className='yourStories'>
+				<label>Your Stories</label>
+				<YourStoriesCarousel user={user?.result} />
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>

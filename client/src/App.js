@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getStories } from './actions/stories'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage/LandingPage'
 import Home from './pages/home/Home'
@@ -31,6 +33,12 @@ import ModLogin from './pages/ModerationPage/ModLogin'
 import ModDisplay from './pages/ModerationPage/ModDisplay'
 
 function App() {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getStories());
+	}, []);
 
 	return (
 		<div className='App'>

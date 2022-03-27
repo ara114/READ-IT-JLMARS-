@@ -7,6 +7,7 @@ import { getUsers } from '../../actions/auth';
 import { Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import LikedCarousel from '../../components/LikedCarousel/LikedCarousel';
+import YourStoriesCarousel from '../../components/YourStoriesCarousel/YourStoriesCarousel';
 
 const Profile = () => {
   const { id: userID } = useParams();
@@ -66,6 +67,10 @@ const Profile = () => {
 						</div>
 
 						{/* <div className='user-container2'></div> */}
+			</div>
+			<div className='yourStories'>
+				<label>{`${otherUser.name.substring(0, otherUser.name.indexOf(" "))}'s Stories`}</label>
+				<YourStoriesCarousel user={otherUser} />
 			</div>
 			<div className='likedStories'>
 				<label>Liked Stories</label>
