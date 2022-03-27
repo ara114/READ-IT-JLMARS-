@@ -46,7 +46,10 @@
 	justify-content: center;
 	align-items: center;
 }
+#errorMsg{
+	width: 105%;
 
+}
 .backBtn {
 	margin-top: -5%;
 	margin-bottom: 5%;

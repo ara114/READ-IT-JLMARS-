@@ -34,7 +34,7 @@ function Login() {
 			<div className='card'>
 				<label id='cardTitle'>Login</label>
 				<form onSubmit={handleSubmit}>
-					{errors && (<Alert severity="error">{errors}</Alert>)}
+					{errors && (<Alert id="errorMsg" severity="error">{errors}</Alert>)}
 					<div id='pushdown'>
 					<label id='emailLabel'>Email</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />

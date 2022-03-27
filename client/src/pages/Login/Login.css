@@ -26,7 +26,10 @@
 	margin-top: -20%;
 
 }
+#errorMsg{
+	width: 105%;
 
+}
 .control {
 	margin-bottom: 0.5rem;
 }

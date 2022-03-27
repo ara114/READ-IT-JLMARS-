@@ -35,8 +35,8 @@ function ForgotPassword(props) {
 						<Button onClick={() => navigate('/login')} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
 							{`${'<'}`}
 						</Button>
-				{error && (<Alert severity="error">{error}</Alert>)}
-				{authData && (<Alert severity="success">{authData.message}</Alert>)}
+				{error && (<Alert id="errorMsg1" severity="error">{error}</Alert>)}
+				{authData && (<Alert id="errorMsg1" severity="success">{authData.message}</Alert>)}
 					</section>
 					<label id="labelEnter">Enter your email address</label>
 					<input name='email' className='control' type='text' required placeholder='Email address' onChange={handleChange} />

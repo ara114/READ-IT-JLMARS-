@@ -179,7 +179,7 @@ function SignUp() {
 										{categoriesChosen}
 									</Select>
 								</FormControl>
-								{errorSignUp && (<Alert severity="error">{errorSignUp}</Alert>)}
+								{errorSignUp && (<Alert id="errorMsg" severity="error">{errorSignUp}</Alert>)}
 								<section className='signupBtn'>
 									<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 										Signup
