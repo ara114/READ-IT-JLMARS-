@@ -50,7 +50,7 @@ const Display = () => {
 								<Link key={index} to={`/${authorr.authorID}`} className='author'>{authorr.authorName}{index < storyy.author.length - 1 ? "," : ""}&nbsp;</Link>
 							))}
 							</div>
-							<div className='author-container'>Category: {storyy.category}</div>
+							<div className='author-container'>Category:&nbsp;<Link to={`/category/${storyy.category}`} className='author'>{storyy.category}</Link></div>
 							{storyy.mashup === true && (
 								<div className='originalStory-container' >
 									Original Story: &nbsp;
