@@ -24,7 +24,7 @@ export const signup = (formData) => API.post('/users/signup', formData);
 
 export const loginMod = (formData) => API.post('/moderator/loginMod', formData);
 
-export const getUser = (id) => API.get(`/users/viewProfile/${id}`);
+export const getUsers = () => API.get(`/users/viewProfile`);
 export const updateUser = (id, updatedUser) => API.patch(`/users/${id}`, updatedUser);
 export const forgotPassword = (details) => API.post(`/users/forgotPassword`, details);
 export const resetPassword = (id, details) => API.patch(`/users/reset/${id}`, details);

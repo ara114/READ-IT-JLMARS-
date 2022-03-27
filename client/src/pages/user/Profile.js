@@ -3,7 +3,7 @@ import Container from '../../components/container/container';
 import NavBar from '../../components/navbar/NavBar';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { getUser } from '../../actions/auth';
+import { getUsers } from '../../actions/auth';
 import { Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import CarouselUser from '../../components/carouselUser/CarouselUser';
@@ -13,16 +13,19 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-		dispatch(getUser(userID));
+		dispatch(getUsers());
 	}, [dispatch]);
 
   const state = useSelector(state => {
 		return state.authReducer;
 	});
-
-  const {otherUser} = state;
+	
   console.log('state', state);
-  console.log(otherUser);
+  const {otherUsers} = state;
+  console.log(otherUsers);
+
+  const other = otherUsers.filter(user => user._id === userID);
+  const otherUser = other[0];
 
   const scrollToTop = () => {
 		window.scrollTo({

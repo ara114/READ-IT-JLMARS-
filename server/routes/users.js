@@ -1,9 +1,9 @@
 import express from "express";
 const router = express.Router();
 
-import { getUser, login, signup, updateUser, forgotPassword, resetPassword } from "../controllers/user.js";
+import { getUsers, login, signup, updateUser, forgotPassword, resetPassword } from "../controllers/user.js";
 
-router.get("/viewProfile/:id", getUser);
+router.get("/viewProfile", getUsers);
 router.post("/login", login);
 router.post("/signup", signup);
 router.post("/forgotPassword", forgotPassword);

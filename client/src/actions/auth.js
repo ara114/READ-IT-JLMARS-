@@ -76,9 +76,9 @@ export const updateUser = (id, user) => async (dispatch) => {
     }
   };
 
-  export const getUser = (id) => async (dispatch) => {
+  export const getUsers = () => async (dispatch) => {
     try {
-      const { data } = await api.getUser(id);
+      const { data } = await api.getUsers();
 
       console.log(data);
 

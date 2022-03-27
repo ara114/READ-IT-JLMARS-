@@ -7,7 +7,8 @@ import { useDispatch } from 'react-redux';
 import {getStories} from '../../actions/stories';
 import NavBar from '../../components/navbar/NavBar';
 import Search from '../../components/Search/Search';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import {getUsers} from '../../actions/auth';
 function Home({ handleLogout }) {
 	const dispatch = useDispatch()
 	const navigate = useNavigate();
@@ -20,6 +21,10 @@ function Home({ handleLogout }) {
 	useEffect(() => {
 		dispatch(getStories());
 	}, [dispatch]);
+
+	useEffect(() => {
+		dispatch(getUsers());
+	}, []);
 
 	return (
 		<Container nav={<NavBar/>} contentClass='content'>

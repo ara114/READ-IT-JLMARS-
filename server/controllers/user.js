@@ -21,12 +21,11 @@ const transporter = NodeMailer.createTransport({
   }
 });
 
-export const getUser = async (req, res) => {
-  const { id } = req.params;
+export const getUsers = async (req, res) => {
 
-  const data = await User.findById(id);
+  const data = await User.find();
 
-  res.json(data);
+  res.status(200).json(data);
 };
 export const login = async (req, res) => {
   const { email, password } = req.body;
