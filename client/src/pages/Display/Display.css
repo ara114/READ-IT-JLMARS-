@@ -4,7 +4,12 @@
 
 .author{
 	text-decoration: none;
-	color: #5f0e80;
+	color: black;
+}
+
+.author:hover{
+	text-decoration: none;
+	color: red;
 }
 
 .read {
