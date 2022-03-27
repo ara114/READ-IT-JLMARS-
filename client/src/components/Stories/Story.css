@@ -61,6 +61,11 @@
 	background: none;
 	font-family: 'PT Sans', sans-serif;
 }
+
+#reportedName{
+	padding: 15px 15px 10px;
+}
+
 .btns {
 	display: flex;
 	justify-content: space-between;

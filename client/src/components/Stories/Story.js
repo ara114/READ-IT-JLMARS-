@@ -17,6 +17,7 @@ import Paper from '@mui/material/Paper';
 import { useDispatch } from 'react-redux';
 import { deleteStory, likeStory, reportStory } from '../../actions/stories';
 import './Story.css';
+import imgR from '../../images/reported.png';
 
 function Story({story}) {
 	const dispatch = useDispatch()
@@ -73,12 +74,12 @@ function Story({story}) {
 		story.reports.find((report) => report === user?.result?._id) ?  (
 			<div className='item'>
 				<div className='link'>
-					{story.title}
-					<p>Reported story: Story is being reviewed.</p>
-					<div className='btns'>
+				<figure className='pictureWrap'>
+							<img src={imgR} alt={story.title} className='image' />
+						</figure>
+						<h5 id="reportedName" className='name'>{story.title}</h5>
 					</div>
 				</div>
-			</div>
 		) : (
 			<div className='item'>
 				<div className='link'>
