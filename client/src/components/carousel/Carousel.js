@@ -13,8 +13,8 @@ function Carousel() {
 	const stories = useSelector((state)=> state.stories);
 	const user = JSON.parse(localStorage.getItem('profile'));
 
-	const storyCat1 = stories.filter(story => story.category === user?.result?.categoryOne);
-	const storyCat2 = stories.filter(story => story.category === user?.result?.categoryTwo);
+	const storyCat1 = stories.filter(story => story.category === user?.result?.categoryOne && story.reports.length === 0);
+	const storyCat2 = stories.filter(story => story.category === user?.result?.categoryTwo && story.reports.length === 0);
 
 	const storyCat1Last4 = storyCat1.slice(storyCat1.length - 4);
 	const storyCat2Last4 = storyCat2.slice(storyCat2.length - 4);
@@ -112,11 +112,9 @@ function Carousel() {
 							<Story key={index} img={box.image} to={box.to} name={box.name} descr={box.alt} />
 						))} */}
 						{storyCat1Last4.map((story) => (
-							story.reports.length === 0 && 
 							<Story key={story._id} story={story}/>
 						))}
 						{storyCat2Last4.map((story) => (
-							story.reports.length === 0 && 
 							<Story key={story._id} story={story}/>
 						))}
 					</Slider>
