@@ -48,7 +48,13 @@ const Read = () => {
 								<img src={storyy.image} alt={`${storyy.title}`} className='readImg' />
 							</div>
 							<div className='title-container'>{storyy.title}</div>
-							<div className='author-container'>Author(s): {storyy.author}</div>
+							<div className='author-container'>
+								Author(s):&nbsp;
+								{storyy.author.map(
+							(authorr, index) => (
+								<Link key={index} to={`/${authorr.authorID}`} className='author'>{authorr.authorName}{index < storyy.author.length - 1 ? "," : ""}&nbsp;</Link>
+							))}
+							</div>
 							<div className='text-content storyContent' ref={wrapperRef}></div>
 							{console.log(storyy.story)}
 						</div>

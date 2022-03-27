@@ -60,7 +60,7 @@ const Display = () => {
 								</div>)}
 							{/* {console.log(storyy.story)} */}
 							<div className="write-container">
-								<Link to={`/${storyy.storyID}`} className='nostyle write Create' onClick={scrollToTop}>Read</Link>
+								<Link to={`/read/${storyy.storyID}`} className='nostyle write Create' onClick={scrollToTop}>Read</Link>
 								<Link to={`/Mashup/${storyy.storyID}-${uuidV4()}`} className='nostyle write Join' onClick={scrollToTop}>Mashup</Link>
 							</div>
 							<Reviews story={storyy}/>
