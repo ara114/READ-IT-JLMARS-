@@ -39,7 +39,7 @@ function UserNav({setUser, setCurrentId}) {
 
 				<div className='icon' onClick={handleClick}>
 					{/* This is the X and Hamburger logo on the right */}
-					<i className={click ? 'fas fa-times' : 'fas fa-cog'} />
+					<i className={click ? 'fas fa-times' : 'fas fa-ellipsis-v'} />
 				</div>
 				<ul className={click ? 'menu active' : 'menu'}>
 				{user?.result ? (
@@ -58,22 +58,22 @@ function UserNav({setUser, setCurrentId}) {
 					)}
 					<li className='itemNav'>
 						<Link to={`/user/${user?.result?._id}`} className='itemLinks' onClick={() => setCurrentId(user?.result?._id)}>
-						<h1 className='home-txt'> Edit </h1>
+						<h1 className='home-txt'>Edit</h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/security' className='itemLinks' onClick={closeMobileMenu}>
-						<h1 className='home-txt'> Security</h1>
+						<h1 className='home-txt'>Settings</h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/About' className='itemLinks' onClick={closeMobileMenu}>
-						<h1 className='home-txt'> About Us</h1>
+						<h1 className='home-txt'>About Us</h1>
 						</Link>
 					</li>
 					<li className='itemNav'>
 						<Link to='/' className='itemLinks' onClick={logout}>
-						<h1 className='home-txt'> Logout</h1>
+						<h1 className='home-txt'>Logout</h1>
 						</Link>
 					</li>
 				</ul>

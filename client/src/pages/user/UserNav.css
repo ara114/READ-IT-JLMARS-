@@ -11,7 +11,7 @@
 }
 
 .itemNav {
-	height: 10vh;
+	height: 12vh;
 	padding: 0%;
 }
 
@@ -28,7 +28,7 @@
 .fa-lock,
 .fa-user-edit,
 .fa-book,
-.fa-cogs {
+.fa-ellipsis-v {
 	display: block;
 	font-size: 1.8rem;
 }
@@ -36,10 +36,10 @@
 	display: block;
 	font-size: 1.8rem;
 }
-.fa-cog {
+.fa-ellipsis-v {
 	display: block;
 	font-size: 1.8rem;
-	margin-right: 20px;
+	margin-right: 30px;
 	color: #8e05c2;
 }
 .fa-times {
@@ -63,7 +63,7 @@
 	justify-content: center;
 	align-items: center;
 	max-width: 1100px;
-	width: 10%;
+	width: 15%;
 	position: absolute;
 	top: calc((0% + 170px) / 2);
 	right: calc((100% - 1099px) / 2);
