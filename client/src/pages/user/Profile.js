@@ -73,7 +73,7 @@ const Profile = () => {
 				<YourStoriesCarousel user={otherUser} />
 			</div>
 			<div className='likedStories'>
-				<label>Liked Stories</label>
+				<label>{`${otherUser.name.substring(0, otherUser.name.indexOf(" "))}'s Liked Stories`}</label>
 				<LikedCarousel user={otherUser}/>
 			</div>
     </Container>

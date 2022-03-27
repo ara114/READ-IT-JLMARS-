@@ -105,7 +105,7 @@ function User() {
 				<YourStoriesCarousel user={user?.result} />
 			</div>
 			<div className='likedStories'>
-				<label>Liked Stories</label>
+				<label>Your Liked Stories</label>
 				<LikedCarousel user={user?.result} />
 			</div>
 		</Container>
