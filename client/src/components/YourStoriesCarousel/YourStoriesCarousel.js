@@ -10,6 +10,7 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded'
 import {useSelector} from 'react-redux';
 import {CircularProgress} from '@material-ui/core';
+import { Typography} from '@material-ui/core'
 
 function Carousel({user}) {
 
@@ -110,7 +111,7 @@ function Carousel({user}) {
 
 	return (
 			<div className='main'>
-				{!yourStories.length ? <CircularProgress/> : (
+				{!yourStories.length ? <Typography variant='subtitle1'>No stories.</Typography> : (
 					<>
 						{yourStories.length > 4 ? 
 							<Slider {...properties}>
