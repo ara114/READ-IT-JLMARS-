@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
   },
   reviewsInnerContainer: {
     minHeight: '100px',
+    maxHeight: '200px',
     width: '100%',
     overflowY: 'auto',
     borderTop: '1px solid #dbdbdb',
