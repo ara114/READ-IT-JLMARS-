@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
-import useStyles from './styles'
+import useStyles from '../styles'
 
 export default function Account() {
 	const dispatch = useDispatch();
