@@ -16,6 +16,7 @@ import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import { useDispatch } from 'react-redux';
 import { deleteStory, likeStory, reportStory } from '../../actions/stories';
+import { getUsers } from '../../actions/auth';
 import './Story.css';
 import imgR from '../../images/reported.png';
 
@@ -34,6 +35,10 @@ function Story({story}) {
 			behavior: 'smooth',
 		})
 	}
+
+	useEffect(() => {
+		dispatch(getUsers());
+	  }, []);
 
 	const handleToggle = () => {
 		setOpen((prevOpen) => !prevOpen);

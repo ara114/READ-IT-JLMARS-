@@ -1,6 +1,6 @@
 // import * as actionType from '../constants/actionTypes';
 
-const authReducer = (state = { authData: null }, action) => {
+const authReducer = (state = { authData: null, otherUsers: null }, action) => {
   switch (action.type) {
 
     case 'FETCH_USER':
