@@ -146,6 +146,32 @@ export const resetPassword = async (req, res) => {
   res.json(updatedUser);
 }
 
+
+export const updatePassword = async (req, res) => {
+  const { oldPassword,  password, ConfirmPassword} = req.body;
+  const {id: id} = req.params;
+
+  const user = await User.findById(id);
+
+  const isPasswordCorrect = await bcrypt.compare(oldPassword, user.password);
+
+  if (!isPasswordCorrect) return res.status(400).json({ message: "Old Password is incorrect. Please try again." });
+
+  if(password.length < 7) return res.status(400).json({ message: "Password must be at least 7 characters long."});
+
+  if(password !== ConfirmPassword) return res.status(400).json({ message: "Passwords do not match. Please try again."});
+
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+
+  const updatedUser = { password: hashedPassword };
+  
+
+  await User.findByIdAndUpdate(id, updatedUser, { new: true });
+
+  res.json(updatedUser);
+}
+
 export const warnAuthor = async (req, res) => {
   const {story, details} = req.body;
 

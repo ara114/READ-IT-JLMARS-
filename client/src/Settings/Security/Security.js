@@ -11,6 +11,10 @@ import useStyles from '../styles'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { updatePassword } from '../../actions/auth'
+import Alert from '@mui/material/Alert';
 
 const ExpandMore = styled((props) => {
 	const { expand, ...other } = props;
@@ -27,8 +31,11 @@ export default function Security() {
 	const classes = useStyles();
 	const [expanded, setExpanded] = useState(true);
 	const [expanded1, setExpanded1] = useState(false);
-	const initialState = { oldPassword: '', password: '', ConfirmPassword: '', redirect: 'http://localhost:3000/login'}
+	const initialState = { oldPassword: '', password: '', ConfirmPassword: ''}
 	const [formData, setFormData] = useState(initialState)
+	const user = JSON.parse(localStorage.getItem('profile'));
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleExpandClick1 = () => {
 		setExpanded1(!expanded1);
@@ -39,8 +46,16 @@ export default function Security() {
 	};
 
 	const handleSubmit = (e) => {
-
+		e.preventDefault();
+		console.log(formData);
+		dispatch(updatePassword(user?.result?._id, formData, navigate))
 	}
+
+	const state = useSelector(state => {
+		return state.authReducer;
+	});
+
+	const {loading, authData, errorsss} = state;
 
 	
 	return (
@@ -65,6 +80,7 @@ export default function Security() {
 						<Collapse in={expanded} timeout="auto" unmountOnExit>
 							<CardContent>
 								<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e);}}>
+									{errorsss && (<Alert id="errorMsg" severity="error">{errorsss}</Alert>)}
 									<TextField
 										name='oldPassword'
 										label='Old Password'

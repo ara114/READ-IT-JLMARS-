@@ -27,7 +27,11 @@ const authReducer = (state = { authData: null }, action) => {
 
     case 'RESET-FAIL':
 
-      return { errorss: action.payload };  
+      return { errorss: action.payload }; 
+
+    case 'CHANGE-FAIL':
+
+      return { errorsss: action.payload };  
 
     case 'LOGINMOD':
 

@@ -76,6 +76,17 @@ export const updateUser = (id, user) => async (dispatch) => {
     }
   };
 
+  export const updatePassword = (id, formData, navigate) => async (dispatch) => {
+    try {
+      const { data } = await api.updatePassword(id, formData);
+      dispatch({ type: 'UPDATE', payload: data });
+      navigate('/home');
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: 'CHANGE-FAIL', payload: error.response.data.message});
+    }
+  };
+
   export const getUsers = () => async (dispatch) => {
     try {
       const { data } = await api.getUsers();
