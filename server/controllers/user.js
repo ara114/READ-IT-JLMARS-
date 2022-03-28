@@ -207,3 +207,16 @@ export const warnAuthor = async (req, res) => {
 
 
 }
+
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await User.findOneAndRemove({_id: id});
+
+    res.json({message: 'Account deleted.'});
+  } catch (err) {
+    res.status(500).json({ message: "Account couldnt be deleted." });
+  }
+
+}

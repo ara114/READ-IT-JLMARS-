@@ -13,7 +13,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { updatePassword } from '../../actions/auth'
+import { updatePassword, deleteUser } from '../../actions/auth'
 import Alert from '@mui/material/Alert';
 
 const ExpandMore = styled((props) => {
@@ -51,11 +51,21 @@ export default function Security() {
 		dispatch(updatePassword(user?.result?._id, formData, navigate))
 	}
 
+	const logout = () => {
+		dispatch({type: 'LOGOUT'});
+	}
+
+	const handleConfirm = (e) => {
+		e.preventDefault();
+		dispatch(deleteUser(user?.result?._id));
+		logout();
+	}
+
 	const state = useSelector(state => {
 		return state.authReducer;
 	});
 
-	const {loading, authData, errorsss} = state;
+	const {loading, authData, errorsss, errorssss} = state;
 
 	
 	return (
@@ -150,6 +160,7 @@ export default function Security() {
 						</CardActions>
 						<Collapse in={expanded1} timeout="auto" unmountOnExit>
 							<CardContent>
+								{errorssss && (<Alert id="errorMsg" severity="error">{errorssss}</Alert>)}
 								<Typography paragraph>This action will be permanent. Do you wish to continue?</Typography>
 								<Button
 										className={classes.buttonSubmit}
@@ -157,6 +168,7 @@ export default function Security() {
 										style={{ backgroundColor: '#8e05c2', color: '#fff' }}
 										size='large'
 										fullWidth
+										onClick={handleConfirm}
 									>
 										Yes
 								</Button>

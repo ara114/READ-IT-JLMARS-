@@ -31,7 +31,7 @@ const authReducer = (state = { authData: null }, action) => {
 
     case 'CHANGE-FAIL':
 
-      return { errorsss: action.payload };  
+      return { errorsss: action.payload, errorssss: null };  
 
     case 'LOGINMOD':
 
@@ -55,6 +55,8 @@ const authReducer = (state = { authData: null }, action) => {
     
     case 'RESET':
       return { ...state, authData: action.payload, loading: false, error: null, errorss: null };
+    case 'DELETE-FAIL':
+      return { errorssss: action.payload, errorsss: null };  
     default:
       return state;
   }

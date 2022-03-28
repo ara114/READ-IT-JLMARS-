@@ -95,7 +95,6 @@ export const updateUser = (id, user) => async (dispatch) => {
 
       dispatch({ type: 'FETCH_USER', payload: data });
     } catch (error) {
-      // dispatch({ type: 'RESET-FAIL', payload: error.response.data.message});
       console.log(error);
     }
   };
@@ -105,10 +104,21 @@ export const updateUser = (id, user) => async (dispatch) => {
     try {
         const { data } = await api.warnAuthor(story, details);
         console.log(data);
-        // dispatch({type: 'DELETE', payload: data});
         navigate('/modhome');
     } catch (error) {
         console.log(error);
     }
+
+}
+
+export const deleteUser = (id) => async (dispatch) => {
+
+  try {
+    const { data } = await api.deleteUser(id);
+    console.log(data);
+
+  } catch (error) {
+    dispatch({ type: 'DELETE-FAIL', payload: error.response.data.message});
+  }
 
 }
