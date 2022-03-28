@@ -19,12 +19,18 @@ import { deleteStory, likeStory, reportStory } from '../../actions/stories';
 import { getUsers } from '../../actions/auth';
 import './Story.css';
 import imgR from '../../images/reported.png';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 function Story({story}) {
 	const dispatch = useDispatch()
 	const navigate = useNavigate();
 	const user = JSON.parse(localStorage.getItem('profile'));
 	const [isReported, setIsReported] = useState(false);
+	const [isDeleted, setIsDeleted] = useState(false);
 	const [likes, setLikes] = useState(story?.likes);
 	const [open, setOpen] = useState(false);
 	const anchorRef = useRef(null);
@@ -38,7 +44,7 @@ function Story({story}) {
 
 	useEffect(() => {
 		dispatch(getUsers());
-	  }, []);
+	}, []);
 
 	const handleToggle = () => {
 		setOpen((prevOpen) => !prevOpen);
@@ -68,6 +74,28 @@ function Story({story}) {
 	  prevOpen.current = open;
 	}, [open]);
 
+	const [reportOpen, reportSetOpen] = useState(false);
+
+	const handleClickOpen = () => {
+    	reportSetOpen(true);
+  	};
+
+	const handleCloseReport = () => {
+		reportSetOpen(false);
+	};
+
+	const [deleteOpen, deleteSetOpen] = useState(false);
+
+	const handleClickOpenDelete = () => {
+    	deleteSetOpen(true);
+  	};
+
+	const handleCloseDelete = () => {
+		deleteSetOpen(false);
+	};
+
+  
+
 	const handleLike = async () => {
 		dispatch(likeStory(story.storyID));
 		if(story.likes.find((like) => like === (user?.result?.googleId || user?.result?._id)))
@@ -76,7 +104,9 @@ function Story({story}) {
 			setLikes([...story.likes, user?.result?._id])
 	}
 	return (
-		story.reports.find((report) => report === user?.result?._id) ?  (
+		!isDeleted && 
+		(<>
+		{(story.reports.find((report) => report === user?.result?._id) || isReported) ?  (
 			<div className='item'>
 				<div className='link'>
 				<figure className='pictureWrap'>
@@ -134,9 +164,11 @@ function Story({story}) {
 										aria-labelledby="composition-button"
 										onKeyDown={handleListKeyDown}
 									>
-										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => {navigate(`/Create/${story.storyID}`);}}><EditIcon fontSize='small' style={{ color: '#8e05c2' }}/>&nbsp;Edit</MenuItem>}
-										{!story.author.find((authors) => authors.authorID === user?.result?._id) && <MenuItem onClick={(e) => {setIsReported(true); dispatch(reportStory(story.storyID))}}><FlagOutlinedIcon fontSize='small' style={{ color: '#8e05c2' }} className='deleteBtn' />&nbsp;Report</MenuItem>}
-										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => dispatch(deleteStory(story.storyID))}><DeleteIcon fontSize='small' style={{ color: 'red' }} className='deleteBtn' />&nbsp;Delete</MenuItem>}
+										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => { handleToggle(); navigate(`/Create/${story.storyID}`);}}><EditIcon fontSize='small' style={{ color: '#8e05c2' }}/>&nbsp;Edit</MenuItem>}
+										{/* {!story.author.find((authors) => authors.authorID === user?.result?._id) && <MenuItem onClick={(e) => {setIsReported(true); dispatch(reportStory(story.storyID))}}><FlagOutlinedIcon fontSize='small' style={{ color: '#8e05c2' }} className='deleteBtn' />&nbsp;Report</MenuItem>} */}
+										{!story.author.find((authors) => authors.authorID === user?.result?._id) && <MenuItem onClick={() => { handleToggle(); handleClickOpen(); }}><FlagOutlinedIcon fontSize='small' style={{ color: '#8e05c2' }} className='deleteBtn' />&nbsp;Report</MenuItem>}
+										{/* {story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => dispatch(deleteStory(story.storyID))}><DeleteIcon fontSize='small' style={{ color: 'red' }} className='deleteBtn' />&nbsp;Delete</MenuItem>} */}
+										{story.author.find((authors) => authors.authorID === user?.result?._id) &&<MenuItem onClick={() => { handleToggle(); handleClickOpenDelete(); }}><DeleteIcon fontSize='small' style={{ color: 'red' }} className='deleteBtn' />&nbsp;Delete</MenuItem>}
 									</MenuList>
 									</ClickAwayListener>
 								</Paper>
@@ -146,7 +178,50 @@ function Story({story}) {
 					</div>
 				</div>
 			</div>
-		)
+		)}
+		<Dialog
+			open={reportOpen}
+			onClose={handleCloseReport}
+			aria-labelledby="alert-dialog-title"
+			aria-describedby="alert-dialog-description"
+		>
+			<DialogTitle id="alert-dialog-title">
+			{"Are you sure you want to report this story?"}
+			</DialogTitle>
+			<DialogContent>
+			<DialogContentText id="alert-dialog-description">
+				If you do so, you will not be able to see the content of this story until it is reviewed and approved by the moderators.
+			</DialogContentText>
+			</DialogContent>
+			<DialogActions>
+			<Button onClick={() => {dispatch(reportStory(story.storyID)); setIsReported(true); handleCloseReport();}} autoFocus style={{ color: '#8e05c2' }}>Yes</Button>
+			<Button onClick={handleCloseReport} >
+				No
+			</Button>
+			</DialogActions>
+		</Dialog>
+		<Dialog
+			open={deleteOpen}
+			onClose={handleCloseDelete}
+			aria-labelledby="alert-dialog-title"
+			aria-describedby="alert-dialog-description"
+		>
+			<DialogTitle id="alert-dialog-title">
+			{"Are you sure you want to delete this story?"}
+			</DialogTitle>
+			<DialogContent>
+			<DialogContentText id="alert-dialog-description">
+				This action is permanent and you will not be able to recover your story.
+			</DialogContentText>
+			</DialogContent>
+			<DialogActions>
+			<Button onClick={() => {dispatch(deleteStory(story.storyID)); setIsDeleted(true); handleCloseDelete();}} autoFocus style={{ color: '#8e05c2' }}>Yes</Button>
+			<Button onClick={handleCloseDelete} >
+				No
+			</Button>
+			</DialogActions>
+		</Dialog>
+		</>)
 	)
 }
 
