@@ -152,8 +152,8 @@ async function findOrCreateStory(sid){
 async function loadStory(sid, stry){
     // if(sid == null) return;
 
-    const hmm = await storyText.findOne({storyID: sid});
-    if(hmm)
-        return hmm;
-    return await storyText.create({storyID: sid, originalStory: stry, image: stry.image, author: '', title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false, mashup: true});
+    // const hmm = await storyText.findOne({storyID: sid});
+    // if(hmm)
+    //     return hmm;
+    return await storyText.create({storyID: sid, originalStory: stry, image: stry.image, author: stry.author, title: stry.title, category: stry.category, story: stry.story, reports: [], clear: false, finished: false, mashup: true});
 }

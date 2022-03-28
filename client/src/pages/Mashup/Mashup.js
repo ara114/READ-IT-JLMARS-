@@ -34,14 +34,15 @@ const Mashup = () => {
     	storyy = story
   })
   console.log('story',storyy);
+  const user = JSON.parse(localStorage.getItem('profile'));
 
 	const [storyData, setStoryData] = useState({
 		storyID: docSlice2,
 		image: storyy.image,
 		reports: storyy.reports,
 		author: [  {
-			authorID: '',
-			authorName: ''
+			authorID: `${user?.result?._id}`, 
+			authorName: `${user?.result?.name}`
 		  }],
 		title: storyy.title,
 		story: storyy.story,
@@ -50,7 +51,7 @@ const Mashup = () => {
 		finished: false,
     	mashup: true
 	})
-	const user = JSON.parse(localStorage.getItem('profile'));
+
 
 	useEffect(() => {
 		if(!user) navigate('/')
@@ -160,7 +161,7 @@ const Mashup = () => {
 			{/* {console.log(window.location.pathname)} */}
 			<Grow in>
 				<Paper className={classes.paper}>
-					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room-mashup', ({ authorID: `${user?.result?._id}`, authorName: `${user?.result?.name}`}))}}>
+					<Button className="leaveBtn" variant='contained' style={{ backgroundColor: 'red', color: '#fff' }} size='small' onClick={(e) => {handleSubmit(e); socket.emit('leave-room-mashup', ({ }))}}>
 							Leave
 						</Button>
 					<form autoComplete='off' className={`${classes.root} ${classes.form} createForm`} onSubmit={(e) => {handleSubmit(e); socket.emit('form-submit-mashup', storyData)}}>

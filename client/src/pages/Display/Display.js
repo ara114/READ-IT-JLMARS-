@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getStories } from '../../actions/stories'
+import { getUsers } from '../../actions/auth'
 import NavBar from '../../components/navbar/NavBar'
 import Container from '../../components/container/container'
 import { Link } from 'react-router-dom'
@@ -16,6 +17,9 @@ const Display = () => {
 	useEffect(() => {
 		dispatch(getStories())
 	}, [dispatch])
+	useEffect(() => {
+		dispatch(getUsers())
+	}, [])
 	const stories = useSelector((state) => state.stories)
 
 	const navigate = useNavigate();

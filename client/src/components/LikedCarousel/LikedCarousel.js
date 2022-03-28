@@ -111,7 +111,7 @@ function Carousel({user}) {
 
 	return (
 			<div className='main'>
-				{!likedStories.length ? <Typography variant='subtitle1'>No stories.</Typography>: (
+				{!likedStories.length ? <CircularProgress/>: (
 					<>
 						{likedStories.length > 4 ? 
 							<Slider {...properties}>
