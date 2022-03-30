@@ -1,11 +1,10 @@
 .authorNameBox{
     display: grid;
-
     position: relative;
     grid-template-columns: repeat(5, auto);    
     align-items: center;
     justify-items: center;
-
+    padding: 1%;
 }
 
 
