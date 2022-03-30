@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { getStories } from '../../actions/stories'
 import { CircularProgress } from '@material-ui/core'
 import ModStory from '../../components/Stories/ModStory'
+import ModStoryWarn from '../../components/Stories/ModStoryWarn'
 import '../CatPages/Cat.css'
 
 function ModHome() {
@@ -24,6 +25,8 @@ function ModHome() {
 		<Container nav={<ModNav />}>
 			<h1>Reported Stories</h1>
 			<div className='cat-container1'>{stories.map((story) => <ModStory key={story._id} story={story} />)}</div>
+			<h1>Warned Stories</h1>
+			<div className='cat-container1'>{stories.map((story) => <ModStoryWarn key={story._id} story={story} />)}</div>
 		</Container>
 	)
 }

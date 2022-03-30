@@ -95,6 +95,7 @@ export const unreportStory = async (req, res) => {
     const story = await StoryMessage.findOne({storyID: id});
     story.reports.length = 0;
     story.clear = true;
+    story.warn = false;
     console.log(story.reports);
     const updatedStory = await StoryMessage.findOneAndUpdate({storyID: id}, story, {new: true})
 

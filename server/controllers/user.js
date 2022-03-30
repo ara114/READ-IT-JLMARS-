@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import StoryMessage from '../models/storyMessage.js';
+
 
 import User from "../models/user.js";
 
@@ -174,6 +176,8 @@ export const updatePassword = async (req, res) => {
 
 export const warnAuthor = async (req, res) => {
   const {story, details} = req.body;
+  story.warn = true;
+  await StoryMessage.findByIdAndUpdate(story._id, story, {new: true});
 
   try {
     story.author.forEach(async (user, i) => {

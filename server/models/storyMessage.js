@@ -38,6 +38,10 @@ const storySchema = mongoose.Schema({
     mashup: {
         type: Boolean,
         default: false
+    },
+    warn: {
+        type: Boolean,
+        default: false
     }
 });
 

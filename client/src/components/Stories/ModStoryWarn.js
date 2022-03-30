@@ -17,7 +17,7 @@ function Story({story}) {
 	}
 
 	return (
-		story.reports.length!==0 && !story.warn && (
+		story.warn && (
 			<div className='item'>
 				<div className='link'>
 					<Link to={`/modDisplay/${story.storyID}`} className='link' onClick={scrollToTop}>
