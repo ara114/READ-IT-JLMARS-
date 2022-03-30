@@ -11,6 +11,12 @@ import FileBase from 'react-file-base64'
 import { updateUser } from '../../actions/auth'
 import { useNavigate } from 'react-router-dom'
 // import '../../components/Categories/Categories.css'
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Button } from '@material-ui/core';
 
 import { Link } from 'react-router-dom'
 
@@ -19,6 +25,7 @@ function User() {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 	const names = user?.result?.name.split(' ')
 	console.log(names)
+	const [open, setOpen] = useState(false);
 	const [userData, setUserData] = useState({
 		image: '',
 		firstName: names[0],
@@ -27,7 +34,7 @@ function User() {
 		categoryTwo: user?.result?.categoryTwo,
 		bio: user?.result?.bio,
 	})
-	const [isEdit, setIsEdit] = useState(false)
+	// const [isEdit, setIsEdit] = useState(false)
 	const [currentId, setCurrentId] = useState(0)
 	useEffect(() => {
 		const token = user?.token
@@ -40,6 +47,10 @@ function User() {
 		dispatch(getStories())
 	}, [dispatch])
 
+	const handleClose = (event) => {
+		setOpen(false);
+	}
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
@@ -50,22 +61,6 @@ function User() {
 	return (
 		<Container nav={<UserNav user={user} setUser={setUser} setCurrentId={setCurrentId} />} contentClass='contentUser'>
 			<div className='gridCont'>
-				{isEdit ? (
-					//First Element
-					<div className='editProfilePic'>
-						<FileBase type='file' multiple={false} onDone={({ base64 }) => setUserData({ ...userData, image: base64 })} required />
-						<button
-							onClick={() => {
-								localStorage.setItem('profile', JSON.stringify({ ...user, result: { ...user?.result, image: userData.image } }))
-								dispatch(updateUser(user?.result?._id, { ...userData, name: user?.result?.name }))
-								setIsEdit(false)
-								navigate('/user')
-							}}
-						>
-							Upload
-						</button>
-					</div>
-				) : (
 					<>
 						<div className='gridCont11'>
 							<div className='avatar_wrap'>
@@ -73,11 +68,11 @@ function User() {
 									style={{ height: '150px', width: '150px' }}
 									alt={user?.result.name}
 									src={user?.result.image}
-									onClick={() => setIsEdit(true)}
+									onClick={() => setOpen(true)}
 								>
 									{user?.result.name.charAt(0)}
 								</Avatar>
-								<p className='avatar_description' onClick={() => setIsEdit(true)}>Change Picture</p>
+								<p className='avatar_description' onClick={() => setOpen(true)}>Change Picture</p>
 							</div>
 						</div>
 						<div className='gridCont12'>
@@ -98,7 +93,6 @@ function User() {
 
 						{/* <div className='user-container2'></div> */}
 					</>
-				)}
 			</div>
 			<div className='yourStories'>
 				<label>Your Stories</label>
@@ -108,6 +102,30 @@ function User() {
 				<label>Your Liked Stories</label>
 				<LikedCarousel user={user?.result} />
 			</div>
+			<Dialog
+			open={open}
+			onClose={handleClose}
+			aria-labelledby="alert-dialog-title"
+			aria-describedby="alert-dialog-description"
+		>
+			<DialogTitle id="alert-dialog-title">
+			{"Upload profile picture"}
+			</DialogTitle>
+			<DialogContent>
+			<DialogContentText id="alert-dialog-description">
+				<FileBase type='file' multiple={false} onDone={({ base64 }) => setUserData({ ...userData, image: base64 })} required />
+			</DialogContentText>
+			</DialogContent>
+			<DialogActions>
+			<Button onClick={() => {handleClose(); 	
+			localStorage.setItem('profile', JSON.stringify({ ...user, result: { ...user?.result, image: userData.image } }))
+			dispatch(updateUser(user?.result?._id, { ...userData, name: user?.result?.name }))
+			setOpen(false)
+			navigate('/home')}}
+			autoFocus
+			style={{ color: '#8e05c2' }}>Upload</Button>
+			</DialogActions>
+		</Dialog>
 		</Container>
 	)
 }
