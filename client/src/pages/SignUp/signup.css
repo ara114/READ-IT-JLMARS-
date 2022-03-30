@@ -51,8 +51,12 @@
 
 }
 .backBtn {
-	margin-top: -5%;
-	margin-bottom: 5%;
+	position: absolute;
+	width: 1%;
+	margin-top: -4%;
+	margin-bottom: 4%;
+
+	top: calc((100% - 360px) / 2);
 }
 
 .names{
@@ -89,19 +93,18 @@
 		width: 43%;
 	}
 
-	.errorMsg {
-		font-size: 10px;
-	}
-}
 
+}
+/* @media all and (max-width: 1024px) {
+	add the stuff
+
+
+} */
 @media all and (max-width: 930px) {
 	.signCard {
 		width: 56%;
 	}
 
-	.errorMsg {
-		font-size: 10px;
-	}
 }
 
 @media all and (max-width: 730px) {
@@ -110,9 +113,6 @@
 		padding: 1rem 2rem 2rem 2rem;
 	}
 
-	.errorMsg {
-		font-size: 10px;
-	}
 }
 
 @media all and (max-width: 540px) {
@@ -178,13 +178,13 @@
 	}
 }
 
-@media all and (max-height: 861px) {
+@media all and (max-height: 880px) {
 	.signCard {
 		height: 66%;
 	}
 }
 
-@media all and (max-height: 807px) {
+@media all and (max-height: 827px) {
 	.signCard {
 		height: 70%;
 	}
@@ -195,14 +195,14 @@
 		height: 74%;
 	}
 }
-@media all and (max-height: 726px) {
+@media all and (max-height: 746px) {
 	.signCard {
-		height: 79%;
+		height: 81%;
 	}
 }
 @media all and (max-height: 684px) {
 	.signCard {
-		height: 80%;
+		height: 95%;
 	}
 	.signupBtn {
 		margin-top: 8%;
@@ -212,7 +212,7 @@
 		padding: 0rem 3rem 1rem 2rem;
 	}
 }
-@media all and (max-height: 632px) {
+@media all and (max-height: 649px) {
 	.signCard label {
 		font-size: 18px;
 		margin: 4% 0;
@@ -224,19 +224,24 @@
 }
 @media all and (max-height: 555px) {
 	.signCard {
-		height: 87%;
+		height: 98%;
+	}
+	.backBtn {
+		position: absolute;
+		width: 1%;
+		top: calc((100% - 330px) / 2);
 	}
 }
 @media all and (max-height: 508px) {
 	.signCard {
-		height: 92%;
+		height: 99%;
+	}
+	.errorMsg{
+		font-size: 0.5rem;
 	}
 }
 @media all and (max-height: 495px) {
-	.signCard {
-		height: 92%;
-		padding: 2rem 3rem 2rem 2rem;
-	}
+
 	.signCard label {
 		margin: 10px 0;
 		font-size: 19px;
@@ -244,6 +249,18 @@
 	.signCard input {
 		font-size: 12px;
 	}
+	.backBtn{
+		font-size: 70%;
+		width: 1;
+		top: calc((100% - 280px) / 2);
+	}
+#pushdown{
+	margin-bottom: 5%;
+}
+	#cardTitle{
+		margin-top:5%;
+	}
+
 }
 @media all and (max-height: 435px) {
 	.signCard {

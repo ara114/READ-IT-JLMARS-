@@ -125,6 +125,8 @@ function SignUp() {
 										{`${'<'}`}
 									</Button>
 								</section>
+								{errorSignUp && (<Alert id="errorMsg" severity="error">{errorSignUp}</Alert>)}
+							
 								<div>
 									<label>Bio</label>
 									<input name='bio' maxLength='149' placeholder='Bio' onChange={handleChange} />
@@ -179,12 +181,13 @@ function SignUp() {
 										{categoriesChosen}
 									</Select>
 								</FormControl>
-								{errorSignUp && (<Alert id="errorMsg" severity="error">{errorSignUp}</Alert>)}
 								<section className='signupBtn'>
 									<Button type='submit' buttonStyle={'loginBtn'} buttonSize={'largeBtn'}>
 										Signup
 									</Button>
+								
 								</section>
+	
 							</>
 						)}
 					</form>
