@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './UserNav.css'
 import {useDispatch} from 'react-redux'
@@ -26,10 +26,26 @@ function UserNav({setUser, setCurrentId}) {
 		dispatch({type: 'LOGOUT'});
 	}
 
+	const [stickyClass, setStickyClass] = useState('')
+
+	useEffect(() => {
+		window.addEventListener('scroll', stickNavbar)
+		return () => window.removeEventListener('scroll', stickNavbar)
+	}, [])
+
+	const stickNavbar = () => {
+		if (window !== undefined) {
+			let windowHeight = window.scrollY
+			// window height changed for the demo
+			windowHeight > 0 ? setStickyClass('sticky-nav') : setStickyClass('')
+		}
+	}
+
+
 	return (
 		<header>
 			{/* <div className='tttttt'> */}
-			<nav className='userNav'>
+			<nav className={`userNav  ${stickyClass}`}>
 				{/* <div className='navbarContainer'> */}
 
 				<Link to='/home' className='navbarLogo' onClick={closeMobileMenu}>
