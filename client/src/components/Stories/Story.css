@@ -20,6 +20,7 @@
 .link:hover {
 	/* background-color: #700b97; */
 	transform: scale(1.1);
+	-webkit-filter: none;
 }
 
 .pictureWrap {
@@ -78,6 +79,10 @@
 	font-size: 1.5rem !important;
 }
 
+/* #composition-button:active{
+	
+} */
+
 /* 
 Note for future self: The more the size of the cards increase, increase the size of th padding which is found in the item.
 Combine this with the carousel responsive breakpoints and then you will get a responsive carousel with multi items. */
@@ -88,9 +93,11 @@ Combine this with the carousel responsive breakpoints and then you will get a re
 	}
 }
 
-@media only screen and (max-width: 446px) {
-	.deleteBtn {
-		margin-right: 5%;
+@media only screen and (max-width: 480px) {
+	.link {
+
+		width: 97%;
+
 	}
 }
 @media only screen and (max-width: 430px) {

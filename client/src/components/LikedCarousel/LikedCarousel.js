@@ -120,7 +120,7 @@ function Carousel({user}) {
 								))}
 							</Slider>
 						: (
-							<div className='cat-container2'>
+							<div className='cat-container3'>
 								{likedStories.map((story) => (
 									<Story key={story._id} story={story}/>
 								))}

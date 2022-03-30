@@ -1,14 +1,12 @@
 .cat-container2 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(150px,250px));
-	margin-left: -21px;
-	margin-right: -21px;
 }
 
 @media only screen and (max-width: 740px) {
 	.cat-container2 {
-
-		justify-content: center;
+		margin-left: -21px;
+		margin-right: -21px;
 	}
 }
 @media only screen and (max-width: 468px) {

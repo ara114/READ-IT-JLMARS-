@@ -71,7 +71,15 @@ function Carousel() {
 				},
 			},
 			{
-				breakpoint: 370,
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+					dots: false,
+				},
+			},
+			{
+				breakpoint: 460,
 				settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,

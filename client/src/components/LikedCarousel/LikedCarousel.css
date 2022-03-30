@@ -31,11 +31,23 @@
 .slick-dots li.slick-active button:before {
 	color: purple !important;
 }
-
-.cat-container {
+.cat-container3 {
 	display: grid;
-	justify-content: center;
-	grid-template-columns: 250px 250px 250px 250px;
+	grid-template-columns: repeat(auto-fit,minmax(150px,250px));
+	
+}
+
+@media only screen and (max-width: 740px) {
+	.cat-container3 {
+		margin-left: -21px;
+		margin-right: -21px;
+	}
+}
+@media only screen and (max-width: 468px) {
+	.cat-container3 {
+		grid-template-columns: repeat(auto-fit,minmax(150px,200px));
+
+	}
 }
 
 @media only screen and (max-width: 1025px) {

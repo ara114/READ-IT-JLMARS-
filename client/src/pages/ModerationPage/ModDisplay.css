@@ -15,8 +15,7 @@
 .cat-container1 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(150px,250px));
-	margin-left: -21px;
-	margin-right: -21px;
+
 }
 
 /* .read-container {
@@ -114,8 +113,8 @@
 
 @media only screen and (max-width: 740px) {
 	.cat-container1 {
-
-		justify-content: center;
+		margin-left: -21px;
+		margin-right: -21px;
 	}
 }
 @media only screen and (max-width: 468px) {
