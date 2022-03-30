@@ -14,3 +14,188 @@
 #errorMsg1{
 	width: 105%;
 }
+.backBtnF{
+	position: absolute;
+	width: 1%;
+	top: calc((100% - 380px) / 2);
+}
+
+@media all and (max-width: 1400px) {
+	#forgotBox {
+		width: 36%;
+	}
+	.errorMsg {
+		font-size: 10px;
+	}
+}
+
+@media all and (max-width: 1200px) {
+	#forgotBox {
+		width: 43%;
+	}
+
+	.errorMsg {
+		font-size: 10px;
+	}
+}
+
+@media all and (max-width: 930px) {
+	#forgotBox {
+		width: 56%;
+	}
+
+	.errorMsg {
+		font-size: 10px;
+	}
+}
+
+@media all and (max-width: 730px) {
+	#forgotBox {
+		width: 66%;
+	}
+
+	.errorMsg {
+		font-size: 10px;
+	}
+}
+
+@media all and (max-width: 540px) {
+	#forgotBox {
+		width: 76%;
+		height: 46%;
+	}
+
+	.errorMsg {
+		font-size: 10px;
+	}
+	#forgotBox label {
+		margin: 10px 0;
+		font-size: 19px;
+	}
+	#forgotBox input {
+		font-size: 17px;
+	}
+	.msgContainer {
+		padding-top: 10%;
+	}
+}
+
+@media all and (max-width: 380px) {
+	#forgotBox {
+		width: 86%;
+		height: 46%;
+	}
+
+	.errorMsg {
+		font-size: 10px;
+	}
+	#forgotBox label {
+		margin: 10px 0;
+		font-size: 19px;
+	}
+	#forgotBox input {
+		font-size: 17px;
+	}
+}
+
+@media all and (max-width: 320px) {
+	#forgotBox {
+		width: 86%;
+	}
+
+	.errorMsg {
+		font-size: 7px;
+	}
+	#forgotBox label {
+		margin: 10px 0;
+		font-size: 14px;
+	}
+	#forgotBox input {
+		font-size: 14px;
+	}
+	.msgContainer {
+		padding-top: 30%;
+	}
+}
+
+@media all and (max-height: 972px) {
+	#forgotBox {
+		height: 55%;
+	}
+}
+
+@media all and (max-height: 800px) {
+	#forgotBox {
+		height: 60%;
+	}
+}
+
+@media all and (max-height: 720px) {
+	#forgotBox {
+		height: 65%;
+	}
+}
+
+@media all and (max-height: 655px) {
+	#forgotBox {
+		height: 70%;
+	}
+}
+@media all and (max-height: 600px) {
+	#forgotBox {
+		height: 74%;
+	}
+}
+@media all and (max-height: 561px) {
+	#forgotBox {
+		height: 84%;
+	}
+}
+@media all and (max-height: 544px) {
+	#forgotBox {
+		height: 84%;
+	}
+}
+@media all and (max-height: 490px) {
+	#forgotBox {
+		height: 88%;
+	}
+}
+@media all and (max-height: 467px) {
+	#forgotBox {
+		height: 94%;
+	}
+}
+@media all and (max-height: 455px) {
+	#forgotBox {
+		height: 94%;
+	}
+	#forgotBox label {
+		margin: 10px 0;
+		font-size: 19px;
+	}
+	#forgotBox input {
+		font-size: 12px;
+	}
+}
+@media all and (max-height: 435px) {
+	.loginButton{
+		padding-top:2.5%;
+		padding-bottom: 2.5%;
+	}
+}
+@media all and (max-height: 343px) and (max-width: 306px) {
+	#forgotBox {
+		height: 94%;
+	}
+	#forgotBox label {
+		margin: 10px 0;
+		font-size: 15px;
+	}
+	#forgotBox input {
+		font-size: 12px;
+	}
+	.msgContainer {
+		padding-bottom: 15%;
+	}
+}

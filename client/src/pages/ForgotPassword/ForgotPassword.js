@@ -32,7 +32,7 @@ function ForgotPassword(props) {
 			<div id="forgotBox" className='card'>
 				<form onSubmit={handleSubmit}>
 					<section>
-						<Button onClick={() => navigate('/login')} buttonStyle={'backBtn'} buttonSize={'mediumBtn'}>
+						<Button onClick={() => navigate('/login')} buttonStyle={'backBtnF'} buttonSize={'mediumBtn'}>
 							{`${'<'}`}
 						</Button>
 				{error && (<Alert id="errorMsg1" severity="error">{error}</Alert>)}
