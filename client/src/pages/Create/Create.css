@@ -1,0 +1,19 @@
+.authorNameBox{
+    display: grid;
+
+    position: relative;
+    grid-template-columns: repeat(5, auto);    
+    align-items: center;
+    justify-items: center;
+
+}
+
+
+
+@media only screen and (max-width:605px) {
+	.authorNameBox{
+        grid-template-columns: repeat(auto-fit,minmax(150px,250px));
+        margin-bottom: -30px;
+    }
+  
+}
