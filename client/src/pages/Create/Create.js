@@ -15,7 +15,7 @@ import NavBar from '../../components/navbar/NavBar'
 import { useParams } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { io } from 'socket.io-client'
-
+import "../Create/Create.css"
 const Create = () => {
 	const { id: docID } = useParams()
 	const dispatchh = useDispatch()
@@ -209,12 +209,14 @@ const Create = () => {
 							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title', e.target.value)}}
 							required
 						/>
+						<div className='authorNameBox'>
 						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
 						{storyData.author.map(
 							(authorr, index) => (
-								<Typography key={index} variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
+								<Typography key={index}  variant="h6" >{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
 							))}
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</div>
 						<TextEditor docID={docID} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
