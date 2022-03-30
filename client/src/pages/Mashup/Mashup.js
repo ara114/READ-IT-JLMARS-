@@ -225,12 +225,13 @@ const Mashup = () => {
 							onChange={(e) => {setStoryData({ ...storyData, title: e.target.value }); socket.emit('send-title-mashup', e.target.value)}}
 							required
 						/>
-						<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
-						{storyData.author.map(
-							(authorr, index) => (
-								<Typography key={index} gutterBottom variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
-							))}
-
+						<div className='authorNameBox'>
+							<Typography variant="h6"><strong>Author(s): &nbsp;</strong></Typography>
+							{storyData.author.map(
+								(authorr, index) => (
+									<Typography key={index} id="nameMashAut" gutterBottom variant="h6">{authorr.authorName}{index < storyData.author.length - 1 ? ",  " : ""} &nbsp;</Typography>
+								))}
+						</div>		
 						<MashupTextEditor docID={docSlice2} docID2={docSlice1} socket={socket} storyData={storyData} setStoryData={setStoryData}/>
 						<Button
 							className={classes.buttonSubmit}
