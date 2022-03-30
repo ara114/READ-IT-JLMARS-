@@ -113,7 +113,7 @@ function Carousel({user}) {
 			<div className='main'>
 				{!likedStories.length ? <CircularProgress/>: (
 					<>
-						{likedStories.length > 4 ? 
+						{likedStories.length >= 4 ? 
 							<Slider {...properties}>
 								{likedStories.map((story) => (
 									<Story key={story._id} story={story}/>

@@ -115,6 +115,8 @@ function Carousel() {
 	return (
 			<div className='main'>
 				{!stories.length ? <CircularProgress/> : (
+					<>
+						{(storyCat1Last4.length + storyCat2Last4.length) >= 4 ?
 					<Slider {...properties}>
 						{storyCat1Last4.map((story) => (
 							<Story key={story._id} story={story}/>
@@ -123,10 +125,22 @@ function Carousel() {
 							<Story key={story._id} story={story}/>
 						))}
 					</Slider>
+					:(
+						<div className='cat-container3'>
+						{storyCat1Last4.map((story) => (
+							<Story key={story._id} story={story}/>
+						))}
+						{storyCat2Last4.map((story) => (
+							<Story key={story._id} story={story}/>
+						))}
+					</div>
+					)}
+
+					</>
 				)}
 			</div>
-
 	)
 }
 
 export default Carousel
+
