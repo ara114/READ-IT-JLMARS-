@@ -51,9 +51,7 @@ function Story({story}) {
 	}
 
 	const handleClose = (event) => {
-		if (anchorRef.current && anchorRef.current.contains(event.target)) {
-		  return;
-		}
+		setOpen(false);
 	}
 
 	function handleListKeyDown(event) {
