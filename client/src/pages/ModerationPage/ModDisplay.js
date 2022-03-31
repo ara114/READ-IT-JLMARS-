@@ -13,6 +13,7 @@ const Display = () => {
 	const { id: storyId } = useParams();
 	// console.log(storyId)
 	const dispatch = useDispatch()
+	const navigate = useNavigate();
 	useEffect(() => {
 		dispatch(getStories())
 	}, [dispatch])
@@ -62,8 +63,8 @@ const Display = () => {
                                 </div>
 								<div className="DisplayGrid">
 									<div id= "modCont" className="write-container">
-										<Link to={`/modhome`}  className='nostyle write Create' onClick={() => dispatch(unreportStory(storyy.storyID))}>Mark Approriate</Link>
-										<Link to={'/modhome'} className='nostyle write Join' onClick={() => dispatch(deleteStory(storyy.storyID))}>Delete</Link>
+										<Link to={`/modhome`} className='nostyle write Create' onClick={() => dispatch(unreportStory(storyy.storyID), navigate)}>Mark Approriate</Link>
+										<Link to={`/modhome`} className='nostyle write Join' onClick={() => dispatch(deleteStory(storyy.storyID), navigate)}>Delete</Link>
 										<Link to={`/modwarn/${storyy.storyID}`} className='nostyle write Create'>Warn Author</Link>
 									</div>
                             </div>

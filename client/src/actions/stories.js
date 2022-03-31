@@ -67,22 +67,24 @@ export const reportStory = (id) => async (dispatch) => {
 
 }
 
-export const unreportStory = (id) => async (dispatch) => {
+export const unreportStory = (id, navigate) => async (dispatch) => {
 
     try {
         const { data } = await api.unreportStory(id);
         dispatch({type: 'UNREPORT', payload: data});
+        navigate('/modhome');
     } catch (error) {
         console.log(error);
     }
 
 }
 
-export const deleteStory = (id) => async (dispatch) => {
+export const deleteStory = (id, navigate) => async (dispatch) => {
 
     try {
         await api.deleteStory(id);
         dispatch({type: 'DELETE', payload: id});
+        navigate('/modhome');
     } catch (error) {
         console.log(error);
     }
