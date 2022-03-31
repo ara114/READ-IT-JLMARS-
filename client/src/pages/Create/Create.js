@@ -78,20 +78,6 @@ const Create = () => {
 
 	useEffect(() => {
 		if (socket == null) return
-		const handler = (authors) => {
-			setStoryData({ ...storyData, author: authors });
-			console.log('recieve', storyData.author)
-		}
-		socket.on('receive-author', handler)
-
-		return () => {
-			socket.off('receive-author', handler)
-
-		}
-	}, [socket]);
-
-	useEffect(() => {
-		if (socket == null) return
 		const handler = (img) => {
 			setStoryData({ ...storyData, image: img })
 		}

@@ -19,6 +19,7 @@ const TOOLBAR_OPTIONS = [
 ]
 export default function TextEditor(props) {
 	// const {id: docID} = useParams();
+	const user = JSON.parse(localStorage.getItem('profile'));
 	const docID = props.docID
 	const docIDslice = docID.slice(0, 7);
 	const docIDslice2 = docID.slice(7);
@@ -37,13 +38,13 @@ export default function TextEditor(props) {
 	useEffect(() => {
 		if (props.socket == null || quill == null) return
 
-		props.socket.once('load-document', (doc) => {
-			props.setStoryData(doc)
+		props.socket.once('load-document', (doc, authorList) => {
+			props.setStoryData({...doc, author: authorList})
 			quill.setContents(doc.story)
 			quill.enable()
 			
 		})
-			props.socket.emit('get-document', docID)
+			props.socket.emit('get-document', docID, user)
 	}, [props.socket,props.setStoryData, quill, docID])
 
 	useEffect(() => {

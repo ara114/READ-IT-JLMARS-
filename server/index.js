@@ -28,10 +28,15 @@ io.on('connection', socket => {
     
 
 
-    socket.on('get-document', async docID => {
+    socket.on('get-document', async (docID, user) => {
+        console.log('text editor backend: ', user)
+        if(!authorList.find((author1) => author1.authorID === user.result._id))
+            authorList.push({authorID: user.result._id, authorName: user.result.name});
+        console.log('text editor backend list: ', authorList)
+        io.to(docID).emit('receive-author', authorList);
         const storyy = await findOrCreateStory(docID);
         socket.join(docID);
-        socket.emit('load-document', storyy);
+        socket.emit('load-document', storyy, authorList);
         socket.on('send-changes', delta => {
         socket.broadcast.to(docID).emit('receive-changes', delta);
         });
