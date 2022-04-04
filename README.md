@@ -24,5 +24,7 @@ terminals (first server side and then client side) to start the application.
 
 ## Homepage
 
-![image](https://user-images.githubusercontent.com/71752413/161600405-db21000f-328f-42c0-b1f1-4fe5ac285eb5.png)
+![image](https://user-images.githubusercontent.com/71752413/161602654-9aa9642d-f601-428b-a5fc-67558531f6ce.png)
+
+![image](https://user-images.githubusercontent.com/71752413/161602744-40a18834-48ec-4b5c-b6ba-50d7b79c988b.png)
 
