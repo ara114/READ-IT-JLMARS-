@@ -20,7 +20,7 @@ command `npm i` on both terminals.
 
 Once it has finished installing missing dependencies, you use the command `npm start` on both 
 terminals (first server side and then client side) to start the application.
-*Note that you need to have nodejs installed and mongoDB setup for the application to run.
+**Note that you need to have nodejs installed and mongoDB setup for the application to run.
 
 
 ## Homepage
