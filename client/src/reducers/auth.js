@@ -5,7 +5,7 @@ const authReducer = (state = { authData: null, otherUsers: null }, action) => {
 
     case 'FETCH_USER':
 
-      return { ...state, otherUsers: action.payload, authData: action.data, loading: false, errors: null, errorSignUp: null }
+      return { ...state, otherUsers: action.payload, loading: false, errors: null, errorSignUp: null }
 
     case 'AUTH':
       

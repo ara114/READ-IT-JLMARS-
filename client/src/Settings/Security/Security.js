@@ -83,7 +83,7 @@ export default function Security() {
 								onClick={handleExpandClick}
 								aria-expanded={expanded}
 								aria-label="show more"
-								>
+							>
 								<ExpandMoreIcon />
 							</ExpandMore>
 						</CardActions>
@@ -154,7 +154,7 @@ export default function Security() {
 								onClick={handleExpandClick1}
 								aria-expanded={expanded1}
 								aria-label="show more"
-								>
+							>
 								<ExpandMoreIcon />
 							</ExpandMore>
 						</CardActions>
@@ -163,59 +163,20 @@ export default function Security() {
 								{errorssss && (<Alert id="errorMsg" severity="error">{errorssss}</Alert>)}
 								<Typography paragraph>This action will be permanent. Do you wish to continue?</Typography>
 								<Button
-										className={classes.buttonSubmit}
-										variant='contained'
-										style={{ backgroundColor: '#8e05c2', color: '#fff' }}
-										size='large'
-										fullWidth
-										onClick={handleConfirm}
-									>
-										Yes
+									className={classes.buttonSubmit}
+									variant='contained'
+									style={{ backgroundColor: '#8e05c2', color: '#fff' }}
+									size='large'
+									fullWidth
+									onClick={handleConfirm}
+								>
+									Yes
 								</Button>
 							</CardContent>
 						</Collapse>
 					</Card>
 				</Paper>
 			</Grow>
-			{/* <div className='sec-container'>
-				<div className='SecTitle'>
-					<h1>Settings</h1>
-				</div>
-				<div className='form-div'>
-					<form>
-						<div className='input'>
-							<aside className='inp inp-label'>
-								<label htmlFor='old-pw'>Old password </label>
-							</aside>
-							<div className='inp inp-inp'>
-								<input type='password' id='old-pw' />
-							</div>
-						</div>
-
-						<div className='input'>
-							<aside className='inp inp-label'>
-								<label htmlFor='new-pw'>New password </label>
-							</aside>
-							<div className='inp inp-inp'>
-								<input type='password' id='new-pw' />
-							</div>
-						</div>
-
-						<div className='input'>
-							<aside className='inp inp-label'>
-								<label htmlFor='confirm-pw'>Confirm password </label>
-							</aside>
-							<div className='inp inp-inp'>
-								<input type='password' id='confirm-pw' />
-							</div>
-						</div>
-
-						<div>
-							<button className='save-btn'>Save Password</button>
-						</div>
-					</form>
-				</div>
-			</div> */}
 		</Container>
 	)
 }
