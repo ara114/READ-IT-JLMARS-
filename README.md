@@ -26,3 +26,6 @@ terminals (first server side and then client side) to start the application.
 
 ![image](https://user-images.githubusercontent.com/71752413/161600405-db21000f-328f-42c0-b1f1-4fe5ac285eb5.png)
 
+![image](https://user-images.githubusercontent.com/71752413/161602399-23b04296-7c4e-407b-9c35-4f0326d24ed1.png)
+
+![image](https://user-images.githubusercontent.com/71752413/161602423-b0943b84-ca90-4e42-bfba-b62c7651fece.png)
