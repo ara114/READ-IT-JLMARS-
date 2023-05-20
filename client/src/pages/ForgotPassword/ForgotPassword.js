@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 function ForgotPassword(props) {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const initialState = { email: '', redirect: 'http://localhost:3000/reset'}
+	const initialState = { email: '', redirect: 'https://readit-netlify.netlify.app/reset'}
 	const [formData, setFormData] = useState(initialState)
 
 	const state = useSelector(state => {

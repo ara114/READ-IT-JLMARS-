@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 function ResetPassword(props) {
 	const {id: userID} = useParams();
 	const dispatch = useDispatch()
-	const initialState = { password: '', ConfirmPassword: '', redirect: 'http://localhost:3000/login'}
+	const initialState = { password: '', ConfirmPassword: '', redirect: 'https://readit-netlify.netlify.app/login'}
 	const [formData, setFormData] = useState(initialState)
 
 	const state = useSelector(state => {
