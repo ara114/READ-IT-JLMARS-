@@ -12,7 +12,7 @@
 /build
 
 # Secret file
-.env
+# .env
 
 # misc
 .DS_Store
