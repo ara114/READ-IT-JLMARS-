@@ -28,3 +28,6 @@ terminals (first server side and then client side) to start the application.
 
 ![image](https://user-images.githubusercontent.com/71752413/161602744-40a18834-48ec-4b5c-b6ba-50d7b79c988b.png)
 
+
+
+Bachelor's 3rd year group-project
